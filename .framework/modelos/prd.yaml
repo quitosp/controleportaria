@@ -1,0 +1,103 @@
+# PRD — formato YAML estruturado para IA
+# Preencher campos obrigatorios. Campos opcionais podem ficar null.
+
+projeto:
+  nome: ""                          # obrigatorio, string curta
+  versao: "0.1.0"                   # semver
+  data: ""                          # YYYY-MM-DD
+  stack: ""                         # csharp-portaria | frontend-react | flutter-mobile | hibrido
+
+problema:
+  contexto: ""                      # 1-2 frases: o que existe hoje
+  dor: ""                           # 1 frase: dor especifica
+  metrica_sucesso: ""               # como medir
+
+usuarios:
+  - perfil: ""                      # ex: "porteiro", "admin", "cliente final"
+    objetivo: ""                    # 1 frase
+    frequencia_uso: ""              # diaria | semanal | esporadica
+
+escopo_mvp:
+  inclui:
+    - ""                            # bullet curto, capacidade observavel
+  exclui:
+    - ""                            # explicito o que NAO entra
+
+agregados:                          # entidades de dominio (vira pasta + 9 arquivos em C#)
+  - nome: ""                        # PascalCase singular, ex: Empresa
+    plural: ""                      # ex: Empresas
+    descricao: ""                   # 1 frase
+    campos:
+      - nome: ""                    # camelCase, ex: cnpj
+        tipo: ""                    # string | int | guid | datetime | bool | decimal
+        obrigatorio: true
+        unico: false                # vira ObterPor{Campo} + checagem duplicidade
+        validacao: ""               # opcional, ex: "max=14"
+    relacoes: []                    # opcional, ex: ["pertence_a:Empresa"]
+    operacoes:                      # quais commands precisa
+      - salvar
+      - alterar
+      - listar
+      - excluir                     # opcional
+
+# AUTENTICACAO E AUTORIZACAO
+autenticacao:
+  ativa: true                       # true por default; false = API publica
+  estrategia: jwt                   # jwt | nenhuma
+  identity_framework: true          # true = ASP.NET Core Identity (default)
+  registro_aberto: false            # true = qualquer um se cadastra; false = so admin cria usuario
+  admin_seed:
+    ativo: true                     # cria admin default no startup
+    email: "admin@local"
+    senha: "Admin@123"
+
+rbac:
+  ativo: false                      # true = controle por roles
+  roles: []                         # ex: [admin, atendente, cliente]
+  rotas_protegidas:                 # opcional, mapeamento role -> rotas
+    # admin: ["/api/*"]
+    # atendente: ["/api/cliente/*", "/api/animal/*"]
+
+# PLATAFORMAS A CONSTRUIR
+plataformas:
+  api:
+    ativa: true
+    stack: csharp-portaria          # csharp-portaria | python-fastapi
+  web:
+    ativa: false                    # true = gerar frontend Next.js
+    framework: next-react
+    modo: responsivo                # apenas-desktop | responsivo | pwa-instalavel
+    tema_padrao: claro              # claro | escuro | usuario-escolhe
+  mobile:
+    ativa: false                    # true = gerar mobile
+    tipo: ""                        # nao | so-pwa | flutter-nativo
+    compartilha_api: true           # mesmo backend que web
+
+features_frontend:                  # so se plataformas.web.ativa
+  - nome: ""                        # ex: empresas
+    tela: ""                        # rota, ex: /empresas
+    componentes:
+      - lista
+      - formulario
+      - detalhe
+
+integracoes:                        # APIs externas
+  - nome: ""
+    tipo: ""                        # rest | webhook | grpc | broker
+    proposito: ""
+
+restricoes:
+  performance: ""                   # ex: "lista paginada 100 itens", "p95 < 300ms"
+  seguranca: ""                     # ex: "JWT obrigatorio", "RBAC com roles admin/user"
+  compatibilidade: ""               # ex: "navegadores modernos"
+
+riscos:                             # opcional
+  - ""
+
+dependencias:                       # bloqueios externos
+  - ""
+
+# Status de validacao (preenchido pela skill validar-prd)
+validacao:
+  completo: false
+  faltantes: []

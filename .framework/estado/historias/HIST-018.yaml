@@ -1,0 +1,38 @@
+id: HIST-018
+titulo: Anexar arquivo a movimento (CDU-013)
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: anexar fotos/PDFs em chegada/entrada/saida
+valor_de_negocio: evidencia para investigacao
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-013
+regras_negocio:
+- RN-016
+acao:
+  comando: 'manual: POST /api/movimentos/v1/{id}/anexar (multipart) -> AnexoStorage
+    salva em filesystem; Anexo persiste com Estagio.'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-018.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- POST aceita jpg/jpeg/png/pdf ate 10MB
+- 'Path: /anexos/{UnidadeId}/{MovimentoId}/{guid}-{nome}.{ext}'
+- GET /api/movimentos/v1/{id}/anexos lista por estagio
+- Excedeu 10MB ou formato invalido retorna 400
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

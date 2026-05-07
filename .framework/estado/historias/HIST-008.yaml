@@ -1,0 +1,38 @@
+id: HIST-008
+titulo: CRUD Motorista com status (Ativo/Pendente/Bloqueado)
+tipo: crud
+agregado: Motorista
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: cadastrar/listar motoristas (status default Ativo)
+valor_de_negocio: habilita validacao de bloqueio na chegada
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-007
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/csharp_scaffold.py Motorista --plural Motoristas
+    --campos "Nome:string:200 Cpf:string:11:unico Whatsapp:string:20 Email:string:200:opcional
+    Status:enum:Ativo|Pendente|Bloqueado MotivoStatus:string:500:opcional UnidadeId:guid"
+    --tudo
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: none
+  caminho: ''
+  aprovado: true
+  aprovado_em: auto
+aceite:
+- CRUD funcionando, CPF unico por unidade
+- Status default Ativo na criacao
+- VO Cpf valida algoritmo
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

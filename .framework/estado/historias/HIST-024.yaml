@@ -1,0 +1,36 @@
+id: HIST-024
+titulo: Dashboard com KPIs do dia (T-002)
+tipo: report
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Lider
+motivo: ter visao consolidada da operacao de hoje
+valor_de_negocio: decisao rapida sobre alocacao
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-014
+regras_negocio:
+- RN-014
+acao:
+  comando: 'manual: GET /api/movimentos/v1/resumo-dia retorna {NoPateoExterno, NoPateoInterno,
+    SaiuHoje, CanceladosHoje, Total}. Indices em (UnidadeId, Estado, DataChegada).'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: mockup
+  caminho: .framework/estado/artefatos/HIST-024.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- Endpoint retorna 5 contadores
+- Performance < 300ms com 30k movimentos historicos
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

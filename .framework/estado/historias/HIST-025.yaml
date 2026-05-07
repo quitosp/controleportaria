@@ -1,0 +1,39 @@
+id: HIST-025
+titulo: Frontend Login (T-001) + cliente API + auth context
+tipo: business-flow
+agregado: Usuario
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: autenticar e obter JWT
+valor_de_negocio: habilita todo o resto do sistema
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-001
+  - HIST-005
+regras_negocio:
+- RN-001
+acao:
+  comando: 'py .framework/scripts/frontend_scaffold.py login --tudo  ; ajustar manualmente:
+    LoginForm com Zod + chamada POST /api/auth/login + persistir JWT em cookie httpOnly'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-025.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- /login funciona em desktop e tablet
+- Erro 401 mostra toast 'Login ou senha invalidos'
+- Apos login redireciona para /
+- JWT em cookie seguro
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

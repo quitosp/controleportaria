@@ -1,0 +1,71 @@
+# Arquitetura — derivada do PRD + blueprint da stack
+
+projeto:
+  nome: ""
+  stack: ""                         # mesma do prd.yaml
+  blueprint: ""                     # caminho: .framework/nucleo/csharp-portaria.md
+
+solucao:                            # so para C#
+  nome_sln: ""                      # ex: Portaria.sln
+  caminho_raiz: ""                  # absoluto ou relativo
+  projetos:                         # gerados a partir do blueprint
+    - nome: Core
+      caminho: compartilhados/core/Core
+      tipo: classlib
+    - nome: WebApi.Core
+      caminho: compartilhados/webApi.core/WebApi.Core
+      tipo: classlib
+    - nome: Dominios
+      caminho: dominios/Dominios
+      tipo: classlib
+    - nome: Repositorios
+      caminho: repositorios/Repositorios
+      tipo: classlib
+    - nome: Api
+      caminho: servicos/api/Api
+      tipo: webapi
+
+agregados_mapeados:                 # 1:1 com prd.yaml > agregados
+  - nome: ""                        # ex: Empresa
+    plural: ""
+    arquivos_gerados:               # esperados apos scaffold
+      - dominios/Dominios/{plural}/Entidades/{nome}.cs
+      - dominios/Dominios/{plural}/Comandos/Entradas/Salvar{nome}Entrada.cs
+      - dominios/Dominios/{plural}/Comandos/Entradas/Alterar{nome}Entrada.cs
+      - dominios/Dominios/{plural}/Comandos/Saidas/{nome}Saida.cs
+      - dominios/Dominios/{plural}/Comandos/Handlers/{nome}CommandHandler.cs
+      - dominios/Dominios/{plural}/IRepositorios/I{nome}Repositorio.cs
+      - repositorios/Repositorios/Mapeamentos/{nome}Maps.cs
+      - repositorios/Repositorios/Repositorio/{nome}Repositorio.cs
+      - servicos/api/Api/Controllers/{nome}Controller.cs
+    arquivos_alterados:
+      - repositorios/Repositorios/Contexto/ContextoDB.cs       # adiciona DbSet + ApplyConfiguration
+      - servicos/api/Api/Configuration/DependencyInjectionConfig.cs  # registra handler + repo
+
+infraestrutura:
+  banco: "Postgres"                 # default Postgres (provider Npgsql para C#)
+  cache: ""                         # null | Redis
+  fila: ""                          # null | RabbitMQ | Kafka
+  auth: "JWT"                       # default
+  storage: ""                       # null | S3 | local
+
+config_chaves:                      # variaveis de ambiente / appsettings
+  - nome: ConnectionStrings:DefaultConnection
+    descricao: ""
+  - nome: Jwt:Secret
+    descricao: ""
+
+decisoes:                           # ADRs minimalistas
+  - id: ADR-001
+    titulo: ""
+    decisao: ""
+    motivo: ""
+    consequencia: ""
+
+riscos_tecnicos: []
+
+# Atualizado conforme implementa
+status:
+  scaffolded: false
+  agregados_implementados: 0
+  agregados_total: 0

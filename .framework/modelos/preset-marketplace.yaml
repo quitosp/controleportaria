@@ -1,0 +1,52 @@
+# Preset PRD: Marketplace (multi-vendor)
+# Use: copie para estado/prd.yaml e ajuste
+
+projeto:
+  nome: ""
+  versao: "0.1.0"
+  data: ""
+  proposito: ""
+  stack: csharp-portaria
+
+plataformas:
+  api: { ativa: true }
+  web: { ativa: true, modo: responsivo }
+  mobile: { ativa: false }
+
+auth:
+  ativa: true
+  registro_publico: true
+  rbac:
+    ativo: true
+    roles: [admin, vendedor, comprador]
+
+agregados:
+  - nome: Vendedor
+    composto_por: [DadosBancarios, DadosFiscais]
+  - nome: Comprador
+    extends: Pessoa
+  - nome: Anuncio
+    campos: [vendedorId, titulo, preco, descricao, status, fotos]
+  - nome: Pedido
+    composto_por: [ItemPedido]
+  - nome: Disputa
+  - nome: Avaliacao
+  - nome: SaqueVendedor
+
+abstracoes:
+  - tipo: value-object
+    nome: DadosBancarios
+    campos: [banco, agencia, conta, tipoConta, pix]
+
+regras_negocio_sugeridas:
+  - "RN: Vendedor so saca apos pedido status=entregue + 7 dias (carencia)"
+  - "RN: Comissao da plataforma e descontada automaticamente em cada venda"
+  - "RN: Anuncio com >5 reclamacoes em 30 dias e suspenso"
+  - "RN: Comprador so avalia apos receber"
+  - "RN: Disputa em aberto bloqueia saque do valor questionado"
+
+integracoes:
+  - nome: stripe-connect (ou pagar.me)
+    tipo: split-de-pagamento
+  - nome: kyc (idwall, unico)
+    tipo: validacao-cadastro-vendedor

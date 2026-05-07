@@ -1,0 +1,53 @@
+# Preset PRD: SaaS B2B multi-tenant
+# Use: copie para estado/prd.yaml e ajuste
+
+projeto:
+  nome: ""              # PREENCHA
+  versao: "0.1.0"
+  data: ""              # PREENCHA (ISO date)
+  proposito: ""         # uma frase
+  stack: csharp-portaria
+
+plataformas:
+  api: { ativa: true }
+  web: { ativa: true, modo: responsivo }
+  mobile: { ativa: false }
+
+auth:
+  ativa: true
+  registro_publico: true   # SaaS: trial/freemium
+  rbac:
+    ativo: true
+    roles: [admin, owner, member, viewer]
+    matriz_padrao: |
+      admin: tudo no proprio tenant
+      owner: tudo no proprio tenant exceto billing
+      member: criar/editar dados, ler relatorios
+      viewer: so leitura
+
+multi_tenant:
+  ativo: true
+  estrategia: "tenant_id em todos agregados"   # ou: schema-per-tenant, db-per-tenant
+  isolamento: "obrigatorio em queries"
+
+agregados:
+  - nome: Tenant
+    campos: [nome, plano, dataAdesao]
+  - nome: Usuario
+    extends: Pessoa
+    campos: [tenantId, role]
+  # adicione os do seu dominio
+
+requisitos_nao_funcionais:
+  performance: "< 300ms p99 em endpoints CRUD"
+  disponibilidade: "99.9% (downtime ~8h/ano)"
+  audit_log: true
+  lgpd: true
+
+integracoes:
+  - nome: stripe
+    tipo: pagamento
+    proposito: "cobrar plano mensal"
+  - nome: sendgrid
+    tipo: email-transacional
+    proposito: "convites, notificacoes"

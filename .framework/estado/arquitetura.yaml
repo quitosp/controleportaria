@@ -1,0 +1,435 @@
+projeto:
+  nome: ControlePortaria
+  stack: csharp-portaria
+  blueprint: .framework/nucleo/csharp-portaria.md
+  stack_frontend: frontend-react
+  blueprint_frontend: .framework/nucleo/frontend-react.md
+
+solucao:
+  nome_sln: ControlePortaria.sln
+  caminho_raiz: ./api
+  projetos:
+    - nome: Core
+      caminho: api/compartilhados/core/Core
+      tipo: classlib
+    - nome: WebApi.Core
+      caminho: api/compartilhados/webApi.core/WebApi.Core
+      tipo: classlib
+    - nome: Dominios
+      caminho: api/dominios/Dominios
+      tipo: classlib
+    - nome: Repositorios
+      caminho: api/repositorios/Repositorios
+      tipo: classlib
+    - nome: Api
+      caminho: api/servicos/api/Api
+      tipo: webapi
+
+frontend:
+  framework: next-react
+  caminho_raiz: ./web
+  estrutura:
+    - web/app                         # App Router (pages e layouts)
+    - web/app/(privado)               # rotas com Layout autenticado (sidebar + topbar)
+    - web/app/(publico)/login         # rota publica
+    - web/components/ui                # shadcn/ui base
+    - web/components/dominio           # componentes de dominio reaproveitaveis
+    - web/lib                          # client API, auth, utils
+    - web/features/{nome}              # feature-based: page + form + hooks + types
+    - web/hooks                        # useApi, useSignalR, useTheme
+  tema:
+    fonte: design-system/controleportaria/MASTER.md
+    primary: "#334155"
+    accent: "#059669"
+    typography: Inter
+
+abstracoes_dominio:
+  value_objects:
+    - nome: Placa
+      arquivos:
+        - api/compartilhados/core/Core/ObjetoDominio/Placa.cs
+      observacao: "string normalizada (sem hifen/espaco, uppercase) com validacao de placa Mercosul ou tradicional"
+    - nome: Cpf
+      arquivos:
+        - api/compartilhados/core/Core/ObjetoDominio/Cpf.cs
+      observacao: "valida algoritmo de CPF"
+    - nome: Cnpj
+      arquivos:
+        - api/compartilhados/core/Core/ObjetoDominio/Cnpj.cs
+      observacao: "valida algoritmo de CNPJ"
+    - nome: Whatsapp
+      arquivos:
+        - api/compartilhados/core/Core/ObjetoDominio/Whatsapp.cs
+      observacao: "string E.164"
+    - nome: Lacre
+      arquivos:
+        - api/compartilhados/core/Core/ObjetoDominio/Lacre.cs
+      observacao: "string nao vazia, max 100"
+    - nome: DadosCarga
+      arquivos:
+        - api/compartilhados/core/Core/ObjetoDominio/DadosCarga.cs
+      observacao: "agrupa NumeroNF, Produto, Setor, Contrato, NumeroContainer (todos opcionais)"
+  enums:
+    - StatusMotorista
+    - PapelUsuario
+    - TipoVeiculo
+    - MotivoEntrada
+    - TipoCarga
+    - DestinoPateo
+    - EstadoMovimento
+    - EstagioAnexo
+    - TipoEventoFluxo
+    - CanalNotificacao
+    - StatusNotificacao
+  arquivos_enums:
+    - api/dominios/Dominios/Compartilhado/Enums/{Enum}.cs
+
+agregados_mapeados:
+  - nome: Unidade
+    plural: Unidades
+    descricao: "Tenant raiz; multi-empresa futuro"
+    arquivos_gerados:
+      - api/dominios/Dominios/Unidades/Entidades/Unidade.cs
+      - api/dominios/Dominios/Unidades/Comandos/Entradas/SalvarUnidadeEntrada.cs
+      - api/dominios/Dominios/Unidades/Comandos/Entradas/AlterarUnidadeEntrada.cs
+      - api/dominios/Dominios/Unidades/Comandos/Saidas/UnidadeSaida.cs
+      - api/dominios/Dominios/Unidades/Comandos/Handlers/UnidadeCommandHandler.cs
+      - api/dominios/Dominios/Unidades/IRepositorios/IUnidadeRepositorio.cs
+      - api/repositorios/Repositorios/Mapeamentos/UnidadeMaps.cs
+      - api/repositorios/Repositorios/Repositorio/UnidadeRepositorio.cs
+      - api/servicos/api/Api/Controllers/UnidadeController.cs
+    arquivos_alterados:
+      - api/repositorios/Repositorios/Contexto/ContextoDB.cs
+      - api/servicos/api/Api/Configuration/DependencyInjectionConfig.cs
+
+  - nome: Portaria
+    plural: Portarias
+    descricao: "Portaria fisica de uma unidade"
+    arquivos_gerados:
+      - api/dominios/Dominios/Portarias/Entidades/Portaria.cs
+      - api/dominios/Dominios/Portarias/Comandos/Entradas/SalvarPortariaEntrada.cs
+      - api/dominios/Dominios/Portarias/Comandos/Entradas/AlterarPortariaEntrada.cs
+      - api/dominios/Dominios/Portarias/Comandos/Saidas/PortariaSaida.cs
+      - api/dominios/Dominios/Portarias/Comandos/Handlers/PortariaCommandHandler.cs
+      - api/dominios/Dominios/Portarias/IRepositorios/IPortariaRepositorio.cs
+      - api/repositorios/Repositorios/Mapeamentos/PortariaMaps.cs
+      - api/repositorios/Repositorios/Repositorio/PortariaRepositorio.cs
+      - api/servicos/api/Api/Controllers/PortariaController.cs
+    arquivos_alterados:
+      - api/repositorios/Repositorios/Contexto/ContextoDB.cs
+      - api/servicos/api/Api/Configuration/DependencyInjectionConfig.cs
+
+  - nome: Usuario
+    plural: Usuarios
+    descricao: "Usuario com Identity Framework + JWT + papel + portaria padrao. Auth scaffold cobre AuthController + SeedAdmin."
+    arquivos_gerados:
+      - api/dominios/Dominios/Usuarios/Entidades/Usuario.cs
+      - api/dominios/Dominios/Usuarios/Comandos/Entradas/SalvarUsuarioEntrada.cs
+      - api/dominios/Dominios/Usuarios/Comandos/Entradas/AlterarUsuarioEntrada.cs
+      - api/dominios/Dominios/Usuarios/Comandos/Saidas/UsuarioSaida.cs
+      - api/dominios/Dominios/Usuarios/Comandos/Handlers/UsuarioCommandHandler.cs
+      - api/dominios/Dominios/Usuarios/IRepositorios/IUsuarioRepositorio.cs
+      - api/repositorios/Repositorios/Mapeamentos/UsuarioMaps.cs
+      - api/repositorios/Repositorios/Repositorio/UsuarioRepositorio.cs
+      - api/servicos/api/Api/Controllers/UsuarioController.cs
+      - api/servicos/api/Api/Controllers/AuthController.cs
+      - api/servicos/api/Api/Configuration/SeedAdmin.cs
+    arquivos_alterados:
+      - api/repositorios/Repositorios/Contexto/ContextoDB.cs
+      - api/servicos/api/Api/Configuration/DependencyInjectionConfig.cs
+      - api/servicos/api/Api/Configuration/JwtConfig.cs
+
+  - nome: Motorista
+    plural: Motoristas
+    descricao: "Motorista com status Ativo/Pendente/Bloqueado. Cadastro inline durante chegada."
+    arquivos_gerados:
+      - api/dominios/Dominios/Motoristas/Entidades/Motorista.cs
+      - api/dominios/Dominios/Motoristas/Comandos/Entradas/SalvarMotoristaEntrada.cs
+      - api/dominios/Dominios/Motoristas/Comandos/Entradas/AlterarMotoristaEntrada.cs
+      - api/dominios/Dominios/Motoristas/Comandos/Entradas/AlterarStatusMotoristaEntrada.cs
+      - api/dominios/Dominios/Motoristas/Comandos/Saidas/MotoristaSaida.cs
+      - api/dominios/Dominios/Motoristas/Comandos/Handlers/MotoristaCommandHandler.cs
+      - api/dominios/Dominios/Motoristas/IRepositorios/IMotoristaRepositorio.cs
+      - api/repositorios/Repositorios/Mapeamentos/MotoristaMaps.cs
+      - api/repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs
+      - api/servicos/api/Api/Controllers/MotoristaController.cs
+    arquivos_alterados:
+      - api/repositorios/Repositorios/Contexto/ContextoDB.cs
+      - api/servicos/api/Api/Configuration/DependencyInjectionConfig.cs
+
+  - nome: Transportadora
+    plural: Transportadoras
+    descricao: "Cadastro centralizado de transportadoras"
+    arquivos_gerados:
+      - api/dominios/Dominios/Transportadoras/Entidades/Transportadora.cs
+      - api/dominios/Dominios/Transportadoras/Comandos/Entradas/SalvarTransportadoraEntrada.cs
+      - api/dominios/Dominios/Transportadoras/Comandos/Entradas/AlterarTransportadoraEntrada.cs
+      - api/dominios/Dominios/Transportadoras/Comandos/Saidas/TransportadoraSaida.cs
+      - api/dominios/Dominios/Transportadoras/Comandos/Handlers/TransportadoraCommandHandler.cs
+      - api/dominios/Dominios/Transportadoras/IRepositorios/ITransportadoraRepositorio.cs
+      - api/repositorios/Repositorios/Mapeamentos/TransportadoraMaps.cs
+      - api/repositorios/Repositorios/Repositorio/TransportadoraRepositorio.cs
+      - api/servicos/api/Api/Controllers/TransportadoraController.cs
+    arquivos_alterados:
+      - api/repositorios/Repositorios/Contexto/ContextoDB.cs
+      - api/servicos/api/Api/Configuration/DependencyInjectionConfig.cs
+
+  - nome: Veiculo
+    plural: Veiculos
+    descricao: "Uma placa = um veiculo. Tipo: Cavalo/Carreta/CarretaSegunda. Auto-fill por placa busca ultimo movimento."
+    arquivos_gerados:
+      - api/dominios/Dominios/Veiculos/Entidades/Veiculo.cs
+      - api/dominios/Dominios/Veiculos/Comandos/Entradas/SalvarVeiculoEntrada.cs
+      - api/dominios/Dominios/Veiculos/Comandos/Entradas/AlterarVeiculoEntrada.cs
+      - api/dominios/Dominios/Veiculos/Comandos/Saidas/VeiculoSaida.cs
+      - api/dominios/Dominios/Veiculos/Comandos/Handlers/VeiculoCommandHandler.cs
+      - api/dominios/Dominios/Veiculos/IRepositorios/IVeiculoRepositorio.cs
+      - api/repositorios/Repositorios/Mapeamentos/VeiculoMaps.cs
+      - api/repositorios/Repositorios/Repositorio/VeiculoRepositorio.cs
+      - api/servicos/api/Api/Controllers/VeiculoController.cs
+    arquivos_alterados:
+      - api/repositorios/Repositorios/Contexto/ContextoDB.cs
+      - api/servicos/api/Api/Configuration/DependencyInjectionConfig.cs
+
+  - nome: MovimentoPortaria
+    plural: MovimentosPortaria
+    descricao: "Agregado raiz do fluxo. Maquina de estados com EventoFluxo (auditoria), Anexo e NotificacaoPendente como entidades-filhas. Comandos especificos do fluxo: cadastrar chegada, chamar veiculo, recancelar chamada, confirmar entrada, registrar saida, cancelar, desistir, anexar."
+    arquivos_gerados:
+      - api/dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs
+      - api/dominios/Dominios/MovimentosPortaria/Entidades/EventoFluxo.cs
+      - api/dominios/Dominios/MovimentosPortaria/Entidades/Anexo.cs
+      - api/dominios/Dominios/MovimentosPortaria/Entidades/NotificacaoPendente.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Entradas/CadastrarChegadaEntrada.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RecancelarChamadaEntrada.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ConfirmarEntradaEntrada.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Entradas/CancelarMovimentoEntrada.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Entradas/DesistirMovimentoEntrada.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Entradas/AnexarArquivoEntrada.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Entradas/AlterarMovimentoEntrada.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Saidas/MovimentoPortariaSaida.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Saidas/PainelChamadaItemSaida.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Saidas/EventoFluxoSaida.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Saidas/AnexoSaida.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Saidas/AutoFillPlacaSaida.cs
+      - api/dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs
+      - api/dominios/Dominios/MovimentosPortaria/Servicos/MaquinaEstadosMovimento.cs
+      - api/dominios/Dominios/MovimentosPortaria/Servicos/INotificacoesPortariaService.cs
+      - api/dominios/Dominios/MovimentosPortaria/IRepositorios/IMovimentoPortariaRepositorio.cs
+      - api/dominios/Dominios/MovimentosPortaria/IRepositorios/IPainelChamadaRepositorio.cs
+      - api/repositorios/Repositorios/Mapeamentos/MovimentoPortariaMaps.cs
+      - api/repositorios/Repositorios/Mapeamentos/EventoFluxoMaps.cs
+      - api/repositorios/Repositorios/Mapeamentos/AnexoMaps.cs
+      - api/repositorios/Repositorios/Mapeamentos/NotificacaoPendenteMaps.cs
+      - api/repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs
+      - api/repositorios/Repositorios/Repositorio/PainelChamadaRepositorio.cs
+      - api/servicos/api/Api/Controllers/MovimentoPortariaController.cs
+      - api/servicos/api/Api/Controllers/PainelChamadaController.cs
+      - api/servicos/api/Api/Hubs/PainelChamadaHub.cs
+    arquivos_alterados:
+      - api/repositorios/Repositorios/Contexto/ContextoDB.cs
+      - api/servicos/api/Api/Configuration/DependencyInjectionConfig.cs
+      - api/servicos/api/Api/Configuration/SignalRConfig.cs
+
+servicos_dominio:
+  - nome: NotificacaoWorker
+    descricao: "BackgroundService que processa NotificacaoPendente (WhatsApp Evolution + Email + SignalR). Backoff exponencial."
+    arquivo: api/servicos/api/Api/BackgroundServices/NotificacaoWorker.cs
+    dependencias:
+      - IEvolutionApiClient
+      - IEmailSender
+      - IHubContext<PainelChamadaHub>
+      - INotificacaoPendenteRepositorio
+  - nome: ChamadaExpiradaWorker
+    descricao: "BackgroundService que sinaliza movimentos com chamada expirada (TTL 30min). Roda a cada 1min."
+    arquivo: api/servicos/api/Api/BackgroundServices/ChamadaExpiradaWorker.cs
+  - nome: EvolutionApiClient
+    descricao: "Cliente HTTP para Evolution API (WhatsApp). Configurado por Unidade."
+    arquivo: api/servicos/api/Api/Integracoes/EvolutionApiClient.cs
+  - nome: EmailSender
+    descricao: "Envio via SMTP (default) ou SendGrid (configuravel)."
+    arquivo: api/servicos/api/Api/Integracoes/EmailSender.cs
+  - nome: AnexoStorage
+    descricao: "Persistencia de anexos em filesystem local. Path: /anexos/{UnidadeId}/{MovimentoId}/{guid}-{nome}.{ext}"
+    arquivo: api/servicos/api/Api/Integracoes/AnexoStorage.cs
+  - nome: UnidadeContext
+    descricao: "IUnidadeContext extrai UnidadeId do JWT; usado em filtro global do DbContext."
+    arquivo: api/compartilhados/webApi.core/WebApi.Core/Multitenant/UnidadeContext.cs
+
+infraestrutura:
+  banco: "PostgreSQL"
+  provider: Npgsql
+  cache: ""
+  fila: ""
+  auth: "JWT + Identity Framework"
+  realtime: "SignalR (mesmo backend)"
+  storage: "Filesystem local (S3-compativel pos-MVP)"
+  email: "SMTP/SendGrid"
+  whatsapp: "Evolution API por Unidade"
+  observabilidade: "Serilog JSON + health checks /health/ready/live"
+
+config_chaves:
+  - nome: ConnectionStrings:DefaultConnection
+    descricao: "PostgreSQL (Host, Port, Database, Username, Password)"
+  - nome: Jwt:Secret
+    descricao: "Chave para assinar JWT (>= 32 chars)"
+  - nome: Jwt:ExpiraEmHoras
+    descricao: "Default 8"
+  - nome: AdminSeed:Email
+    descricao: "Email do admin seed (default admin@local)"
+  - nome: AdminSeed:Senha
+    descricao: "Senha do admin seed (default Admin@123)"
+  - nome: Anexos:CaminhoBase
+    descricao: "Diretorio raiz dos anexos (ex: /var/anexos)"
+  - nome: Anexos:TamanhoMaxBytes
+    descricao: "Default 10485760 (10MB)"
+  - nome: Email:Provedor
+    descricao: "smtp | sendgrid"
+  - nome: Email:Smtp:Host
+    descricao: ""
+  - nome: Email:Smtp:Porta
+    descricao: ""
+  - nome: Email:Smtp:Usuario
+    descricao: ""
+  - nome: Email:Smtp:Senha
+    descricao: ""
+  - nome: Notificacoes:TTLChamadaMinutos
+    descricao: "Default 30"
+  - nome: Notificacoes:RetryMaxHoras
+    descricao: "Default 24"
+
+decisoes:
+  - id: ADR-001
+    titulo: "Stack backend C# .NET 9 (Portaria-master)"
+    decisao: "csharp-portaria com Clean Arch + CQRS-lite + MediatR + EF Core 9 + Npgsql"
+    motivo: "Padrao da casa, blueprint travado, time familiar"
+    consequencia: "Reuso direto do Core/WebApi.Core"
+
+  - id: ADR-002
+    titulo: "Stack frontend Next.js 15 + Tailwind + shadcn/ui"
+    decisao: "Next.js App Router + TanStack Query + Zod, feature-based"
+    motivo: "Padrao da casa; design system Trust & Authority"
+    consequencia: "Componentes prontos shadcn aceleram CRUD"
+
+  - id: ADR-003
+    titulo: "PostgreSQL 16+"
+    decisao: "uuid, timestamptz, jsonb, varchar(200) default"
+    motivo: "Convencao do framework; multi-tenant simples por UnidadeId"
+    consequencia: "Provider Npgsql; sem cascade delete (ClientSetNull)"
+
+  - id: ADR-004
+    titulo: "Multi-tenant via coluna UnidadeId"
+    decisao: "HasQueryFilter global no ContextoDB filtra por IUnidadeContext"
+    motivo: "Solucao simples; futuro multi-empresa sem refactor"
+    consequencia: "Indices precisam compor UnidadeId; admin pode ter contexto null"
+
+  - id: ADR-005
+    titulo: "Notificacoes via NotificacaoPendente + BackgroundService"
+    decisao: "Persistir notificacao na transacao; worker processa retry com backoff"
+    motivo: "Falha de WhatsApp/email nao pode bloquear fluxo de chamada"
+    consequencia: "Sem dependencia de fila externa no MVP; alarme se >50 pendentes"
+
+  - id: ADR-006
+    titulo: "Realtime via SignalR no proprio backend"
+    decisao: "PainelChamadaHub atualiza painel de lideres + portarias"
+    motivo: "Stack uniforme, sem servico externo"
+    consequencia: "Sticky session necessaria se escalar horizontalmente"
+
+  - id: ADR-007
+    titulo: "Auditoria via EventoFluxo (insert-only)"
+    decisao: "Toda mudanca de estado/edicao gera EventoFluxo na mesma transacao"
+    motivo: "LGPD + seguranca patrimonial"
+    consequencia: "Tabela cresce; particionar por mes pos-MVP"
+
+  - id: ADR-008
+    titulo: "Lock otimista em MovimentoPortaria"
+    decisao: "[Timestamp] em RowVersion + traducao de DbUpdateConcurrencyException -> ConflitoException"
+    motivo: "Dois lideres podem clicar Chamar simultaneamente"
+    consequencia: "Erro 409 raro; UI mostra mensagem clara"
+
+  - id: ADR-009
+    titulo: "Anexos em filesystem local (S3 pos-MVP)"
+    decisao: "Path /anexos/{UnidadeId}/{MovimentoId}/{guid}-{nome}.{ext}"
+    motivo: "Simples para MVP single-server"
+    consequencia: "Backup precisa cobrir filesystem; migrar para object storage em multi-replica"
+
+  - id: ADR-010
+    titulo: "Idioma do dominio PT-BR"
+    decisao: "Classes, propriedades, comandos, eventos em PT-BR. Termos universais (Repository, Handler) em ingles."
+    motivo: "Convencao do framework; codigo le como o negocio fala"
+    consequencia: "Sem custo de traducao"
+
+  - id: ADR-011
+    titulo: "Sem heranca em Pessoa"
+    decisao: "Motorista e Usuario sao agregados separados sem hierarquia"
+    motivo: "Ciclos de vida e regras totalmente diferentes; reuso so se aparecer redundancia real"
+    consequencia: "Codigo simples sem hierarquia desnecessaria"
+
+  - id: ADR-012
+    titulo: "Retencao de dados indefinida"
+    decisao: "Sem job de expurgo; anonimizacao manual via solicitacao LGPD"
+    motivo: "Decisao explicita do cliente"
+    consequencia: "Revisitar quando volume tornar custo relevante"
+
+  - id: ADR-013
+    titulo: "Edicao de campos criticos pos-entrada exige Lider+"
+    decisao: "Validacao no handler + auditoria via EventoFluxo: EdicaoCampo com diff"
+    motivo: "Evita correcao silenciosa de dado oficial; rastreabilidade"
+    consequencia: "Porteiro precisa pedir lider em casos raros"
+
+  - id: ADR-014
+    titulo: "Web responsivo no MVP, mobile (Flutter) pos-MVP"
+    decisao: "API ja exposta via REST estavel; mobile consome mesma API"
+    motivo: "Mobile previsto so para anexos do motorista"
+    consequencia: "Contratos REST devem ser estaveis"
+
+  - id: ADR-015
+    titulo: "Design system Trust & Authority (#334155 / #059669)"
+    decisao: "Industrial slate como primary, emerald-600 como accent CTA. Inter typography."
+    motivo: "Contexto industrial frigorifico; gerado pela skill ui-ux-pro-max"
+    consequencia: "Consultar design-system/controleportaria/MASTER.md antes de criar componentes"
+
+riscos_tecnicos:
+  - id: R-001
+    titulo: "Evolution API instavel"
+    impacto: "Notificacao de chamada pode nao chegar"
+    mitigacao: "NotificacaoPendente + retry exponencial + canal redundante (Email + SignalR para portaria)"
+  - id: R-002
+    titulo: "Anexos em filesystem nao escala horizontal"
+    impacto: "Multi-replica precisa storage compartilhado"
+    mitigacao: "MVP single-server; migrar para S3-compativel quando escalar"
+  - id: R-003
+    titulo: "EventoFluxo cresce indefinidamente"
+    impacto: "Performance de queries de auditoria a longo prazo"
+    mitigacao: "Indices por (MovimentoId, Quando); particionar por mes pos-MVP"
+  - id: R-004
+    titulo: "Auto-fill por placa pode trazer dados desatualizados"
+    impacto: "Porteiro aceita sugestao errada"
+    mitigacao: "UI mostra como sugestao com banner; campos editaveis"
+  - id: R-005
+    titulo: "SignalR precisa de sticky session para escalar"
+    impacto: "Painel pode perder updates em multi-instancia"
+    mitigacao: "MVP single-instance; usar Redis backplane se escalar"
+
+referencias:
+  documentacao_ideacao:
+    - documentacao/1-visao.md
+    - documentacao/2-requisitos.md
+    - documentacao/3-personas.md
+    - documentacao/4-casos-de-uso.md
+    - documentacao/5-modelagem.md
+    - documentacao/6-glossario.md
+    - documentacao/7-decisoes.md
+    - documentacao/8-regras-negocio.md
+  estado:
+    - .framework/estado/analise.yaml
+    - .framework/estado/prd.yaml
+    - .framework/estado/ux.yaml
+  design_system:
+    - design-system/controleportaria/MASTER.md
+
+status:
+  scaffolded: false
+  agregados_implementados: 0
+  agregados_total: 7

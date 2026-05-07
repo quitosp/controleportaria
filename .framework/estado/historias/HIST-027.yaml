@@ -1,0 +1,43 @@
+id: HIST-027
+titulo: Frontend Cadastrar chegada (T-003) com auto-fill + alertas
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: registrar chegada com agilidade e validacoes claras
+valor_de_negocio: elimina retrabalho do porteiro
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-010
+  - HIST-018
+regras_negocio:
+- RN-003
+- RN-004
+- RN-010
+- RN-012
+acao:
+  comando: 'py .framework/scripts/frontend_scaffold.py chegada --tudo  ; manual: dialog
+    auto-fill, dialog motorista bloqueado, dialog cadastro inline, anexos'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-027.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- Auto-fill aparece como banner com 'Aceitar/Editar'
+- Motorista bloqueado abre dialog vermelho com Observacao obrigatoria
+- 'Carreta com movimento aberto: erro destacado com link para movimento existente'
+- Cadastro inline de motorista/transportadora/veiculo sem perder fluxo
+- Atalhos Ctrl+N e Enter no campo Carreta dispara auto-fill
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

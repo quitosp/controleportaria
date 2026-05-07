@@ -1,0 +1,33 @@
+id: HIST-032
+titulo: Frontend Transportadoras (T-013/14)
+tipo: crud
+agregado: Transportadora
+prioridade: alta
+estado: concluida
+persona: Admin
+motivo: manter cadastro de transportadoras
+valor_de_negocio: qualidade do auto-fill
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-006
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/frontend_scaffold.py transportadoras --tudo
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: none
+  caminho: ''
+  aprovado: true
+  aprovado_em: auto
+aceite:
+- Lista, form, detalhe funcionando
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

@@ -1,0 +1,77 @@
+id: HIST-001
+titulo: "Inicializar projeto C# Portaria + Identity + frontend Next.js"
+tipo: architecture
+agregado: ""
+prioridade: alta
+estado: concluida
+
+persona: ""
+motivo: ""
+valor_de_negocio: ""
+
+contexto:
+  prd_referencia: "projeto"
+  arquitetura_referencia: "solucao + frontend"
+  dependencias: []
+
+regras_negocio: []
+
+acao:
+  comando: "py .framework/scripts/novo_projeto.py csharp-portaria ControlePortaria --auth ; py .framework/scripts/setup_ui.py --raiz web"
+  arquivos_criar:
+    - api/ControlePortaria.sln
+    - api/compartilhados/core/Core/*
+    - api/compartilhados/webApi.core/WebApi.Core/*
+    - api/dominios/Dominios/*
+    - api/repositorios/Repositorios/*
+    - api/servicos/api/Api/*
+    - api/servicos/api/Api/Controllers/AuthController.cs
+    - api/servicos/api/Api/Configuration/SeedAdmin.cs
+    - web/app/(publico)/login/page.tsx
+    - web/app/(privado)/layout.tsx
+    - web/components/ui/*
+    - web/lib/api.ts
+    - web/lib/auth.ts
+    - web/app/globals.css
+    - .gitignore
+    - docker-compose.yml
+  arquivos_editar:
+    - api/servicos/api/Api/appsettings.json
+    - api/servicos/api/Api/appsettings.Development.json
+    - web/.env.local
+  arquivos_consultar:
+    - .framework/nucleo/csharp-portaria.md
+    - .framework/nucleo/frontend-react.md
+    - design-system/controleportaria/MASTER.md
+
+artefato:
+  tipo_artefato: none
+  caminho: ""
+  aprovado: true
+  aprovado_em: "auto"
+
+aceite:
+  - "Solution C# com 5 projetos compila (api/ControlePortaria.sln)"
+  - "PostgreSQL configurado em appsettings (Host, Database=ControlePortaria)"
+  - "AuthController + SeedAdmin (admin@local / Admin@123) presentes"
+  - "JWT configurado com secret >= 32 chars"
+  - "Frontend Next.js compila (web/) com tema do design system aplicado em globals.css (#334155 primary, #059669 accent)"
+  - "Layout privado tem AlternarTema e sidebar placeholder"
+  - "Login funciona contra a API e gera JWT valido"
+
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: "pendente: POST /api/auth/v1/entrar — falta criar o banco Postgres"
+
+commit_sha: ""
+notas: |
+  Concluido em 2026-05-07.
+  - Backend: api/ContralePortaria.sln com Core (33 arquivos), WebApi.Core (13), Auth (AuthController + SeedAdmin admin@local/Admin@123), JWT, Serilog, health checks, security headers, rate limit. dotnet build OK.
+  - Frontend: web/ Next.js 16 + TS + Tailwind + shadcn-style UI base + tema claro/escuro com tokens do design system Trust & Authority (#334155 primary, #059669 accent).
+  - Sincronizacao API URL: web/.env.local com NEXT_PUBLIC_API_URL=http://localhost:5270.
+  - Correcoes feitas no template csharp-core: ExceptionMiddleware.cs faltava using Microsoft.AspNetCore.Builder/DependencyInjection/Hosting (template atualizado).
+  PENDENTE para o usuario:
+  - Ajustar senha do Postgres em api/servicos/api/Api/appsettings.Development.json se diferente de "postgres"
+  - Rodar: py .framework/scripts/criar_banco.py --raiz api
+  - Rodar: py .framework/scripts/migrate.py --raiz api

@@ -1,0 +1,40 @@
+id: HIST-022
+titulo: NotificacaoWorker (BackgroundService de retry)
+tipo: automation
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: ''
+motivo: manter saude do sistema; processar fila de NotificacaoPendente
+valor_de_negocio: robustez frente a falhas dos provedores
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-019
+  - HIST-020
+  - HIST-021
+regras_negocio:
+- RN-017
+acao:
+  comando: 'manual: IHostedService que polla NotificacaoPendente Pendente|Falhou com
+    ProximaTentativa<=now. Backoff (1m/5m/15m/1h). Descarta apos 24h.'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-022.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- Worker roda a cada 30s
+- Backoff respeitado
+- Apos 24h Status=Descartada com UltimoErro
+- 'Metrica: contagem por status disponivel via /api/metricas/notificacoes (auth Admin)'
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

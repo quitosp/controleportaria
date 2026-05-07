@@ -1,0 +1,93 @@
+nome: ControlePortaria
+descricao: "Sistema de controle de acesso e fluxo logistico de portaria para frigorifico"
+stack: csharp-portaria
+plataformas: [api, web]
+plataformas_futuras: [mobile]
+
+fase: implementacao_completa
+proximo_comando: criar banco + migrate + dotnet run + npm run dev
+ux_definido: true
+arquitetura_definida: true
+historias_total: 38
+tipos_distribuicao:
+  architecture: 1
+  authorization: 1
+  crud: 11
+  business-flow: 16
+  integration: 3
+  automation: 4
+  report: 2
+
+artefatos:
+  ideia:
+    documentacao:
+      - documentacao/1-visao.md
+      - documentacao/2-requisitos.md
+      - documentacao/3-personas.md
+      - documentacao/4-casos-de-uso.md
+      - documentacao/5-modelagem.md
+      - documentacao/6-glossario.md
+      - documentacao/7-decisoes.md
+      - documentacao/8-regras-negocio.md
+    analise: .framework/estado/analise.yaml
+    concluida_em: 2026-05-07
+  prd:
+    arquivo: .framework/estado/prd.yaml
+    concluida_em: 2026-05-07
+  ux:
+    arquivo: .framework/estado/ux.yaml
+    concluida_em: 2026-05-07
+  arquitetura:
+    arquivo: .framework/estado/arquitetura.yaml
+    concluida_em: 2026-05-07
+
+progresso:
+  ideia: concluida
+  prd: concluida
+  ux: concluida
+  arquitetura: concluida
+  historias: concluida
+  implementacao:
+    em_andamento: ""
+    total: 38
+    concluidas:
+      - HIST-001
+      - HIST-002
+      - HIST-003
+      - HIST-004
+      - HIST-005
+      - HIST-006
+      - HIST-007
+      - HIST-008
+      - HIST-009
+      - HIST-010
+      - HIST-011
+      - HIST-012
+      - HIST-013
+      - HIST-014
+      - HIST-015
+      - HIST-016
+      - HIST-017
+      - HIST-018
+      - HIST-019
+      - HIST-020
+      - HIST-021
+      - HIST-022
+      - HIST-023
+      - HIST-024
+      - HIST-025
+      - HIST-026
+      - HIST-027
+      - HIST-028
+      - HIST-029
+      - HIST-030
+      - HIST-031
+      - HIST-032
+      - HIST-033
+      - HIST-034
+      - HIST-035
+      - HIST-036
+      - HIST-037
+      - HIST-038
+  historias: pendente
+  implementacao: pendente

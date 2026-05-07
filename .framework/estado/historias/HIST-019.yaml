@@ -1,0 +1,38 @@
+id: HIST-019
+titulo: Integracao Evolution API (WhatsApp) por unidade
+tipo: integration
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Motorista
+motivo: receber mensagem ao ser chamado pelo lider
+valor_de_negocio: elimina chamadas telefonicas
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-011
+regras_negocio:
+- RN-011
+- RN-017
+acao:
+  comando: 'manual: IEvolutionApiClient + EvolutionApiClient (HttpClient). Configuracao
+    por Unidade. Idempotente. Falha gera UltimoErro em NotificacaoPendente.'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-019.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- Cliente envia mensagem usando URL+Token da Unidade do movimento
+- Falha de rede nao lanca excecao para fora do worker
+- Resposta 200/201 -> Status=Enviada; demais -> Status=Falhou + UltimoErro
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

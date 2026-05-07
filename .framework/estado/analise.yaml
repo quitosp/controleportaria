@@ -1,0 +1,330 @@
+nome_projeto: ControlePortaria
+descricao_curta: "Sistema de controle de acesso e fluxo logistico de portaria para frigorifico (Frigoestrela)"
+problema: "Sistema atual de portaria coleta dados sem rastreabilidade real, sem multi-portaria, sem painel para lideres da industria liberarem veiculos do patio externo, e com saida nao padronizada. Substituir por sistema de gerenciamento de fluxo logistico com login real, painel em tempo real, notificacao WhatsApp+Email, saida condicional e auditoria LGPD."
+
+stack_sugerida: csharp-portaria
+plataformas: [api, web]
+plataformas_futuras: [mobile]
+
+personas:
+  - nome: Porteiro
+    papel: Porteiro
+    frequencia: diaria
+    objetivo: "Cadastrar chegada/entrada/saida de veiculos com agilidade"
+  - nome: Lider
+    papel: Lider
+    frequencia: varias vezes ao dia
+    objetivo: "Visualizar e chamar veiculos do patio externo via painel"
+  - nome: Supervisor
+    papel: Supervisor
+    frequencia: esporadica
+    objetivo: "Investigar movimentos com problema, autorizar excecoes"
+  - nome: Administrador
+    papel: Admin
+    frequencia: semanal
+    objetivo: "Gerenciar usuarios, motoristas, configuracoes, integracoes"
+  - nome: Motorista
+    papel: ExternoSemLogin
+    frequencia: diaria
+    objetivo: "Receber notificacoes WhatsApp/email quando convocado"
+
+agregados:
+  - nome: Unidade
+    raiz: true
+    multi_tenant_root: true
+    campos: [Id, Nome, ConfiguracaoEvolutionApi]
+  - nome: Portaria
+    raiz: true
+    campos: [Id, Nome, UnidadeId]
+    relacionamentos: ["pertence a Unidade"]
+  - nome: Usuario
+    raiz: true
+    campos: [Id, Login, SenhaHash, Papel, UnidadeId, PortariaPadraoId, Ativo]
+    relacionamentos: ["pertence a Unidade", "papel via enum PapelUsuario"]
+  - nome: Motorista
+    raiz: true
+    campos: [Id, Cpf, Nome, Whatsapp, Email, Status, MotivoStatus, UnidadeId]
+    composto_por: [Cpf, Whatsapp]
+  - nome: Transportadora
+    raiz: true
+    campos: [Id, Cnpj, RazaoSocial, UnidadeId]
+    composto_por: [Cnpj]
+  - nome: Veiculo
+    raiz: true
+    campos: [Id, Placa, Tipo, TransportadoraId, UnidadeId]
+    composto_por: [Placa]
+  - nome: MovimentoPortaria
+    raiz: true
+    campos:
+      - Id
+      - UnidadeId
+      - PortariaChegadaId
+      - PorteiroChegadaId
+      - DataChegada
+      - MotoristaId
+      - CarretaId
+      - CavaloId
+      - CarretaSegundaId
+      - TransportadoraId
+      - Motivo
+      - TipoCarga
+      - DadosCargaChegada
+      - Destino
+      - AutorizadoPorChegada
+      - Observacao
+      - Estado
+      - LiderQueAutorizouId
+      - DataChamada
+      - PorteiroEntradaId
+      - DataEntrada
+      - PorteiroSaidaId
+      - DataSaida
+      - DadosCargaSaida
+      - Lacre
+      - DestinoSaida
+    composto_por: [DadosCarga, Lacre]
+    contem: [EventoFluxo, Anexo, NotificacaoPendente]
+    estados: [NoPateoExterno, ChamadoParaInterno, NoPateoInterno, NoLavador, Saiu, Cancelado, Desistencia]
+
+entidades_filhas:
+  - nome: EventoFluxo
+    pertence_a: MovimentoPortaria
+    campos: [Id, Tipo, DeEstado, ParaEstado, UsuarioId, Quando, Detalhes]
+  - nome: Anexo
+    pertence_a: MovimentoPortaria
+    campos: [Id, Estagio, Url, TamanhoBytes, ContentType, UsuarioUploadId, Quando]
+  - nome: NotificacaoPendente
+    pertence_a: MovimentoPortaria
+    campos: [Id, Canal, Destino, Payload, Status, Tentativas, ProximaTentativa, UltimoErro]
+
+value_objects:
+  - nome: Placa
+    tipo: string normalizada
+  - nome: Cpf
+    tipo: string normalizada com algoritmo
+  - nome: Cnpj
+    tipo: string normalizada com algoritmo
+  - nome: Whatsapp
+    tipo: string E.164
+  - nome: Lacre
+    tipo: string nao vazia (apenas saida de Carga)
+  - nome: DadosCarga
+    campos: [NumeroNF, Produto, Setor, Contrato, NumeroContainer]
+
+enums:
+  - nome: StatusMotorista
+    valores: [Ativo, Pendente, Bloqueado]
+  - nome: PapelUsuario
+    valores: [Porteiro, Lider, Supervisor, Admin]
+  - nome: TipoVeiculo
+    valores: [Cavalo, Carreta, CarretaSegunda]
+  - nome: MotivoEntrada
+    valores: [Carga, Descarga, Devolucao, Outro]
+  - nome: TipoCarga
+    valores: [Frigorificada, Seca, Container, Lavador, Outro]
+  - nome: DestinoPateo
+    valores: [Interno, Externo, Lavador]
+  - nome: EstadoMovimento
+    valores: [NoPateoExterno, ChamadoParaInterno, NoPateoInterno, NoLavador, Saiu, Cancelado, Desistencia]
+  - nome: EstagioAnexo
+    valores: [Chegada, Entrada, Saida]
+  - nome: TipoEventoFluxo
+    valores: [ChegadaRegistrada, AlertaBloqueio, ChamadaAutorizada, ChamadaExpirada, EntradaConfirmada, SaidaRegistrada, Cancelamento, Desistencia, EdicaoCampo]
+  - nome: CanalNotificacao
+    valores: [Whatsapp, Email, Socket]
+  - nome: StatusNotificacao
+    valores: [Pendente, Enviada, Falhou, Descartada]
+
+abstracoes:
+  - tipo: value-object
+    nome: DadosCarga
+    motivo: "Agrupa campos opcionais reaproveitados em chegada e saida"
+  - tipo: agregado-raiz
+    nome: MovimentoPortaria
+    motivo: "Centraliza maquina de estados, eventos e anexos do ciclo do veiculo"
+  - tipo: padrao-event-log
+    nome: EventoFluxo
+    motivo: "Auditoria LGPD imutavel sem custo de event sourcing puro"
+
+casos_de_uso:
+  - id: CDU-001
+    titulo: Login
+  - id: CDU-002
+    titulo: Cadastrar chegada
+  - id: CDU-003
+    titulo: Visualizar painel de chamada
+  - id: CDU-004
+    titulo: Chamar veiculo
+  - id: CDU-005
+    titulo: Recancelar chamada expirada
+  - id: CDU-006
+    titulo: Confirmar entrada no patio interno
+  - id: CDU-007
+    titulo: Registrar saida (condicional por motivo)
+  - id: CDU-008
+    titulo: Cancelar movimento
+  - id: CDU-009
+    titulo: Registrar desistencia
+  - id: CDU-010
+    titulo: Bloquear/desbloquear motorista
+  - id: CDU-011
+    titulo: Editar movimento
+  - id: CDU-012
+    titulo: Visualizar auditoria de movimento
+  - id: CDU-013
+    titulo: Anexar arquivo
+  - id: CDU-014
+    titulo: Cadastrar motorista no fluxo
+  - id: CDU-015
+    titulo: Cadastrar veiculo no fluxo
+
+regras_negocio:
+  - id: RN-001
+    titulo: Toda operacao exige usuario autenticado
+    severidade: critica
+  - id: RN-002
+    titulo: Acoes registram automaticamente Usuario+Timestamp+Portaria
+    severidade: critica
+  - id: RN-003
+    titulo: Destino Patio Interno na chegada exige AutorizadoPor
+    severidade: critica
+  - id: RN-004
+    titulo: Motorista Bloqueado dispara alerta + observacao + auditoria
+    severidade: alta
+  - id: RN-005
+    titulo: Saida com Descarga so timestamp + porteiro
+    severidade: critica
+  - id: RN-006
+    titulo: Saida com Carga exige NF + Lacre + Destino
+    severidade: critica
+  - id: RN-007
+    titulo: Saida de Container Exportacao exige Container + Contrato
+    severidade: critica
+  - id: RN-008
+    titulo: Maquina de estados sem pulos
+    severidade: critica
+  - id: RN-009
+    titulo: Cancelar/Desistir exige observacao
+    severidade: alta
+  - id: RN-010
+    titulo: Auto-fill por placa sugere ultimo movimento
+    severidade: media
+  - id: RN-011
+    titulo: Chamar Veiculo dispara WhatsApp + Email + SignalR
+    severidade: alta
+  - id: RN-012
+    titulo: Carreta com movimento aberto bloqueia nova chegada
+    severidade: critica
+  - id: RN-013
+    titulo: Lock otimista em Chamar Veiculo
+    severidade: alta
+  - id: RN-014
+    titulo: Multi-tenant por UnidadeId
+    severidade: critica
+  - id: RN-015
+    titulo: Auditoria imutavel via EventoFluxo
+    severidade: alta
+  - id: RN-016
+    titulo: Anexos 10MB max, formatos restritos
+    severidade: media
+  - id: RN-017
+    titulo: Notificacoes assincronas nao bloqueiam fluxo
+    severidade: alta
+  - id: RN-018
+    titulo: NF opcional na chegada, obrigatoria na saida de Carga
+    severidade: alta
+  - id: RN-019
+    titulo: Movimento aberto e por carreta, nao por motorista
+    severidade: media
+  - id: RN-020
+    titulo: TTL da chamada e 30 minutos
+    severidade: media
+  - id: RN-021
+    titulo: Edicao de campos criticos pos-entrada exige Lider+
+    severidade: alta
+  - id: RN-022
+    titulo: Retencao indefinida (sem expurgo automatico)
+    severidade: baixa
+
+requisitos_nao_funcionais:
+  performance:
+    volume_dia: ~50 movimentos
+    porteiros_simultaneos: 2-3
+    portarias_por_unidade: ate 3
+    latencia_p95_chegada_ms: 1000
+    latencia_painel_socket_ms: 2000
+  seguranca:
+    auth: JWT com refresh
+    rate_limit_login: 5 por minuto por IP
+    headers: HSTS+CSP+XCTO
+    senha: hash forte (Identity)
+  lgpd:
+    auditoria: EventoFluxo imutavel
+    retencao: indefinida (decisao do cliente)
+    dados_pessoais: [nome motorista, cpf, whatsapp, email usuario]
+  integracoes:
+    whatsapp:
+      provedor: Evolution API
+      configuracao_por: Unidade
+    email:
+      provedor: SMTP/SendGrid (a confirmar)
+    realtime: SignalR (mesmo backend)
+  disponibilidade:
+    downtime_aceitavel_min: 5
+    backup: diario
+  observabilidade:
+    logs: Serilog JSON estruturado
+    health_checks: [/health, /ready, /live]
+    alertas: fila de NotificacaoPendente > 50
+
+decisoes_arquiteturais:
+  - id: ADR-001
+    titulo: Stack backend C# .NET 9 (csharp-portaria)
+  - id: ADR-002
+    titulo: Stack frontend Next.js 15 + Tailwind + shadcn/ui
+  - id: ADR-003
+    titulo: Banco PostgreSQL
+  - id: ADR-004
+    titulo: Multi-tenant via coluna UnidadeId
+  - id: ADR-005
+    titulo: WhatsApp via Evolution API
+  - id: ADR-006
+    titulo: Email via SMTP/SendGrid (a confirmar)
+  - id: ADR-007
+    titulo: Notificacao em tempo real via SignalR
+  - id: ADR-008
+    titulo: Auditoria via EventoFluxo (event log leve)
+  - id: ADR-009
+    titulo: Lock otimista em MovimentoPortaria
+  - id: ADR-010
+    titulo: Anexos em filesystem (S3 pos-MVP)
+  - id: ADR-011
+    titulo: Worker de notificacoes via BackgroundService
+  - id: ADR-012
+    titulo: Idioma do dominio PT-BR
+  - id: ADR-013
+    titulo: Sem heranca em Pessoa (Motorista vs Usuario)
+  - id: ADR-014
+    titulo: Retencao de dados indefinida
+  - id: ADR-015
+    titulo: Web responsivo, mobile fora do MVP
+
+escopo_mvp:
+  inclui:
+    - Login com papeis
+    - Multi-portaria
+    - Cadastro de chegada com auto-fill por placa
+    - Cadastros de apoio (motorista, transportadora, veiculo, usuario, portaria, unidade)
+    - Bloqueio/alerta de motorista com auditoria
+    - Painel de chamada em tempo real (lideres)
+    - Chamar veiculo com WhatsApp+Email+SignalR
+    - Saida condicional por motivo
+    - Anexos em chegada/entrada/saida
+    - Cancelamento e desistencia
+    - Auditoria via EventoFluxo
+  fora:
+    - App mobile do motorista
+    - Multi-tenant ativo (modelo preparado, ativacao posterior)
+    - Agendamento previo
+    - Integracao com ERP/Logistica
+    - Painel de SLA / metricas

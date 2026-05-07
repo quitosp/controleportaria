@@ -1,0 +1,62 @@
+# Historia = Capacidade do sistema (nao so CRUD)
+# 8 tipos validos:
+#   crud           - cadastro simples/moderado (usa csharp_scaffold direto)
+#   business-flow  - processo com regras, estados, multiplas entidades
+#   integration    - servico externo, webhook, API, mensageria
+#   report         - relatorio, dashboard, exportacao, consulta analitica
+#   automation     - job, rotina agendada, fila, evento, background
+#   authorization  - permissoes, papeis, auditoria, escopo de acesso
+#   architecture   - base tecnica, DI, migrations, layout, bootstrap
+#   refactor       - ajuste estrutural antes de novas capacidades
+
+id: ""                              # HIST-001, HIST-002...
+titulo: ""                          # frase curta acionavel
+tipo: crud                          # OBRIGATORIO — define fluxo de implementacao
+agregado: ""                        # se tipo=crud, nome do agregado em prd.yaml
+prioridade: ""                      # alta | media | baixa
+estado: pendente                    # pendente | aguardando_aprovacao | em_progresso | concluida | bloqueada | pendente_review
+
+# === Contexto narrativo (token-economic, 1 linha cada) ===
+# OBRIGATORIO para tipos visiveis ao usuario final (crud, business-flow, report, authorization).
+# OPCIONAL para tipos internos (architecture, refactor, automation interno, integration server-to-server).
+# Detalhe da persona vive em documentacao/3-personas.md — aqui so o nome para Claude se localizar.
+persona: ""                         # ex: "Cliente final" | "Atendente" | "Admin" | "" para tipos internos
+motivo: ""                          # ex: "acompanhar entrega do pedido" — uma linha do "para que" sem repetir o titulo
+valor_de_negocio: ""                # ex: "reduz tickets de suporte" | "habilita upsell" — opcional, ajuda a priorizar
+
+contexto:
+  prd_referencia: ""                # ex: agregados[0]
+  arquitetura_referencia: ""        # ex: agregados_mapeados[0]
+  dependencias: []                  # ids de historias precedentes (formal)
+
+# === Regras de negocio que essa historia implementa/valida ===
+# IDs de documentacao/8-regras-negocio.md (RN-NNN). O /impl le cada uma e implementa
+# a validacao no Handler/Service com comentario "// RN-NNN". O /rev valida que toda
+# RN listada aqui tem codigo correspondente — falha gate se nao tem.
+# Obrigatorio para tipo: business-flow. Recomendado para integration/automation.
+# Ignorado para crud puro (sem regras alem das de campo).
+regras_negocio: []                  # ex: [RN-001, RN-005]
+
+acao:
+  comando: ""                       # ex: "scaffold agregado Empresa via csharp_scaffold.py"
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+
+# Gate de aprovacao: obrigatorio para tipo != crud
+artefato:
+  tipo_artefato: ""                 # mockup (visual/UI) | contrato (api/fluxo/evento) | none (so crud)
+  caminho: ""                       # .framework/estado/artefatos/HIST-NNN.md
+  aprovado: false                   # implementar bloqueia ate true
+  aprovado_em: ""                   # ISO date quando aprovado
+
+aceite:                             # criterios objetivos, verificaveis
+  - ""
+
+validacao:
+  build: false
+  testes: false
+  endpoint_testado: ""
+
+commit_sha: ""                      # preenchido por commitar-historia
+notas: ""

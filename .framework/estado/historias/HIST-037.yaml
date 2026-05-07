@@ -1,0 +1,34 @@
+id: HIST-037
+titulo: Aplicar observabilidade (Serilog + health checks)
+tipo: automation
+agregado: ''
+prioridade: alta
+estado: concluida
+persona: ''
+motivo: manter saude do sistema
+valor_de_negocio: reduz MTTR em incidentes
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-001
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/aplicar_observabilidade_csharp.py
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-037.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- Logs JSON estruturados
+- /health, /ready, /live respondendo
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

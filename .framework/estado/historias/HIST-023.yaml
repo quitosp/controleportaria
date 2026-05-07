@@ -1,0 +1,36 @@
+id: HIST-023
+titulo: ChamadaExpiradaWorker (sinaliza chamadas TTL>30min)
+tipo: automation
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: ''
+motivo: manter saude do sistema; destacar chamadas expiradas no painel
+valor_de_negocio: evita motoristas esquecidos no patio externo
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-021
+regras_negocio:
+- RN-020
+acao:
+  comando: 'manual: IHostedService 1min. Marca movimentos ChamadoParaInterno com DataChamada
+    > 30min como expirados (broadcast SignalR ou flag em DTO do painel).'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-023.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- Painel destaca movimentos expirados
+- Lider pode usar HIST-012 para recancelar
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

@@ -1,0 +1,896 @@
+projeto:
+  nome: ControlePortaria
+  stack_frontend: frontend-react
+
+design_tokens:
+  estilo: "Trust & Authority (Industrial slate + stock green)"
+  pattern: "Minimal Single Column"
+  fonte_master: "design-system/controleportaria/MASTER.md"
+  paleta:
+    primaria: "#334155"            # slate-700 — botoes secundarios, navegacao, headers
+    primaria_texto: "#FFFFFF"
+    secundaria: "#475569"          # slate-600
+    accent_cta: "#059669"          # emerald-600 — CTA principal (Salvar chegada, Autorizar entrada)
+    background: "#F8FAFC"          # slate-50
+    foreground: "#0F172A"          # slate-900
+    muted: "#F2F3F4"
+    border: "#E6E8EA"
+    perigo: "#DC2626"              # red-600 — Cancelar, motorista bloqueado
+    sucesso: "#059669"              # mesmo do accent
+    alerta: "#D97706"              # amber-600 — banner auto-fill, chamada expirada
+    ring: "#334155"
+  tipografia:
+    sans: "Inter"
+    mono: "JetBrains Mono"
+    heading: "Inter"
+    body: "Inter"
+    pesos: [300, 400, 500, 600, 700]
+    google_fonts: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+  raio_borda: "rounded-md"
+  espacamento_base: "0.5rem"
+  espacamentos:
+    xs: "0.25rem"
+    sm: "0.5rem"
+    md: "1rem"
+    lg: "1.5rem"
+    xl: "2rem"
+    "2xl": "3rem"
+  sombras:
+    sm: "0 1px 2px rgba(0,0,0,0.05)"
+    md: "0 4px 6px rgba(0,0,0,0.1)"
+    lg: "0 10px 15px rgba(0,0,0,0.1)"
+    xl: "0 20px 25px rgba(0,0,0,0.15)"
+  modo_escuro: true
+  responsivo_breakpoints: [375, 768, 1024, 1440]
+  acessibilidade: "WCAG AAA"
+  evitar:
+    - "Outdated design"
+    - "Hidden credentials"
+    - "AI purple/pink gradients"
+    - "Emojis as icons (usar Lucide/Heroicons SVG)"
+  pre_delivery:
+    - "cursor-pointer em todos clicaveis"
+    - "Hover com transition 150-300ms"
+    - "Contraste light mode 4.5:1 minimo"
+    - "Focus states visiveis para teclado"
+    - "prefers-reduced-motion respeitado"
+
+componentes_base:
+  - Button
+  - Input
+  - Label
+  - Select
+  - Dialog
+  - Table
+  - Card
+  - Skeleton
+  - Badge
+  - Toast
+  - Tabs
+  - Sheet
+  - DropdownMenu
+  - Tooltip
+  - AlternarTema
+
+telas:
+  # ==================== AUTH ====================
+  - id: T-001
+    nome: Login
+    rota: /login
+    proposito: "Autenticar usuario (porteiro/lider/supervisor/admin) com login e senha"
+    privada: false
+    feature: login
+    layout: formulario
+    componentes:
+      - tipo: cabecalho
+        descricao: "Logo Frigoestrela + nome do sistema"
+        dados: ""
+      - tipo: formulario
+        descricao: "Login + senha + selecionar portaria atual (se Porteiro)"
+        dados: "POST /api/auth/login"
+      - tipo: card
+        descricao: "Aviso sobre rate limit caso 5 tentativas seguidas"
+        dados: ""
+    estados:
+      carregando: "Botao com spinner; campos desabilitados"
+      vazio: "n/a"
+      erro: "Toast vermelho 'Login ou senha invalidos'; apos 5 erros: 'IP bloqueado por 15 minutos'"
+      sucesso: "Redireciona para / (Dashboard)"
+    acoes_usuario:
+      - gatilho: "submit do formulario"
+        destino: "/"
+        endpoint: "POST /api/auth/login"
+    ux_writing:
+      titulo: "Acessar o sistema"
+      botao_primario: "Entrar"
+      vazio_mensagem: ""
+    responsivo:
+      mobile: "Card centralizado ocupa 90% da largura"
+      desktop: "Card centralizado largura 400px, fundo com identidade Frigoestrela"
+
+  # ==================== DASHBOARD ====================
+  - id: T-002
+    nome: Dashboard
+    rota: /
+    proposito: "Visao geral do dia: chegadas, em pateo externo, em pateo interno, saidas; atalhos por papel"
+    privada: true
+    feature: dashboard
+    layout: dashboard
+    componentes:
+      - tipo: card
+        descricao: "Cards de KPIs: Em pateo externo, Em pateo interno, Saiu hoje, Cancelados hoje"
+        dados: "GET /api/movimentos/v1/resumo-dia"
+      - tipo: tabela
+        descricao: "Ultimos 10 movimentos (placa, motorista, estado, hora chegada)"
+        dados: "GET /api/movimentos/v1/listar/1/10?ordem=desc"
+      - tipo: card
+        descricao: "Atalho rapido conforme papel: Porteiro -> Nova chegada; Lider -> Painel chamada"
+        dados: ""
+    estados:
+      carregando: "Skeletons nos cards e tabela"
+      vazio: "Mensagem 'Nenhum movimento hoje' + botao 'Cadastrar chegada' (porteiro)"
+      erro: "Toast vermelho 'Falha ao carregar resumo' + botao tentar novamente"
+      sucesso: "KPIs com numeros, tabela com ultimas linhas"
+    acoes_usuario:
+      - gatilho: "clique em 'Nova chegada'"
+        destino: "/chegada"
+      - gatilho: "clique em 'Painel chamada'"
+        destino: "/painel"
+      - gatilho: "clique em linha de movimento"
+        destino: "/movimentos/[id]"
+    ux_writing:
+      titulo: "Inicio"
+      botao_primario: "Nova chegada"
+      vazio_mensagem: "Nenhum movimento hoje"
+    responsivo:
+      mobile: "KPIs em coluna unica; tabela vira lista de cards"
+      desktop: "4 KPIs em linha; tabela full-width"
+
+  # ==================== CHEGADA ====================
+  - id: T-003
+    nome: Cadastrar chegada
+    rota: /chegada
+    proposito: "Porteiro registra chegada de veiculo com auto-fill por placa, alerta de motorista bloqueado e anexos"
+    privada: true
+    feature: chegada
+    layout: formulario
+    componentes:
+      - tipo: formulario
+        descricao: "Carreta (autocomplete + auto-fill), Cavalo, CarretaSegunda; Motorista (autocomplete + cadastro inline); Transportadora; Motivo; TipoCarga; NF (opcional); Produto; Setor; Contrato; Container; Destino; AutorizadoPor (se Interno); Observacao; Anexos"
+        dados: "GET /api/veiculos/v1/buscar-por-placa/{placa} | GET /api/motoristas/v1/buscar/{termo} | POST /api/movimentos/v1/cadastrar-chegada"
+      - tipo: card
+        descricao: "Banner amarelo de auto-fill: 'Sugerimos Transportadora X e TipoCarga Y do ultimo movimento desta placa'. Botoes 'Aceitar' e 'Editar'."
+        dados: ""
+      - tipo: dialog
+        descricao: "Dialog vermelho de motorista bloqueado: motivo + observacao obrigatoria + 'Prosseguir mesmo assim' / 'Cancelar'"
+        dados: ""
+      - tipo: dialog
+        descricao: "Dialog rapido de cadastro de motorista (nome, CPF, WhatsApp, email opcional)"
+        dados: "POST /api/motoristas/v1/cadastrar"
+    estados:
+      carregando: "Botao 'Salvar chegada' com spinner; campos desabilitados"
+      vazio: "Formulario limpo com foco no campo Carreta"
+      erro: "Toast vermelho com mensagem do backend (placa invalida, carreta com movimento aberto, etc); foca no primeiro campo invalido"
+      sucesso: "Toast verde 'Chegada registrada (HIST-XXX)'; redireciona para /movimentos/[id] ou volta para /chegada (se porteiro marcou 'continuar cadastrando')"
+    acoes_usuario:
+      - gatilho: "blur no campo Carreta com placa preenchida"
+        destino: "modal-autofill"
+        endpoint: "GET /api/veiculos/v1/buscar-por-placa/{placa}"
+      - gatilho: "selecionar motorista bloqueado"
+        destino: "modal-alerta-bloqueio"
+      - gatilho: "clique em '+ Novo motorista'"
+        destino: "modal-cadastro-motorista"
+      - gatilho: "anexar arquivo"
+        destino: "preview-anexo"
+        endpoint: "POST /api/movimentos/v1/anexar"
+      - gatilho: "submit"
+        destino: "/movimentos/[id]"
+        endpoint: "POST /api/movimentos/v1/cadastrar-chegada"
+    ux_writing:
+      titulo: "Cadastrar chegada"
+      botao_primario: "Salvar chegada"
+      vazio_mensagem: ""
+    responsivo:
+      mobile: "Formulario em coluna unica, campos full-width, anexos abrem camera/galeria"
+      desktop: "Formulario em 2 colunas; secoes: Veiculo, Motorista, Carga, Destino, Anexos"
+
+  # ==================== PAINEL CHAMADA ====================
+  - id: T-004
+    nome: Painel de chamada
+    rota: /painel
+    proposito: "Lider ve veiculos no patio externo em tempo real e autoriza entrada"
+    privada: true
+    feature: painel-chamada
+    layout: lista
+    componentes:
+      - tipo: filtro
+        descricao: "Filtros por portaria, transportadora, motivo, tipo de carga"
+        dados: ""
+      - tipo: tabela
+        descricao: "Cards/linhas com: placa carreta, transportadora, motorista, motivo, produto, setor, hora chegada, tempo de espera, badge de chamada expirada"
+        dados: "GET /api/painel-chamada/v1/listar (com SignalR push para atualizacoes)"
+      - tipo: tabela
+        descricao: "Botao 'Autorizar entrada' por linha; abre confirmacao rapida"
+        dados: "POST /api/movimentos/v1/{id}/chamar"
+    estados:
+      carregando: "Skeleton de 5 linhas"
+      vazio: "Mensagem 'Nenhum veiculo aguardando no patio externo'"
+      erro: "Toast vermelho + retry. Se SignalR cair: badge 'Conexao em tempo real perdida — atualizando manualmente a cada 10s'"
+      sucesso: "Lista populada; novas chegadas aparecem com animacao e som leve (config); chamadas saem da lista"
+    acoes_usuario:
+      - gatilho: "clique em 'Autorizar entrada'"
+        destino: "modal-confirmacao"
+        endpoint: "POST /api/movimentos/v1/{id}/chamar"
+      - gatilho: "clique em linha"
+        destino: "/movimentos/[id]"
+      - gatilho: "clique em 'Recancelar' (em chamada expirada)"
+        destino: "modal-confirmacao"
+        endpoint: "POST /api/movimentos/v1/{id}/recancelar-chamada"
+    ux_writing:
+      titulo: "Painel de chamada — Patio externo"
+      botao_primario: "Autorizar entrada"
+      vazio_mensagem: "Nenhum veiculo aguardando no patio externo"
+    responsivo:
+      mobile: "Cards empilhados, tap no card abre acoes; otimizado para tablet em chao de fabrica"
+      desktop: "Tabela full-width com colunas mencionadas"
+
+  # ==================== CONFIRMAR ENTRADA ====================
+  - id: T-005
+    nome: Confirmar entrada
+    rota: /entrada
+    proposito: "Porteiro confirma entrada do veiculo no patio interno apos lider chamar"
+    privada: true
+    feature: confirmar-entrada
+    layout: formulario
+    componentes:
+      - tipo: filtro
+        descricao: "Busca por placa de carreta"
+        dados: "GET /api/movimentos/v1/buscar-por-placa/{placa}?estados=ChamadoParaInterno"
+      - tipo: card
+        descricao: "Resumo do movimento: placa, motorista, transportadora, motivo, lider que chamou, hora da chamada"
+        dados: "GET /api/movimentos/v1/{id}"
+      - tipo: formulario
+        descricao: "Campo observacao opcional + anexos (foto da entrada)"
+        dados: "POST /api/movimentos/v1/{id}/confirmar-entrada"
+    estados:
+      carregando: "Skeleton no card de resumo"
+      vazio: "'Digite a placa para localizar o movimento chamado'"
+      erro: "Toast vermelho 'Movimento nao encontrado' ou 'Movimento ja teve entrada confirmada'"
+      sucesso: "Toast verde 'Entrada confirmada — veiculo no patio interno'; reseta para nova busca"
+    acoes_usuario:
+      - gatilho: "submit busca"
+        destino: "card-resumo"
+      - gatilho: "submit confirmacao"
+        destino: "/entrada"
+        endpoint: "POST /api/movimentos/v1/{id}/confirmar-entrada"
+    ux_writing:
+      titulo: "Confirmar entrada"
+      botao_primario: "Confirmar entrada"
+      vazio_mensagem: "Nenhum veiculo localizado. Digite a placa."
+    responsivo:
+      mobile: "Coluna unica"
+      desktop: "Coluna unica centralizada largura 600px"
+
+  # ==================== SAIDA ====================
+  - id: T-006
+    nome: Registrar saida
+    rota: /saida
+    proposito: "Porteiro registra saida com campos condicionais ao motivo (Descarga / Carga / Container exportacao)"
+    privada: true
+    feature: saida
+    layout: formulario
+    componentes:
+      - tipo: filtro
+        descricao: "Busca por placa de carreta"
+        dados: "GET /api/movimentos/v1/buscar-por-placa/{placa}?estados=NoPateoInterno"
+      - tipo: card
+        descricao: "Resumo do movimento (motivo, tipoCarga, motorista, hora da chegada/entrada)"
+        dados: "GET /api/movimentos/v1/{id}"
+      - tipo: formulario
+        descricao: "Campos condicionais: Descarga -> so observacao opcional; Carga -> NF + Lacre + Destino; Container exportacao -> + NumeroContainer + Contrato. Anexos sempre disponiveis."
+        dados: "POST /api/movimentos/v1/{id}/registrar-saida"
+    estados:
+      carregando: "Skeleton no card de resumo"
+      vazio: "'Digite a placa para localizar o movimento'"
+      erro: "Toast vermelho com campo(s) faltante(s) destacado(s) em vermelho"
+      sucesso: "Toast verde 'Saida registrada'; reseta para nova busca"
+    acoes_usuario:
+      - gatilho: "busca por placa"
+        destino: "card-resumo"
+      - gatilho: "submit"
+        destino: "/saida"
+        endpoint: "POST /api/movimentos/v1/{id}/registrar-saida"
+    ux_writing:
+      titulo: "Registrar saida"
+      botao_primario: "Registrar saida"
+      vazio_mensagem: "Nenhum veiculo localizado no patio interno"
+    responsivo:
+      mobile: "Coluna unica"
+      desktop: "Coluna unica centralizada largura 600px; secao 'Carga' aparece/some por animacao conforme motivo"
+
+  # ==================== MOVIMENTOS ====================
+  - id: T-007
+    nome: Movimentos — Lista
+    rota: /movimentos
+    proposito: "Listar e filtrar movimentos da unidade com paginacao"
+    privada: true
+    feature: movimentos
+    layout: lista
+    componentes:
+      - tipo: filtro
+        descricao: "Filtros: data, placa, motorista, transportadora, estado, motivo, portaria"
+        dados: ""
+      - tipo: tabela
+        descricao: "Colunas: data chegada, placa carreta, motorista, transportadora, motivo, estado (badge), porteiro chegada, lider chamou, data saida, acoes"
+        dados: "GET /api/movimentos/v1/listar/{p}/{s}?filtros..."
+    estados:
+      carregando: "Skeleton de 10 linhas"
+      vazio: "'Nenhum movimento encontrado para os filtros aplicados'"
+      erro: "Toast vermelho + tentar novamente"
+      sucesso: "Tabela com paginacao no rodape (20/pagina)"
+    acoes_usuario:
+      - gatilho: "clique em linha"
+        destino: "/movimentos/[id]"
+      - gatilho: "clique em 'Nova chegada'"
+        destino: "/chegada"
+    ux_writing:
+      titulo: "Movimentos"
+      botao_primario: "Nova chegada"
+      vazio_mensagem: "Nenhum movimento encontrado"
+    responsivo:
+      mobile: "Tabela vira cards com info principal"
+      desktop: "Tabela full-width"
+
+  - id: T-008
+    nome: Movimento — Detalhe
+    rota: /movimentos/[id]
+    proposito: "Ver dados completos do movimento, auditoria (EventoFluxo), anexos, e acoes contextuais"
+    privada: true
+    feature: movimentos
+    layout: detalhe
+    componentes:
+      - tipo: card
+        descricao: "Dados gerais: placa, motorista, transportadora, motivo, estado atual com badge"
+        dados: "GET /api/movimentos/v1/{id}"
+      - tipo: tabs
+        descricao: "Abas: Chegada | Saida | Anexos | Auditoria"
+        dados: ""
+      - tipo: tabela
+        descricao: "Aba Auditoria: lista de EventoFluxo (tipo, usuario, quando, detalhes/diff)"
+        dados: "GET /api/movimentos/v1/{id}/eventos"
+      - tipo: card
+        descricao: "Aba Anexos: galeria por estagio (Chegada/Entrada/Saida)"
+        dados: "GET /api/movimentos/v1/{id}/anexos"
+      - tipo: card
+        descricao: "Acoes contextuais por estado: Editar (com restricao por papel), Cancelar, Desistencia, Confirmar entrada (se ChamadoParaInterno), Registrar saida (se NoPateoInterno)"
+        dados: ""
+    estados:
+      carregando: "Skeleton no card de dados gerais e abas"
+      vazio: "n/a (movimento sempre existe se rota acessada)"
+      erro: "Toast vermelho 'Movimento nao encontrado' + voltar para /movimentos"
+      sucesso: "Tudo renderizado; abas funcionando"
+    acoes_usuario:
+      - gatilho: "clique em 'Editar'"
+        destino: "/movimentos/[id]/editar"
+      - gatilho: "clique em 'Cancelar'"
+        destino: "modal-cancelamento"
+        endpoint: "POST /api/movimentos/v1/{id}/cancelar"
+      - gatilho: "clique em 'Desistencia'"
+        destino: "modal-desistencia"
+        endpoint: "POST /api/movimentos/v1/{id}/desistir"
+    ux_writing:
+      titulo: "Movimento {id}"
+      botao_primario: "Editar"
+      vazio_mensagem: ""
+    responsivo:
+      mobile: "Abas viram acordeao; cards empilhados"
+      desktop: "Card de dados gerais no topo; abas em linha"
+
+  - id: T-009
+    nome: Movimento — Editar
+    rota: /movimentos/[id]/editar
+    proposito: "Editar dados do movimento; campos criticos exigem papel Lider+ apos NoPateoInterno"
+    privada: true
+    feature: movimentos
+    layout: formulario
+    componentes:
+      - tipo: formulario
+        descricao: "Campos editaveis (alguns desabilitados conforme papel + estado), campos criticos com aviso 'Edicao auditada'"
+        dados: "GET /api/movimentos/v1/{id} | PUT /api/movimentos/v1/{id}"
+    estados:
+      carregando: "Skeleton no formulario"
+      vazio: "n/a"
+      erro: "Toast com mensagem; 403 se papel insuficiente para campos criticos"
+      sucesso: "Toast verde 'Edicao registrada (auditada)'; volta para /movimentos/[id]"
+    acoes_usuario:
+      - gatilho: "submit"
+        destino: "/movimentos/[id]"
+        endpoint: "PUT /api/movimentos/v1/{id}"
+    ux_writing:
+      titulo: "Editar movimento"
+      botao_primario: "Salvar alteracoes"
+      vazio_mensagem: ""
+    responsivo:
+      mobile: "Coluna unica"
+      desktop: "2 colunas"
+
+  # ==================== MOTORISTAS ====================
+  - id: T-010
+    nome: Motoristas — Lista
+    rota: /motoristas
+    proposito: "Listar motoristas, ver status (Ativo/Pendente/Bloqueado) e busca rapida"
+    privada: true
+    feature: motoristas
+    layout: lista
+    componentes:
+      - tipo: filtro
+        descricao: "Busca por nome/CPF; filtro de status"
+        dados: ""
+      - tipo: tabela
+        descricao: "Colunas: nome, CPF, WhatsApp, status (badge colorido), ultima chegada, acoes"
+        dados: "GET /api/motoristas/v1/listar/{p}/{s}"
+    estados:
+      carregando: "Skeleton de 10 linhas"
+      vazio: "'Nenhum motorista cadastrado'"
+      erro: "Toast vermelho"
+      sucesso: "Tabela populada"
+    acoes_usuario:
+      - gatilho: "clique em 'Novo motorista'"
+        destino: "/motoristas/novo"
+      - gatilho: "clique em linha"
+        destino: "/motoristas/[id]"
+    ux_writing:
+      titulo: "Motoristas"
+      botao_primario: "Novo motorista"
+      vazio_mensagem: "Nenhum motorista cadastrado"
+    responsivo:
+      mobile: "Cards"
+      desktop: "Tabela"
+
+  - id: T-011
+    nome: Motorista — Formulario
+    rota: /motoristas/novo
+    proposito: "Cadastrar novo motorista (nome, CPF, WhatsApp, email opcional, status inicial Ativo)"
+    privada: true
+    feature: motoristas
+    layout: formulario
+    componentes:
+      - tipo: formulario
+        descricao: "Campos com validacao em tempo real (CPF formatado/validado, WhatsApp E.164)"
+        dados: "POST /api/motoristas/v1/cadastrar"
+    estados:
+      carregando: "Botao com spinner"
+      vazio: "Formulario limpo"
+      erro: "Toast com mensagem; CPF duplicado destacado"
+      sucesso: "Toast verde 'Motorista cadastrado'; volta para /motoristas"
+    acoes_usuario:
+      - gatilho: "submit"
+        destino: "/motoristas"
+        endpoint: "POST /api/motoristas/v1/cadastrar"
+    ux_writing:
+      titulo: "Novo motorista"
+      botao_primario: "Salvar"
+      vazio_mensagem: ""
+    responsivo:
+      mobile: "Coluna unica"
+      desktop: "Largura 600px centralizada"
+
+  - id: T-012
+    nome: Motorista — Detalhe + Bloqueio
+    rota: /motoristas/[id]
+    proposito: "Ver dados, historico de chegadas e bloquear/desbloquear (Supervisor+)"
+    privada: true
+    feature: motoristas
+    layout: detalhe
+    componentes:
+      - tipo: card
+        descricao: "Dados pessoais + status atual + motivo do status"
+        dados: "GET /api/motoristas/v1/{id}"
+      - tipo: tabela
+        descricao: "Historico de movimentos do motorista"
+        dados: "GET /api/motoristas/v1/{id}/movimentos/{p}/{s}"
+      - tipo: dialog
+        descricao: "Acao 'Bloquear/Desbloquear/Marcar pendente' com motivo obrigatorio (so Supervisor+)"
+        dados: "PUT /api/motoristas/v1/{id}/status"
+    estados:
+      carregando: "Skeleton"
+      vazio: "Historico vazio: 'Nenhum movimento registrado'"
+      erro: "Toast"
+      sucesso: "Tudo carregado"
+    acoes_usuario:
+      - gatilho: "clique em 'Alterar status'"
+        destino: "modal-status"
+        endpoint: "PUT /api/motoristas/v1/{id}/status"
+    ux_writing:
+      titulo: "Motorista — {nome}"
+      botao_primario: "Alterar status"
+      vazio_mensagem: "Nenhum movimento registrado"
+    responsivo:
+      mobile: "Coluna unica"
+      desktop: "Card no topo, historico abaixo"
+
+  # ==================== TRANSPORTADORAS ====================
+  - id: T-013
+    nome: Transportadoras — Lista
+    rota: /transportadoras
+    proposito: "Listar e gerenciar transportadoras"
+    privada: true
+    feature: transportadoras
+    layout: lista
+    componentes:
+      - tipo: filtro
+        descricao: "Busca por razao social/CNPJ"
+        dados: ""
+      - tipo: tabela
+        descricao: "Colunas: razao social, CNPJ, qtde veiculos, qtde movimentos no mes, acoes"
+        dados: "GET /api/transportadoras/v1/listar/{p}/{s}"
+    estados:
+      carregando: "Skeleton 10 linhas"
+      vazio: "'Nenhuma transportadora cadastrada'"
+      erro: "Toast"
+      sucesso: "Tabela"
+    acoes_usuario:
+      - gatilho: "clique em 'Nova transportadora'"
+        destino: "/transportadoras/novo"
+      - gatilho: "clique em linha"
+        destino: "/transportadoras/[id]"
+    ux_writing:
+      titulo: "Transportadoras"
+      botao_primario: "Nova transportadora"
+      vazio_mensagem: "Nenhuma transportadora cadastrada"
+    responsivo:
+      mobile: "Cards"
+      desktop: "Tabela"
+
+  - id: T-014
+    nome: Transportadora — Formulario
+    rota: /transportadoras/novo
+    proposito: "Cadastrar/editar transportadora (CNPJ, razao social)"
+    privada: true
+    feature: transportadoras
+    layout: formulario
+    componentes:
+      - tipo: formulario
+        descricao: "CNPJ + razao social"
+        dados: "POST /api/transportadoras/v1/cadastrar"
+    estados:
+      carregando: "Botao com spinner"
+      vazio: "Limpo"
+      erro: "CNPJ duplicado destacado"
+      sucesso: "Toast verde + volta lista"
+    acoes_usuario:
+      - gatilho: "submit"
+        destino: "/transportadoras"
+        endpoint: "POST /api/transportadoras/v1/cadastrar"
+    ux_writing:
+      titulo: "Nova transportadora"
+      botao_primario: "Salvar"
+      vazio_mensagem: ""
+    responsivo:
+      mobile: "Coluna unica"
+      desktop: "600px"
+
+  # ==================== VEICULOS ====================
+  - id: T-015
+    nome: Veiculos — Lista
+    rota: /veiculos
+    proposito: "Listar veiculos por placa, tipo e transportadora"
+    privada: true
+    feature: veiculos
+    layout: lista
+    componentes:
+      - tipo: filtro
+        descricao: "Busca por placa; filtro por tipo (Cavalo/Carreta/CarretaSegunda)"
+        dados: ""
+      - tipo: tabela
+        descricao: "Colunas: placa, tipo, transportadora, ultima chegada, acoes"
+        dados: "GET /api/veiculos/v1/listar/{p}/{s}"
+    estados:
+      carregando: "Skeleton"
+      vazio: "'Nenhum veiculo cadastrado'"
+      erro: "Toast"
+      sucesso: "Tabela"
+    acoes_usuario:
+      - gatilho: "clique em 'Novo veiculo'"
+        destino: "/veiculos/novo"
+      - gatilho: "clique em linha"
+        destino: "/veiculos/[id]"
+    ux_writing:
+      titulo: "Veiculos"
+      botao_primario: "Novo veiculo"
+      vazio_mensagem: "Nenhum veiculo cadastrado"
+    responsivo:
+      mobile: "Cards"
+      desktop: "Tabela"
+
+  - id: T-016
+    nome: Veiculo — Formulario
+    rota: /veiculos/novo
+    proposito: "Cadastrar/editar veiculo (placa, tipo, transportadora)"
+    privada: true
+    feature: veiculos
+    layout: formulario
+    componentes:
+      - tipo: formulario
+        descricao: "Placa (formato Mercosul ou tradicional), tipo, transportadora (autocomplete)"
+        dados: "POST /api/veiculos/v1/cadastrar"
+    estados:
+      carregando: "Botao com spinner"
+      vazio: "Limpo"
+      erro: "Placa duplicada ou invalida"
+      sucesso: "Toast verde + volta lista"
+    acoes_usuario:
+      - gatilho: "submit"
+        destino: "/veiculos"
+        endpoint: "POST /api/veiculos/v1/cadastrar"
+    ux_writing:
+      titulo: "Novo veiculo"
+      botao_primario: "Salvar"
+      vazio_mensagem: ""
+    responsivo:
+      mobile: "Coluna unica"
+      desktop: "600px"
+
+  # ==================== USUARIOS ====================
+  - id: T-017
+    nome: Usuarios — Lista
+    rota: /usuarios
+    proposito: "Admin lista usuarios e seus papeis"
+    privada: true
+    feature: usuarios
+    layout: lista
+    componentes:
+      - tipo: filtro
+        descricao: "Busca por nome/login; filtro por papel"
+        dados: ""
+      - tipo: tabela
+        descricao: "Colunas: nome, login, email, papel (badge), portaria padrao, ativo, acoes"
+        dados: "GET /api/usuarios/v1/listar/{p}/{s}"
+    estados:
+      carregando: "Skeleton"
+      vazio: "'Nenhum usuario cadastrado'"
+      erro: "Toast"
+      sucesso: "Tabela"
+    acoes_usuario:
+      - gatilho: "clique em 'Novo usuario'"
+        destino: "/usuarios/novo"
+      - gatilho: "clique em linha"
+        destino: "/usuarios/[id]"
+    ux_writing:
+      titulo: "Usuarios"
+      botao_primario: "Novo usuario"
+      vazio_mensagem: "Nenhum usuario cadastrado"
+    responsivo:
+      mobile: "Cards"
+      desktop: "Tabela"
+
+  - id: T-018
+    nome: Usuario — Formulario
+    rota: /usuarios/novo
+    proposito: "Admin cria usuario com papel e portaria padrao"
+    privada: true
+    feature: usuarios
+    layout: formulario
+    componentes:
+      - tipo: formulario
+        descricao: "Nome, login, email, papel (select), senha inicial, portaria padrao (select)"
+        dados: "POST /api/usuarios/v1/cadastrar"
+    estados:
+      carregando: "Botao com spinner"
+      vazio: "Limpo"
+      erro: "Login duplicado"
+      sucesso: "Toast verde + volta lista"
+    acoes_usuario:
+      - gatilho: "submit"
+        destino: "/usuarios"
+        endpoint: "POST /api/usuarios/v1/cadastrar"
+    ux_writing:
+      titulo: "Novo usuario"
+      botao_primario: "Salvar"
+      vazio_mensagem: ""
+    responsivo:
+      mobile: "Coluna unica"
+      desktop: "600px"
+
+  # ==================== PORTARIAS ====================
+  - id: T-019
+    nome: Portarias — Lista
+    rota: /portarias
+    proposito: "Admin lista portarias da unidade"
+    privada: true
+    feature: portarias
+    layout: lista
+    componentes:
+      - tipo: tabela
+        descricao: "Colunas: nome, qtde movimentos no mes, acoes"
+        dados: "GET /api/portarias/v1/listar/{p}/{s}"
+    estados:
+      carregando: "Skeleton"
+      vazio: "'Nenhuma portaria cadastrada'"
+      erro: "Toast"
+      sucesso: "Tabela"
+    acoes_usuario:
+      - gatilho: "clique em 'Nova portaria'"
+        destino: "/portarias/novo"
+    ux_writing:
+      titulo: "Portarias"
+      botao_primario: "Nova portaria"
+      vazio_mensagem: "Nenhuma portaria cadastrada"
+    responsivo:
+      mobile: "Cards"
+      desktop: "Tabela"
+
+  - id: T-020
+    nome: Portaria — Formulario
+    rota: /portarias/novo
+    proposito: "Admin cria/edita portaria"
+    privada: true
+    feature: portarias
+    layout: formulario
+    componentes:
+      - tipo: formulario
+        descricao: "Nome da portaria"
+        dados: "POST /api/portarias/v1/cadastrar"
+    estados:
+      carregando: "Botao com spinner"
+      vazio: "Limpo"
+      erro: "Toast"
+      sucesso: "Volta lista"
+    acoes_usuario:
+      - gatilho: "submit"
+        destino: "/portarias"
+        endpoint: "POST /api/portarias/v1/cadastrar"
+    ux_writing:
+      titulo: "Nova portaria"
+      botao_primario: "Salvar"
+      vazio_mensagem: ""
+    responsivo:
+      mobile: "Coluna unica"
+      desktop: "600px"
+
+  # ==================== UNIDADES ====================
+  - id: T-021
+    nome: Unidades — Lista
+    rota: /unidades
+    proposito: "Admin lista unidades (tenants); preparado para multi-empresa futuro"
+    privada: true
+    feature: unidades
+    layout: lista
+    componentes:
+      - tipo: tabela
+        descricao: "Colunas: nome, qtde portarias, qtde usuarios, integracao Evolution configurada (sim/nao), acoes"
+        dados: "GET /api/unidades/v1/listar/{p}/{s}"
+    estados:
+      carregando: "Skeleton"
+      vazio: "'Nenhuma unidade cadastrada'"
+      erro: "Toast"
+      sucesso: "Tabela"
+    acoes_usuario:
+      - gatilho: "clique em 'Nova unidade'"
+        destino: "/unidades/novo"
+    ux_writing:
+      titulo: "Unidades"
+      botao_primario: "Nova unidade"
+      vazio_mensagem: "Nenhuma unidade cadastrada"
+    responsivo:
+      mobile: "Cards"
+      desktop: "Tabela"
+
+  - id: T-022
+    nome: Unidade — Formulario
+    rota: /unidades/novo
+    proposito: "Admin cria/edita unidade e configura Evolution API"
+    privada: true
+    feature: unidades
+    layout: formulario
+    componentes:
+      - tipo: formulario
+        descricao: "Nome + URL Evolution + Token Evolution (mascarado)"
+        dados: "POST /api/unidades/v1/cadastrar"
+    estados:
+      carregando: "Botao com spinner"
+      vazio: "Limpo"
+      erro: "Toast"
+      sucesso: "Volta lista"
+    acoes_usuario:
+      - gatilho: "submit"
+        destino: "/unidades"
+        endpoint: "POST /api/unidades/v1/cadastrar"
+    ux_writing:
+      titulo: "Nova unidade"
+      botao_primario: "Salvar"
+      vazio_mensagem: ""
+    responsivo:
+      mobile: "Coluna unica"
+      desktop: "600px"
+
+fluxos:
+  - nome: "Cadastrar chegada (porteiro)"
+    sequencia: [T-001, T-002, T-003, T-008]
+    descricao: "Login -> Dashboard -> Cadastrar chegada -> Detalhe do movimento criado"
+  - nome: "Chamar veiculo (lider)"
+    sequencia: [T-001, T-002, T-004, T-008]
+    descricao: "Login -> Dashboard -> Painel chamada -> autoriza entrada -> Detalhe (audit ChamadaAutorizada)"
+  - nome: "Confirmar entrada (porteiro)"
+    sequencia: [T-005, T-008]
+    descricao: "Confirmar entrada -> Detalhe do movimento atualizado"
+  - nome: "Registrar saida (porteiro)"
+    sequencia: [T-006, T-008]
+    descricao: "Saida (campos condicionais) -> Detalhe do movimento finalizado"
+  - nome: "Bloquear motorista (supervisor)"
+    sequencia: [T-010, T-012]
+    descricao: "Lista motoristas -> Detalhe -> alterar status com motivo"
+  - nome: "Cadastrar motorista no fluxo"
+    sequencia: [T-003, T-003]
+    descricao: "Durante chegada, abre modal de novo motorista, fecha e segue cadastro"
+  - nome: "Auditoria de movimento (supervisor)"
+    sequencia: [T-007, T-008]
+    descricao: "Lista movimentos -> Detalhe -> aba Auditoria com EventoFluxo"
+
+navegacao:
+  tipo: sidebar
+  itens:
+    - rotulo: "Inicio"
+      rota: /
+      icone: "Home"
+      grupo: ""
+    - rotulo: "Cadastrar chegada"
+      rota: /chegada
+      icone: "TruckIcon"
+      grupo: "Operacao"
+    - rotulo: "Painel de chamada"
+      rota: /painel
+      icone: "BellRing"
+      grupo: "Operacao"
+    - rotulo: "Confirmar entrada"
+      rota: /entrada
+      icone: "DoorOpen"
+      grupo: "Operacao"
+    - rotulo: "Registrar saida"
+      rota: /saida
+      icone: "DoorClosed"
+      grupo: "Operacao"
+    - rotulo: "Movimentos"
+      rota: /movimentos
+      icone: "ListChecks"
+      grupo: "Operacao"
+    - rotulo: "Motoristas"
+      rota: /motoristas
+      icone: "Users"
+      grupo: "Cadastros"
+    - rotulo: "Transportadoras"
+      rota: /transportadoras
+      icone: "Building2"
+      grupo: "Cadastros"
+    - rotulo: "Veiculos"
+      rota: /veiculos
+      icone: "Truck"
+      grupo: "Cadastros"
+    - rotulo: "Usuarios"
+      rota: /usuarios
+      icone: "UserCog"
+      grupo: "Administracao"
+    - rotulo: "Portarias"
+      rota: /portarias
+      icone: "DoorClosed"
+      grupo: "Administracao"
+    - rotulo: "Unidades"
+      rota: /unidades
+      icone: "Factory"
+      grupo: "Administracao"
+
+acessibilidade:
+  contraste: "AA"
+  navegacao_teclado: true
+  aria_labels: true
+  foco_visivel: true
+
+notas: |
+  Atalhos de teclado importantes:
+  - Ctrl+N na tela /chegada cria nova chegada
+  - Enter no campo Carreta dispara auto-fill
+  - Esc fecha qualquer modal
+
+  Layout privado contem AlternarTema no topbar (canto superior direito).
+  SignalR mantem conexao no layout privado e atualiza telas T-002, T-004 e T-008 em tempo real.
+  Items da sidebar sao filtrados por papel: Porteiro nao ve Administracao; Lider ve Operacao + cadastros; Supervisor/Admin ve tudo.

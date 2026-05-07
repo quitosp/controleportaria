@@ -1,0 +1,38 @@
+id: HIST-012
+titulo: Recancelar chamada expirada (CDU-005)
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Lider
+motivo: voltar veiculo para fila apos motorista nao se apresentar em 30min
+valor_de_negocio: operacao continua sem gerar movimento abandonado
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-011
+regras_negocio:
+- RN-008
+- RN-020
+acao:
+  comando: 'manual: comando RecancelarChamada (so se ChamadoParaInterno e DataChamada
+    > 30min) -> volta para NoPateoExterno + EventoFluxo:ChamadaExpirada'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-012.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- POST /api/movimentos/v1/{id}/recancelar-chamada disponivel apenas com TTL excedido
+- Estado volta para NoPateoExterno
+- EventoFluxo:ChamadaExpirada gerado
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

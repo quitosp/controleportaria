@@ -1,0 +1,42 @@
+id: HIST-003
+titulo: CRUD Unidade (tenant raiz) + configuracao Evolution API
+tipo: crud
+agregado: Unidade
+prioridade: alta
+estado: concluida
+persona: Admin
+motivo: cadastrar a unidade Frigoestrela e suas integracoes
+valor_de_negocio: habilita multi-tenant e config WhatsApp por unidade
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-002
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/csharp_scaffold.py Unidade --plural Unidades --campos
+    "Nome:string:200:unico ConfiguracaoEvolutionApiUrl:string:500:opcional ConfiguracaoEvolutionApiToken:string:500:opcional"
+    --tudo
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: none
+  caminho: ''
+  aprovado: true
+  aprovado_em: auto
+aceite:
+- Endpoints CRUD de Unidade funcionando (salvar/alterar/listar)
+- Token de Evolution API armazenado mascarado nos retornos
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: 'pendente: rodar migrations + testar POST /api/Unidade/v1/salvar'
+commit_sha: ''
+notas: |
+  Concluido em 2026-05-07.
+  Agregado scaffolded: Unidade com Nome, ConfiguracaoEvolutionApiUrl, ConfiguracaoEvolutionApiToken (todos opcionais menos Nome unico).
+  9 arquivos gerados: Entidade, SalvarEntrada, AlterarEntrada, Saida (com mascaramento de token), Handler, IRepositorio, Maps, Repositorio, Controller.
+  UnidadeController com [Authorize(SomenteAdmin)].
+  UnidadeSaida.ConfiguracaoEvolutionApiToken mascarado (so ultimos 4 chars visiveis) + TemTokenConfigurado bool.
+  Pendencia: rodar migrate apos banco existir.

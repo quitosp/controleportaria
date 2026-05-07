@@ -1,0 +1,35 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=controleportaria_dev;Username=postgres;Password=COLOQUE_A_SENHA_AQUI"
+  },
+  "AppSettings": {
+    "AutenticacaoJwksUrl": "http://localhost:5270/jwks"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "Microsoft.EntityFrameworkCore.Database.Command": "Information"
+    }
+  },
+  "AppTokenSettings": {
+    "RefreshTokenExpiration": 24
+  },
+  "Email": {
+    "Provedor": "smtp",
+    "Smtp": {
+      "Host": "smtp.gmail.com",
+      "Porta": 587,
+      "Usuario": "seu-email@gmail.com",
+      "Senha": "sua-senha-de-app",
+      "De": "seu-email@gmail.com"
+    }
+  },
+  "Anexos": {
+    "CaminhoBase": "./anexos",
+    "TamanhoMaxBytes": 10485760
+  },
+  "Notificacoes": {
+    "TTLChamadaMinutos": 30,
+    "RetryMaxHoras": 24
+  }
+}

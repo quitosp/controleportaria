@@ -1,0 +1,40 @@
+id: HIST-015
+titulo: Cancelar movimento (CDU-008)
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: encerrar movimento operacionalmente (sem saida)
+valor_de_negocio: evita movimentos abandonados
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-013
+regras_negocio:
+- RN-008
+- RN-009
+- RN-014
+- RN-015
+acao:
+  comando: 'manual: comando CancelarMovimento (qualquer estado != Saiu) com Observacao
+    obrigatoria'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-015.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- POST /api/movimentos/v1/{id}/cancelar com Observacao
+- Estado vai para Cancelado; EventoFluxo:Cancelamento
+- Sem observacao retorna 400
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

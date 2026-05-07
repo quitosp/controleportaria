@@ -1,0 +1,39 @@
+id: HIST-009
+titulo: Bloquear/desbloquear motorista (com motivo + auditoria)
+tipo: business-flow
+agregado: Motorista
+prioridade: alta
+estado: concluida
+persona: Supervisor
+motivo: marcar motorista com pendencia para alertar porteiro na chegada
+valor_de_negocio: seguranca patrimonial
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-008
+regras_negocio:
+- RN-002
+- RN-014
+acao:
+  comando: 'manual: comando AlterarStatusMotorista no MotoristaCommandHandler com
+    policy SupervisorOuMaior'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-009.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- PUT /api/motoristas/v1/{id}/status (Status, MotivoStatus)
+- Apenas Supervisor+ pode alterar
+- MotivoStatus obrigatorio quando Status=Bloqueado
+- Mudanca registrada em log de auditoria
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

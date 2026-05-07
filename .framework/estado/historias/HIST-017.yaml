@@ -1,0 +1,40 @@
+id: HIST-017
+titulo: Editar movimento com auditoria (CDU-011/012)
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Lider
+motivo: corrigir dados do movimento sem perder rastro
+valor_de_negocio: qualidade dos registros + LGPD
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-014
+regras_negocio:
+- RN-014
+- RN-015
+- RN-021
+acao:
+  comando: 'manual: PUT /api/movimentos/v1/{id} com diff. Campos criticos pos-NoPateoInterno
+    exigem Lider+. EventoFluxo:EdicaoCampo com antes/depois.'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-017.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- PUT funciona; cada campo alterado vira EventoFluxo:EdicaoCampo
+- 'RN-021: campos criticos (CarretaId/MotoristaId/Motivo) bloqueados para Porteiro
+  pos-entrada'
+- GET /api/movimentos/v1/{id}/eventos retorna historico ordenado
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

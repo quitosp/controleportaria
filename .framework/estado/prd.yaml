@@ -1,0 +1,418 @@
+projeto:
+  nome: ControlePortaria
+  versao: "0.1.0"
+  data: "2026-05-07"
+  stack: csharp-portaria
+
+problema:
+  contexto: "Frigorifico Frigoestrela opera duas portarias com ~50 caminhoes/dia. Sistema atual coleta dados em formulario de chegada, mas nao identifica porteiro, nao distingue portarias, nao gerencia o patio externo, e a chamada de veiculos do externo para o interno acontece por telefone/radio sem rastro. Saida e nao padronizada (carga, descarga e exportacao tratadas iguais)."
+  dor: "Falta de rastreabilidade, falta de controle de fluxo entre patio externo e interno, e saida com campos errados perdem informacoes criticas (lacre, contrato, container)."
+  metrica_sucesso: "100% dos movimentos com usuario+portaria+timestamp registrados; reducao a zero das chamadas telefonicas de lider para portaria; saidas de Carga e Container sem campos faltantes."
+
+usuarios:
+  - perfil: porteiro
+    objetivo: "Cadastrar chegada/entrada/saida de veiculos rapido e sem erro"
+    frequencia_uso: diaria
+  - perfil: lider
+    objetivo: "Visualizar e chamar veiculos do patio externo via painel em tempo real"
+    frequencia_uso: diaria
+  - perfil: supervisor
+    objetivo: "Investigar movimentos com problema e autorizar excecoes"
+    frequencia_uso: esporadica
+  - perfil: admin
+    objetivo: "Gerenciar usuarios, motoristas, configuracoes e integracoes"
+    frequencia_uso: semanal
+
+escopo_mvp:
+  inclui:
+    - Login com papel (porteiro, lider, supervisor, admin)
+    - Multi-portaria por unidade
+    - Cadastro de chegada com auto-fill por placa
+    - Cadastros de apoio (motorista com status, transportadora, veiculo, usuario, portaria, unidade)
+    - Bloqueio/alerta de motorista com observacao auditada
+    - Painel de chamada em tempo real para lideres
+    - 'Chamar veiculo (botao do lider) com WhatsApp Evolution API + Email + SignalR'
+    - Confirmacao de entrada no patio interno
+    - Saida condicional por motivo (Descarga / Carga / Container exportacao)
+    - Anexos (jpg/png/pdf, max 10MB) em chegada, entrada e saida
+    - Cancelamento e desistencia em qualquer estado pre-saida
+    - Auditoria via EventoFluxo imutavel
+  exclui:
+    - App mobile do motorista (anexos via mobile)
+    - Multi-tenant ativo (modelo preparado, ativacao posterior)
+    - Agendamento previo de chegada
+    - Integracao com ERP/Logistica
+    - Painel de SLA / metricas operacionais
+
+agregados:
+  - nome: Unidade
+    plural: Unidades
+    descricao: "Instalacao Frigoestrela. Tenant raiz. No futuro, varias unidades."
+    campos:
+      - nome: nome
+        tipo: string
+        obrigatorio: true
+        unico: true
+        validacao: "max=200"
+      - nome: configuracaoEvolutionApiUrl
+        tipo: string
+        obrigatorio: false
+        validacao: "max=500"
+      - nome: configuracaoEvolutionApiToken
+        tipo: string
+        obrigatorio: false
+        validacao: "max=500"
+    operacoes: [salvar, alterar, listar]
+
+  - nome: Portaria
+    plural: Portarias
+    descricao: "Acesso fisico controlado de uma unidade."
+    campos:
+      - nome: nome
+        tipo: string
+        obrigatorio: true
+        validacao: "max=100"
+      - nome: unidadeId
+        tipo: guid
+        obrigatorio: true
+    relacoes: ["pertence_a:Unidade"]
+    operacoes: [salvar, alterar, listar]
+
+  - nome: Usuario
+    plural: Usuarios
+    descricao: "Login do sistema com papel (porteiro, lider, supervisor, admin) e portaria padrao."
+    campos:
+      - nome: nome
+        tipo: string
+        obrigatorio: true
+        validacao: "max=200"
+      - nome: login
+        tipo: string
+        obrigatorio: true
+        unico: true
+        validacao: "max=80"
+      - nome: email
+        tipo: string
+        obrigatorio: true
+        validacao: "email"
+      - nome: papel
+        tipo: enum
+        obrigatorio: true
+        validacao: "enum=Porteiro|Lider|Supervisor|Admin"
+      - nome: unidadeId
+        tipo: guid
+        obrigatorio: true
+      - nome: portariaPadraoId
+        tipo: guid
+        obrigatorio: false
+      - nome: ativo
+        tipo: bool
+        obrigatorio: true
+    relacoes: ["pertence_a:Unidade", "tem:PortariaPadrao"]
+    operacoes: [salvar, alterar, listar]
+
+  - nome: Motorista
+    plural: Motoristas
+    descricao: "Motorista que entra na unidade. Pode estar Ativo, Pendente ou Bloqueado."
+    campos:
+      - nome: nome
+        tipo: string
+        obrigatorio: true
+        validacao: "max=200"
+      - nome: cpf
+        tipo: string
+        obrigatorio: true
+        unico: true
+        validacao: "cpf"
+      - nome: whatsapp
+        tipo: string
+        obrigatorio: true
+        validacao: "e164"
+      - nome: email
+        tipo: string
+        obrigatorio: false
+        validacao: "email"
+      - nome: status
+        tipo: enum
+        obrigatorio: true
+        validacao: "enum=Ativo|Pendente|Bloqueado"
+      - nome: motivoStatus
+        tipo: string
+        obrigatorio: false
+        validacao: "max=500"
+      - nome: unidadeId
+        tipo: guid
+        obrigatorio: true
+    relacoes: ["pertence_a:Unidade"]
+    operacoes: [salvar, alterar, listar]
+
+  - nome: Transportadora
+    plural: Transportadoras
+    descricao: "Empresa transportadora associada a veiculos."
+    campos:
+      - nome: razaoSocial
+        tipo: string
+        obrigatorio: true
+        validacao: "max=200"
+      - nome: cnpj
+        tipo: string
+        obrigatorio: true
+        unico: true
+        validacao: "cnpj"
+      - nome: unidadeId
+        tipo: guid
+        obrigatorio: true
+    relacoes: ["pertence_a:Unidade"]
+    operacoes: [salvar, alterar, listar]
+
+  - nome: Veiculo
+    plural: Veiculos
+    descricao: "Uma placa = um veiculo. Tipo: Cavalo, Carreta ou CarretaSegunda."
+    campos:
+      - nome: placa
+        tipo: string
+        obrigatorio: true
+        unico: true
+        validacao: "placa"
+      - nome: tipo
+        tipo: enum
+        obrigatorio: true
+        validacao: "enum=Cavalo|Carreta|CarretaSegunda"
+      - nome: transportadoraId
+        tipo: guid
+        obrigatorio: false
+      - nome: unidadeId
+        tipo: guid
+        obrigatorio: true
+    relacoes: ["pertence_a:Unidade", "associado_a:Transportadora"]
+    operacoes: [salvar, alterar, listar]
+
+  - nome: MovimentoPortaria
+    plural: MovimentosPortaria
+    descricao: "Ciclo de vida do veiculo na unidade: chegada -> patio -> saida. Maquina de estados com auditoria via EventoFluxo, anexos por estagio e notificacoes assincronas."
+    campos:
+      - nome: unidadeId
+        tipo: guid
+        obrigatorio: true
+      - nome: portariaChegadaId
+        tipo: guid
+        obrigatorio: true
+      - nome: porteiroChegadaId
+        tipo: guid
+        obrigatorio: true
+      - nome: dataChegada
+        tipo: datetime
+        obrigatorio: true
+      - nome: motoristaId
+        tipo: guid
+        obrigatorio: true
+      - nome: carretaId
+        tipo: guid
+        obrigatorio: true
+      - nome: cavaloId
+        tipo: guid
+        obrigatorio: false
+      - nome: carretaSegundaId
+        tipo: guid
+        obrigatorio: false
+      - nome: transportadoraId
+        tipo: guid
+        obrigatorio: false
+      - nome: motivo
+        tipo: enum
+        obrigatorio: true
+        validacao: "enum=Carga|Descarga|Devolucao|Outro"
+      - nome: tipoCarga
+        tipo: enum
+        obrigatorio: true
+        validacao: "enum=Frigorificada|Seca|Container|Lavador|Outro"
+      - nome: numeroNFChegada
+        tipo: string
+        obrigatorio: false
+        validacao: "max=50"
+      - nome: produto
+        tipo: string
+        obrigatorio: false
+        validacao: "max=200"
+      - nome: setor
+        tipo: string
+        obrigatorio: false
+        validacao: "max=100"
+      - nome: contratoChegada
+        tipo: string
+        obrigatorio: false
+        validacao: "max=100"
+      - nome: numeroContainerChegada
+        tipo: string
+        obrigatorio: false
+        validacao: "max=50"
+      - nome: destino
+        tipo: enum
+        obrigatorio: true
+        validacao: "enum=Interno|Externo|Lavador"
+      - nome: autorizadoPorChegada
+        tipo: string
+        obrigatorio: false
+        validacao: "max=200"
+      - nome: observacao
+        tipo: string
+        obrigatorio: false
+        validacao: "max=2000"
+      - nome: estado
+        tipo: enum
+        obrigatorio: true
+        validacao: "enum=NoPateoExterno|ChamadoParaInterno|NoPateoInterno|NoLavador|Saiu|Cancelado|Desistencia"
+      - nome: liderQueAutorizouId
+        tipo: guid
+        obrigatorio: false
+      - nome: dataChamada
+        tipo: datetime
+        obrigatorio: false
+      - nome: porteiroEntradaId
+        tipo: guid
+        obrigatorio: false
+      - nome: dataEntrada
+        tipo: datetime
+        obrigatorio: false
+      - nome: porteiroSaidaId
+        tipo: guid
+        obrigatorio: false
+      - nome: dataSaida
+        tipo: datetime
+        obrigatorio: false
+      - nome: numeroNFSaida
+        tipo: string
+        obrigatorio: false
+        validacao: "max=50"
+      - nome: lacre
+        tipo: string
+        obrigatorio: false
+        validacao: "max=100"
+      - nome: destinoSaida
+        tipo: string
+        obrigatorio: false
+        validacao: "max=200"
+      - nome: numeroContainerSaida
+        tipo: string
+        obrigatorio: false
+        validacao: "max=50"
+      - nome: contratoSaida
+        tipo: string
+        obrigatorio: false
+        validacao: "max=100"
+    relacoes:
+      - "pertence_a:Unidade"
+      - "pertence_a:Portaria"
+      - "registrado_por:Usuario"
+      - "associado_a:Motorista"
+      - "associado_a:Veiculo (carreta/cavalo/carreta_segunda)"
+      - "contem:EventoFluxo"
+      - "contem:Anexo"
+      - "contem:NotificacaoPendente"
+    operacoes: [salvar, alterar, listar]
+
+autenticacao:
+  ativa: true
+  estrategia: jwt
+  identity_framework: true
+  registro_aberto: false
+  admin_seed:
+    ativo: true
+    email: "admin@local"
+    senha: "Admin@123"
+
+rbac:
+  ativo: true
+  roles: [Porteiro, Lider, Supervisor, Admin]
+  rotas_protegidas:
+    Admin: ["/api/*"]
+    Supervisor: ["/api/movimentos/*", "/api/motoristas/*", "/api/auditoria/*"]
+    Lider: ["/api/movimentos/*", "/api/painel-chamada/*"]
+    Porteiro: ["/api/movimentos/*", "/api/motoristas/cadastrar", "/api/transportadoras/cadastrar", "/api/veiculos/cadastrar"]
+
+plataformas:
+  api:
+    ativa: true
+    stack: csharp-portaria
+  web:
+    ativa: true
+    framework: next-react
+    modo: responsivo
+    tema_padrao: usuario-escolhe
+  mobile:
+    ativa: false
+    tipo: nao
+    compartilha_api: true
+
+features_frontend:
+  - nome: login
+    tela: /login
+    componentes: [formulario]
+  - nome: dashboard
+    tela: /
+    componentes: [resumo]
+  - nome: chegada
+    tela: /chegada
+    componentes: [formulario, anexos]
+  - nome: painel-chamada
+    tela: /painel
+    componentes: [lista, detalhe, acao-chamar, tempo-real]
+  - nome: confirmar-entrada
+    tela: /entrada
+    componentes: [busca, formulario]
+  - nome: saida
+    tela: /saida
+    componentes: [busca, formulario-condicional, anexos]
+  - nome: movimentos
+    tela: /movimentos
+    componentes: [lista, detalhe, auditoria, edicao]
+  - nome: motoristas
+    tela: /motoristas
+    componentes: [lista, formulario, detalhe, bloqueio]
+  - nome: transportadoras
+    tela: /transportadoras
+    componentes: [lista, formulario, detalhe]
+  - nome: veiculos
+    tela: /veiculos
+    componentes: [lista, formulario, detalhe]
+  - nome: usuarios
+    tela: /usuarios
+    componentes: [lista, formulario, detalhe]
+  - nome: portarias
+    tela: /portarias
+    componentes: [lista, formulario, detalhe]
+  - nome: unidades
+    tela: /unidades
+    componentes: [lista, formulario, detalhe]
+
+integracoes:
+  - nome: Evolution API (WhatsApp)
+    tipo: rest
+    proposito: "Notificar motorista quando lider chama veiculo do patio externo. Configurada por Unidade."
+  - nome: Email (SMTP/SendGrid)
+    tipo: rest
+    proposito: "Canal redundante de notificacao ao motorista (e ate o cadastro do email do motorista, opcional)."
+  - nome: SignalR
+    tipo: websocket
+    proposito: "Atualizacao em tempo real do painel de chamada e da portaria de chegada."
+
+restricoes:
+  performance: "lista paginada 20 itens, P95 chegada < 1s, painel atualiza < 2s"
+  seguranca: "JWT obrigatorio, RBAC com roles Porteiro/Lider/Supervisor/Admin, multi-tenant por UnidadeId, rate limit no login (5/min/IP)"
+  compatibilidade: "navegadores modernos; UI responsiva para desktop e tablet"
+
+riscos:
+  - "Evolution API instavel pode atrasar notificacao ao motorista; mitigado por NotificacaoPendente + retry assincrono"
+  - "Anexos em filesystem dificultam escala horizontal; aceitavel no MVP, migrar para S3-compativel pos-MVP"
+  - "Edicao retroativa de movimentos pode comprometer auditoria se mal usada; mitigado por EventoFluxo: EdicaoCampo com diff e papel Lider+ exigido pos-entrada"
+  - "Lock otimista no Chamar Veiculo gera erro raro 409; UI deve mostrar mensagem clara"
+
+dependencias:
+  - "PostgreSQL 16+"
+  - "Conta/instancia Evolution API por unidade"
+  - "Provedor SMTP/SendGrid"
+  - "Servidor com filesystem persistente para anexos"
+
+validacao:
+  completo: true
+  faltantes: []

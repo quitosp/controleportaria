@@ -1,0 +1,47 @@
+id: HIST-011
+titulo: Painel de chamada e Chamar veiculo (CDU-003/004)
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Lider
+motivo: ver veiculos no patio externo e autorizar entrada com WhatsApp+Email+SignalR
+valor_de_negocio: elimina ligacoes para portaria
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-010
+regras_negocio:
+- RN-008
+- RN-011
+- RN-013
+- RN-014
+- RN-015
+- RN-017
+acao:
+  comando: 'manual: PainelChamadaController (GET listar com filtro NoPateoExterno
+    via PainelChamadaRepositorio) + comando ChamarVeiculo no MovimentoPortariaCommandHandler.
+    Lock otimista [Timestamp] em RowVersion. Persistir 3x NotificacaoPendente (Whatsapp,
+    Email, Socket).'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-011.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- GET /api/painel-chamada/v1/listar retorna movimentos NoPateoExterno da unidade do
+  lider
+- POST /api/movimentos/v1/{id}/chamar muda estado e registra LiderQueAutorizouId
+- 'RN-013: clique simultaneo retorna 409 ConflitoException'
+- 'RN-011: 3 NotificacaoPendente persistidas (Whatsapp/Email/Socket)'
+- EventoFluxo:ChamadaAutorizada gerado
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

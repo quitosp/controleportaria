@@ -1,0 +1,67 @@
+# Gerado por novo_projeto.py — copia para .gitignore na raiz do projeto
+
+# BMAD framework — estado vivo
+.bmad/estado/index.json
+.bmad/estado/historias/*.tmp
+.bmad/estado/.cache/
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+node_modules/
+.publish/
+*.pubxml.user
+**/Properties/launchSettings.json
+
+# Migrations geradas (manter no repo, ignorar artefatos)
+**/Migrations/*.Designer.cs.bak
+
+# Frontend
+node_modules/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+.DS_Store
+*.log
+.env.local
+.env.*.local
+.pnpm-debug.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Secrets
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+*.local.env

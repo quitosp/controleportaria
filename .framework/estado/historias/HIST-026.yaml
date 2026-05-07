@@ -1,0 +1,36 @@
+id: HIST-026
+titulo: Frontend Dashboard (T-002) com KPIs e atalhos por papel
+tipo: report
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: ver resumo do dia e atalho rapido a sua tarefa principal
+valor_de_negocio: reduz cliques
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-024
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/frontend_scaffold.py dashboard --tudo  ; integrar
+    com GET /api/movimentos/v1/resumo-dia + listagem dos ultimos 10
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: mockup
+  caminho: .framework/estado/artefatos/HIST-026.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- 4 KPIs com loading skeletons
+- Atalho 'Nova chegada' (Porteiro) ou 'Painel' (Lider)
+- Tabela com ultimos 10 movimentos
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

@@ -1,0 +1,4874 @@
+{
+  "gerado_em": "2026-05-07T23:20:20.983204+00:00",
+  "stack": "csharp-portaria",
+  "raiz": "D:\\Controle Portaria\\portaria\\api",
+  "arquivos": {
+    ".dockerignore": {
+      "linhas": 0,
+      "tamanho_bytes": 71,
+      "tokens_estimados": 17,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:56:15.128438+00:00"
+    },
+    ".gitignore": {
+      "linhas": 0,
+      "tamanho_bytes": 932,
+      "tokens_estimados": 233,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:58:05.682316+00:00"
+    },
+    "ControlePortaria.sln": {
+      "linhas": 0,
+      "tamanho_bytes": 7903,
+      "tokens_estimados": 1975,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:54:07.449591+00:00"
+    },
+    "docker-compose.yml": {
+      "linhas": 41,
+      "tamanho_bytes": 1130,
+      "tokens_estimados": 282,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:56:15.115403+00:00"
+    },
+    "servicos/api/Api/Api.csproj": {
+      "linhas": 0,
+      "tamanho_bytes": 1772,
+      "tokens_estimados": 443,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:58:05.508487+00:00"
+    },
+    "servicos/api/Api/Api.http": {
+      "linhas": 0,
+      "tamanho_bytes": 119,
+      "tokens_estimados": 29,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:54:01.064801+00:00"
+    },
+    "servicos/api/Api/appsettings.Development.json": {
+      "linhas": 17,
+      "tamanho_bytes": 448,
+      "tokens_estimados": 112,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:56:15.048263+00:00"
+    },
+    "servicos/api/Api/appsettings.json": {
+      "linhas": 21,
+      "tamanho_bytes": 483,
+      "tokens_estimados": 120,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:56:15.035932+00:00"
+    },
+    "servicos/api/Api/Dockerfile": {
+      "linhas": 0,
+      "tamanho_bytes": 845,
+      "tokens_estimados": 211,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:56:15.128438+00:00"
+    },
+    "servicos/api/Api/Program.cs": {
+      "linhas": 35,
+      "tamanho_bytes": 1551,
+      "tokens_estimados": 387,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:58:05.656859+00:00"
+    },
+    "servicos/api/Api/Startup.cs": {
+      "linhas": 56,
+      "tamanho_bytes": 1864,
+      "tokens_estimados": 466,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:58:20.972915+00:00"
+    },
+    "servicos/api/Api/BackgroundServices/NotificacaoWorker.cs": {
+      "linhas": 153,
+      "tamanho_bytes": 6470,
+      "tokens_estimados": 1617,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T23:09:26.436123+00:00"
+    },
+    "servicos/api/Api/Configuration/ApiConfig.cs": {
+      "linhas": 59,
+      "tamanho_bytes": 2532,
+      "tokens_estimados": 633,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:17:13.630430+00:00"
+    },
+    "servicos/api/Api/Configuration/AuthorizationConfig.cs": {
+      "linhas": 43,
+      "tamanho_bytes": 1833,
+      "tokens_estimados": 458,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:25:29.410998+00:00"
+    },
+    "servicos/api/Api/Configuration/DependencyInjectionConfig.cs": {
+      "linhas": 78,
+      "tamanho_bytes": 4881,
+      "tokens_estimados": 1220,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T23:09:32.970272+00:00"
+    },
+    "servicos/api/Api/Configuration/HealthCheckConfig.cs": {
+      "linhas": 38,
+      "tamanho_bytes": 1333,
+      "tokens_estimados": 333,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:58:05.638012+00:00"
+    },
+    "servicos/api/Api/Configuration/IdentityConfig.cs": {
+      "linhas": 48,
+      "tamanho_bytes": 1964,
+      "tokens_estimados": 491,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:58:13.628286+00:00"
+    },
+    "servicos/api/Api/Configuration/LoggingConfig.cs": {
+      "linhas": 29,
+      "tamanho_bytes": 1074,
+      "tokens_estimados": 268,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:58:05.635587+00:00"
+    },
+    "servicos/api/Api/Configuration/RateLimitConfig.cs": {
+      "linhas": 39,
+      "tamanho_bytes": 1554,
+      "tokens_estimados": 388,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:58:13.367679+00:00"
+    },
+    "servicos/api/Api/Configuration/SignalRConfig.cs": {
+      "linhas": 20,
+      "tamanho_bytes": 527,
+      "tokens_estimados": 131,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:58:15.975929+00:00"
+    },
+    "servicos/api/Api/Configuration/SwaggerConfig.cs": {
+      "linhas": 57,
+      "tamanho_bytes": 1983,
+      "tokens_estimados": 495,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.283679+00:00"
+    },
+    "servicos/api/Api/Controllers/AuthController.cs": {
+      "linhas": 102,
+      "tamanho_bytes": 3857,
+      "tokens_estimados": 964,
+      "tipo": "controller",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:27:13.361982+00:00"
+    },
+    "servicos/api/Api/Controllers/MotoristaController.cs": {
+      "linhas": 73,
+      "tamanho_bytes": 2945,
+      "tokens_estimados": 736,
+      "tipo": "controller",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T23:16:11.250284+00:00"
+    },
+    "servicos/api/Api/Controllers/MovimentoPortariaController.cs": {
+      "linhas": 155,
+      "tamanho_bytes": 6109,
+      "tokens_estimados": 1527,
+      "tipo": "controller",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T23:16:02.128890+00:00"
+    },
+    "servicos/api/Api/Controllers/PainelChamadaController.cs": {
+      "linhas": 34,
+      "tamanho_bytes": 1137,
+      "tokens_estimados": 284,
+      "tipo": "controller",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:54:39.474512+00:00"
+    },
+    "servicos/api/Api/Controllers/PortariaController.cs": {
+      "linhas": 36,
+      "tamanho_bytes": 1311,
+      "tokens_estimados": 327,
+      "tipo": "controller",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:44:20.220813+00:00"
+    },
+    "servicos/api/Api/Controllers/TransportadoraController.cs": {
+      "linhas": 36,
+      "tamanho_bytes": 1374,
+      "tokens_estimados": 343,
+      "tipo": "controller",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:44:20.221847+00:00"
+    },
+    "servicos/api/Api/Controllers/UnidadeController.cs": {
+      "linhas": 36,
+      "tamanho_bytes": 1301,
+      "tokens_estimados": 325,
+      "tipo": "controller",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:31:52.030463+00:00"
+    },
+    "servicos/api/Api/Controllers/UsuarioController.cs": {
+      "linhas": 60,
+      "tamanho_bytes": 2159,
+      "tokens_estimados": 539,
+      "tipo": "controller",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:57:59.244067+00:00"
+    },
+    "servicos/api/Api/Controllers/VeiculoController.cs": {
+      "linhas": 36,
+      "tamanho_bytes": 1304,
+      "tokens_estimados": 326,
+      "tipo": "controller",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:44:20.223869+00:00"
+    },
+    "servicos/api/Api/Hubs/PainelChamadaHub.cs": {
+      "linhas": 20,
+      "tamanho_bytes": 544,
+      "tokens_estimados": 136,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:58:10.774901+00:00"
+    },
+    "servicos/api/Api/Identidade/AuditoriaService.cs": {
+      "linhas": 30,
+      "tamanho_bytes": 831,
+      "tokens_estimados": 207,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:58:13.368700+00:00"
+    },
+    "servicos/api/Api/Identidade/SeedAdmin.cs": {
+      "linhas": 45,
+      "tamanho_bytes": 1553,
+      "tokens_estimados": 388,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:26:22.046941+00:00"
+    },
+    "servicos/api/Api/Integracoes/AnexoStorage.cs": {
+      "linhas": 26,
+      "tamanho_bytes": 888,
+      "tokens_estimados": 222,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:53:09.542334+00:00"
+    },
+    "servicos/api/Api/Integracoes/EvolutionApiClient.cs": {
+      "linhas": 40,
+      "tamanho_bytes": 1472,
+      "tokens_estimados": 368,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T23:08:45.609724+00:00"
+    },
+    "servicos/api/Api/Integracoes/IEvolutionApiClient.cs": {
+      "linhas": 12,
+      "tamanho_bytes": 315,
+      "tokens_estimados": 78,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T23:08:32.969410+00:00"
+    },
+    "servicos/api/Api/Integracoes/NotificacoesPortariaService.cs": {
+      "linhas": 28,
+      "tamanho_bytes": 1101,
+      "tokens_estimados": 275,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:53:01.714918+00:00"
+    },
+    "servicos/api/Api/Integracoes/SmtpEmailSender.cs": {
+      "linhas": 35,
+      "tamanho_bytes": 1272,
+      "tokens_estimados": 318,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T23:08:55.603376+00:00"
+    },
+    "servicos/api/Api/Middleware/RequestLoggingMiddleware.cs": {
+      "linhas": 26,
+      "tamanho_bytes": 1029,
+      "tokens_estimados": 257,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:58:05.639024+00:00"
+    },
+    "servicos/api/Api/Middleware/SecurityHeadersMiddleware.cs": {
+      "linhas": 21,
+      "tamanho_bytes": 762,
+      "tokens_estimados": 190,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:58:13.364717+00:00"
+    },
+    "servicos/api/Api/Properties/launchSettings.json": {
+      "linhas": 24,
+      "tamanho_bytes": 644,
+      "tokens_estimados": 161,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:54:01.090807+00:00"
+    },
+    "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs": {
+      "linhas": 29,
+      "tamanho_bytes": 4082,
+      "tokens_estimados": 1020,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.237350+00:00"
+    },
+    "servicos/api/Api/Identidade/Servicos/AuthenticationService.cs": {
+      "linhas": 159,
+      "tamanho_bytes": 6309,
+      "tokens_estimados": 1577,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:26:06.134670+00:00"
+    },
+    "repositorios/Repositorios/Class1.cs": {
+      "linhas": 7,
+      "tamanho_bytes": 59,
+      "tokens_estimados": 14,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:53:57.554514+00:00"
+    },
+    "repositorios/Repositorios/Repositorios.csproj": {
+      "linhas": 0,
+      "tamanho_bytes": 1428,
+      "tokens_estimados": 357,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:55:39.230033+00:00"
+    },
+    "repositorios/Repositorios/Contexto/ContextoDB.cs": {
+      "linhas": 98,
+      "tamanho_bytes": 4021,
+      "tokens_estimados": 1005,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:55:40.594201+00:00"
+    },
+    "repositorios/Repositorios/Mapeamentos/MotoristaMaps.cs": {
+      "linhas": 22,
+      "tamanho_bytes": 981,
+      "tokens_estimados": 245,
+      "tipo": "mapeamento",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:43:42.427596+00:00"
+    },
+    "repositorios/Repositorios/Mapeamentos/MovimentoPortariaMaps.cs": {
+      "linhas": 116,
+      "tamanho_bytes": 5295,
+      "tokens_estimados": 1323,
+      "tipo": "mapeamento",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:48:39.439284+00:00"
+    },
+    "repositorios/Repositorios/Mapeamentos/PortariaMaps.cs": {
+      "linhas": 17,
+      "tamanho_bytes": 593,
+      "tokens_estimados": 148,
+      "tipo": "mapeamento",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:42:06.638664+00:00"
+    },
+    "repositorios/Repositorios/Mapeamentos/TransportadoraMaps.cs": {
+      "linhas": 19,
+      "tamanho_bytes": 803,
+      "tokens_estimados": 200,
+      "tipo": "mapeamento",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:42:48.118198+00:00"
+    },
+    "repositorios/Repositorios/Mapeamentos/UnidadeMaps.cs": {
+      "linhas": 18,
+      "tamanho_bytes": 714,
+      "tokens_estimados": 178,
+      "tipo": "mapeamento",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:31:04.374146+00:00"
+    },
+    "repositorios/Repositorios/Mapeamentos/VeiculoMaps.cs": {
+      "linhas": 20,
+      "tamanho_bytes": 783,
+      "tokens_estimados": 195,
+      "tipo": "mapeamento",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:43:20.291031+00:00"
+    },
+    "repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs": {
+      "linhas": 70,
+      "tamanho_bytes": 2631,
+      "tokens_estimados": 657,
+      "tipo": "repositorio_impl",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:53:55.128070+00:00"
+    },
+    "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs": {
+      "linhas": 189,
+      "tamanho_bytes": 7800,
+      "tokens_estimados": 1950,
+      "tipo": "repositorio_impl",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:51:10.722022+00:00"
+    },
+    "repositorios/Repositorios/Repositorio/PortariaRepositorio.cs": {
+      "linhas": 60,
+      "tamanho_bytes": 2064,
+      "tokens_estimados": 516,
+      "tipo": "repositorio_impl",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:42:06.639662+00:00"
+    },
+    "repositorios/Repositorios/Repositorio/TransportadoraRepositorio.cs": {
+      "linhas": 67,
+      "tamanho_bytes": 2551,
+      "tokens_estimados": 637,
+      "tipo": "repositorio_impl",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:42:48.118198+00:00"
+    },
+    "repositorios/Repositorios/Repositorio/UnidadeRepositorio.cs": {
+      "linhas": 60,
+      "tamanho_bytes": 2145,
+      "tokens_estimados": 536,
+      "tipo": "repositorio_impl",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:31:04.376155+00:00"
+    },
+    "repositorios/Repositorios/Repositorio/VeiculoRepositorio.cs": {
+      "linhas": 67,
+      "tamanho_bytes": 2426,
+      "tokens_estimados": 606,
+      "tipo": "repositorio_impl",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:43:20.293060+00:00"
+    },
+    "dominios/Dominios/Class1.cs": {
+      "linhas": 7,
+      "tamanho_bytes": 55,
+      "tokens_estimados": 13,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:53:49.933380+00:00"
+    },
+    "dominios/Dominios/Dominios.csproj": {
+      "linhas": 0,
+      "tamanho_bytes": 545,
+      "tokens_estimados": 136,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:56:56.417022+00:00"
+    },
+    "dominios/Dominios/Veiculos/Entidades/Veiculo.cs": {
+      "linhas": 33,
+      "tamanho_bytes": 936,
+      "tokens_estimados": 234,
+      "tipo": "entidade",
+      "agregado": "Veiculos",
+      "ultima_modificacao": "2026-05-07T22:43:20.286998+00:00"
+    },
+    "dominios/Dominios/Veiculos/IRepositorios/IVeiculoRepositorio.cs": {
+      "linhas": 17,
+      "tamanho_bytes": 593,
+      "tokens_estimados": 148,
+      "tipo": "repositorio_iface",
+      "agregado": "Veiculos",
+      "ultima_modificacao": "2026-05-07T22:43:20.291031+00:00"
+    },
+    "dominios/Dominios/Veiculos/Comandos/Entradas/AlterarVeiculoEntrada.cs": {
+      "linhas": 34,
+      "tamanho_bytes": 1242,
+      "tokens_estimados": 310,
+      "tipo": "comando_entrada",
+      "agregado": "Veiculos",
+      "ultima_modificacao": "2026-05-07T22:43:20.288009+00:00"
+    },
+    "dominios/Dominios/Veiculos/Comandos/Entradas/SalvarVeiculoEntrada.cs": {
+      "linhas": 32,
+      "tamanho_bytes": 1112,
+      "tokens_estimados": 278,
+      "tipo": "comando_entrada",
+      "agregado": "Veiculos",
+      "ultima_modificacao": "2026-05-07T22:43:20.288009+00:00"
+    },
+    "dominios/Dominios/Veiculos/Comandos/Handlers/VeiculoCommandHandler.cs": {
+      "linhas": 54,
+      "tamanho_bytes": 2558,
+      "tokens_estimados": 639,
+      "tipo": "handler",
+      "agregado": "Veiculos",
+      "ultima_modificacao": "2026-05-07T22:43:20.290022+00:00"
+    },
+    "dominios/Dominios/Veiculos/Comandos/Saidas/VeiculoSaida.cs": {
+      "linhas": 12,
+      "tamanho_bytes": 356,
+      "tokens_estimados": 89,
+      "tipo": "comando_saida",
+      "agregado": "Veiculos",
+      "ultima_modificacao": "2026-05-07T22:43:20.290022+00:00"
+    },
+    "dominios/Dominios/Unidades/Entidades/Unidade.cs": {
+      "linhas": 27,
+      "tamanho_bytes": 922,
+      "tokens_estimados": 230,
+      "tipo": "entidade",
+      "agregado": "Unidades",
+      "ultima_modificacao": "2026-05-07T22:31:04.369756+00:00"
+    },
+    "dominios/Dominios/Unidades/IRepositorios/IUnidadeRepositorio.cs": {
+      "linhas": 16,
+      "tamanho_bytes": 520,
+      "tokens_estimados": 130,
+      "tipo": "repositorio_iface",
+      "agregado": "Unidades",
+      "ultima_modificacao": "2026-05-07T22:31:04.373573+00:00"
+    },
+    "dominios/Dominios/Unidades/Comandos/Entradas/AlterarUnidadeEntrada.cs": {
+      "linhas": 28,
+      "tamanho_bytes": 875,
+      "tokens_estimados": 218,
+      "tipo": "comando_entrada",
+      "agregado": "Unidades",
+      "ultima_modificacao": "2026-05-07T22:31:04.371767+00:00"
+    },
+    "dominios/Dominios/Unidades/Comandos/Entradas/SalvarUnidadeEntrada.cs": {
+      "linhas": 26,
+      "tamanho_bytes": 745,
+      "tokens_estimados": 186,
+      "tipo": "comando_entrada",
+      "agregado": "Unidades",
+      "ultima_modificacao": "2026-05-07T22:31:04.369756+00:00"
+    },
+    "dominios/Dominios/Unidades/Comandos/Handlers/UnidadeCommandHandler.cs": {
+      "linhas": 50,
+      "tamanho_bytes": 2289,
+      "tokens_estimados": 572,
+      "tipo": "handler",
+      "agregado": "Unidades",
+      "ultima_modificacao": "2026-05-07T22:31:04.372798+00:00"
+    },
+    "dominios/Dominios/Unidades/Comandos/Saidas/UnidadeSaida.cs": {
+      "linhas": 25,
+      "tamanho_bytes": 803,
+      "tokens_estimados": 200,
+      "tipo": "comando_saida",
+      "agregado": "Unidades",
+      "ultima_modificacao": "2026-05-07T22:32:04.021448+00:00"
+    },
+    "dominios/Dominios/Transportadoras/Entidades/Transportadora.cs": {
+      "linhas": 30,
+      "tamanho_bytes": 834,
+      "tokens_estimados": 208,
+      "tipo": "entidade",
+      "agregado": "Transportadoras",
+      "ultima_modificacao": "2026-05-07T22:42:48.114196+00:00"
+    },
+    "dominios/Dominios/Transportadoras/IRepositorios/ITransportadoraRepositorio.cs": {
+      "linhas": 17,
+      "tamanho_bytes": 676,
+      "tokens_estimados": 169,
+      "tipo": "repositorio_iface",
+      "agregado": "Transportadoras",
+      "ultima_modificacao": "2026-05-07T22:42:48.117197+00:00"
+    },
+    "dominios/Dominios/Transportadoras/Comandos/Entradas/AlterarTransportadoraEntrada.cs": {
+      "linhas": 34,
+      "tamanho_bytes": 1329,
+      "tokens_estimados": 332,
+      "tipo": "comando_entrada",
+      "agregado": "Transportadoras",
+      "ultima_modificacao": "2026-05-07T22:42:48.116196+00:00"
+    },
+    "dominios/Dominios/Transportadoras/Comandos/Entradas/SalvarTransportadoraEntrada.cs": {
+      "linhas": 32,
+      "tamanho_bytes": 1185,
+      "tokens_estimados": 296,
+      "tipo": "comando_entrada",
+      "agregado": "Transportadoras",
+      "ultima_modificacao": "2026-05-07T22:42:48.115196+00:00"
+    },
+    "dominios/Dominios/Transportadoras/Comandos/Handlers/TransportadoraCommandHandler.cs": {
+      "linhas": 54,
+      "tamanho_bytes": 2681,
+      "tokens_estimados": 670,
+      "tipo": "handler",
+      "agregado": "Transportadoras",
+      "ultima_modificacao": "2026-05-07T22:42:48.117197+00:00"
+    },
+    "dominios/Dominios/Transportadoras/Comandos/Saidas/TransportadoraSaida.cs": {
+      "linhas": 11,
+      "tamanho_bytes": 353,
+      "tokens_estimados": 88,
+      "tipo": "comando_saida",
+      "agregado": "Transportadoras",
+      "ultima_modificacao": "2026-05-07T22:42:48.116196+00:00"
+    },
+    "dominios/Dominios/Portarias/Entidades/Portaria.cs": {
+      "linhas": 24,
+      "tamanho_bytes": 497,
+      "tokens_estimados": 124,
+      "tipo": "entidade",
+      "agregado": "Portarias",
+      "ultima_modificacao": "2026-05-07T22:42:06.631031+00:00"
+    },
+    "dominios/Dominios/Portarias/IRepositorios/IPortariaRepositorio.cs": {
+      "linhas": 16,
+      "tamanho_bytes": 531,
+      "tokens_estimados": 132,
+      "tipo": "repositorio_iface",
+      "agregado": "Portarias",
+      "ultima_modificacao": "2026-05-07T22:42:06.637663+00:00"
+    },
+    "dominios/Dominios/Portarias/Comandos/Entradas/AlterarPortariaEntrada.cs": {
+      "linhas": 28,
+      "tamanho_bytes": 894,
+      "tokens_estimados": 223,
+      "tipo": "comando_entrada",
+      "agregado": "Portarias",
+      "ultima_modificacao": "2026-05-07T22:42:06.635667+00:00"
+    },
+    "dominios/Dominios/Portarias/Comandos/Entradas/SalvarPortariaEntrada.cs": {
+      "linhas": 26,
+      "tamanho_bytes": 762,
+      "tokens_estimados": 190,
+      "tipo": "comando_entrada",
+      "agregado": "Portarias",
+      "ultima_modificacao": "2026-05-07T22:42:06.634390+00:00"
+    },
+    "dominios/Dominios/Portarias/Comandos/Handlers/PortariaCommandHandler.cs": {
+      "linhas": 50,
+      "tamanho_bytes": 2203,
+      "tokens_estimados": 550,
+      "tipo": "handler",
+      "agregado": "Portarias",
+      "ultima_modificacao": "2026-05-07T22:42:06.636664+00:00"
+    },
+    "dominios/Dominios/Portarias/Comandos/Saidas/PortariaSaida.cs": {
+      "linhas": 9,
+      "tamanho_bytes": 220,
+      "tokens_estimados": 55,
+      "tipo": "comando_saida",
+      "agregado": "Portarias",
+      "ultima_modificacao": "2026-05-07T22:42:06.636664+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/Entidades/Anexo.cs": {
+      "linhas": 16,
+      "tamanho_bytes": 528,
+      "tokens_estimados": 132,
+      "tipo": "entidade",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:47:42.528427+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/Entidades/EventoFluxo.cs": {
+      "linhas": 27,
+      "tamanho_bytes": 704,
+      "tokens_estimados": 176,
+      "tipo": "entidade",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:47:37.386398+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs": {
+      "linhas": 341,
+      "tamanho_bytes": 14022,
+      "tokens_estimados": 3505,
+      "tipo": "entidade",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:48:33.760689+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/Entidades/NotificacaoPendente.cs": {
+      "linhas": 18,
+      "tamanho_bytes": 674,
+      "tokens_estimados": 168,
+      "tipo": "entidade",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:47:48.534854+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/IRepositorios/IMovimentoPortariaRepositorio.cs": {
+      "linhas": 21,
+      "tamanho_bytes": 971,
+      "tokens_estimados": 242,
+      "tipo": "repositorio_iface",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:50:31.636417+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/Servicos/INotificacoesPortariaService.cs": {
+      "linhas": 16,
+      "tamanho_bytes": 472,
+      "tokens_estimados": 118,
+      "tipo": "outro",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:52:50.038586+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/CadastrarChegadaEntrada.cs": {
+      "linhas": 46,
+      "tamanho_bytes": 1657,
+      "tokens_estimados": 414,
+      "tipo": "comando_entrada",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:56:20.172243+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs": {
+      "linhas": 72,
+      "tamanho_bytes": 2661,
+      "tokens_estimados": 665,
+      "tipo": "comando_entrada",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:56:20.180052+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs": {
+      "linhas": 94,
+      "tamanho_bytes": 3206,
+      "tokens_estimados": 801,
+      "tipo": "comando_entrada",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:56:20.180052+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs": {
+      "linhas": 271,
+      "tamanho_bytes": 12979,
+      "tokens_estimados": 3244,
+      "tipo": "handler",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:56:42.450441+00:00"
+    },
+    "dominios/Dominios/MovimentosPortaria/Comandos/Saidas/MovimentoPortariaSaida.cs": {
+      "linhas": 88,
+      "tamanho_bytes": 3083,
+      "tokens_estimados": 770,
+      "tipo": "comando_saida",
+      "agregado": "MovimentosPortaria",
+      "ultima_modificacao": "2026-05-07T22:50:18.084689+00:00"
+    },
+    "dominios/Dominios/Motoristas/Entidades/Motorista.cs": {
+      "linhas": 39,
+      "tamanho_bytes": 1208,
+      "tokens_estimados": 302,
+      "tipo": "entidade",
+      "agregado": "Motoristas",
+      "ultima_modificacao": "2026-05-07T22:43:42.423081+00:00"
+    },
+    "dominios/Dominios/Motoristas/IRepositorios/IMotoristaRepositorio.cs": {
+      "linhas": 18,
+      "tamanho_bytes": 658,
+      "tokens_estimados": 164,
+      "tipo": "repositorio_iface",
+      "agregado": "Motoristas",
+      "ultima_modificacao": "2026-05-07T22:53:22.658566+00:00"
+    },
+    "dominios/Dominios/Motoristas/Comandos/Entradas/AlterarMotoristaEntrada.cs": {
+      "linhas": 38,
+      "tamanho_bytes": 1490,
+      "tokens_estimados": 372,
+      "tipo": "comando_entrada",
+      "agregado": "Motoristas",
+      "ultima_modificacao": "2026-05-07T22:43:42.425595+00:00"
+    },
+    "dominios/Dominios/Motoristas/Comandos/Entradas/SalvarMotoristaEntrada.cs": {
+      "linhas": 36,
+      "tamanho_bytes": 1356,
+      "tokens_estimados": 339,
+      "tipo": "comando_entrada",
+      "agregado": "Motoristas",
+      "ultima_modificacao": "2026-05-07T22:43:42.424588+00:00"
+    },
+    "dominios/Dominios/Motoristas/Comandos/Handlers/MotoristaCommandHandler.cs": {
+      "linhas": 54,
+      "tamanho_bytes": 2634,
+      "tokens_estimados": 658,
+      "tipo": "handler",
+      "agregado": "Motoristas",
+      "ultima_modificacao": "2026-05-07T22:43:42.426595+00:00"
+    },
+    "dominios/Dominios/Motoristas/Comandos/Saidas/MotoristaSaida.cs": {
+      "linhas": 14,
+      "tamanho_bytes": 458,
+      "tokens_estimados": 114,
+      "tipo": "comando_saida",
+      "agregado": "Motoristas",
+      "ultima_modificacao": "2026-05-07T22:43:42.425595+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Class1.cs": {
+      "linhas": 7,
+      "tamanho_bytes": 58,
+      "tokens_estimados": 14,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:53:42.634123+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/WebApi.Core.csproj": {
+      "linhas": 0,
+      "tamanho_bytes": 778,
+      "tokens_estimados": 194,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:54:52.679100+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Controller/MainController.cs": {
+      "linhas": 109,
+      "tamanho_bytes": 3141,
+      "tokens_estimados": 785,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.253278+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Identidade/AppSettings.cs": {
+      "linhas": 8,
+      "tamanho_bytes": 137,
+      "tokens_estimados": 34,
+      "tipo": "config",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.165099+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Identidade/CustomAuthorization.cs": {
+      "linhas": 50,
+      "tamanho_bytes": 1480,
+      "tokens_estimados": 370,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.199356+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Identidade/JwtConfig.cs": {
+      "linhas": 39,
+      "tamanho_bytes": 1433,
+      "tokens_estimados": 358,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.253278+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Middleware/ExceptionMiddleware.cs": {
+      "linhas": 66,
+      "tamanho_bytes": 2213,
+      "tokens_estimados": 553,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:15:09.833132+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Multitenant/IUnidadeContext.cs": {
+      "linhas": 11,
+      "tamanho_bytes": 232,
+      "tokens_estimados": 58,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:25:04.096634+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Multitenant/UnidadeContextHttp.cs": {
+      "linhas": 48,
+      "tamanho_bytes": 1177,
+      "tokens_estimados": 294,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:25:12.673692+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Usuario/AppTokenSettings.cs": {
+      "linhas": 8,
+      "tamanho_bytes": 139,
+      "tokens_estimados": 34,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.168132+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Usuario/AspNetUser.cs": {
+      "linhas": 60,
+      "tamanho_bytes": 1549,
+      "tokens_estimados": 387,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.172157+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Usuario/ClaimsPrincipalExtensions.cs": {
+      "linhas": 53,
+      "tamanho_bytes": 1410,
+      "tokens_estimados": 352,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.183268+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Usuario/IAspNetUser.cs": {
+      "linhas": 19,
+      "tamanho_bytes": 461,
+      "tokens_estimados": 115,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.226311+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Usuario/RefreshToken.cs": {
+      "linhas": 17,
+      "tamanho_bytes": 374,
+      "tokens_estimados": 93,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.276940+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Usuario/Usuario.cs": {
+      "linhas": 29,
+      "tamanho_bytes": 819,
+      "tokens_estimados": 204,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:25:42.999932+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Util/ConfigurationExtensions.cs": {
+      "linhas": 12,
+      "tamanho_bytes": 339,
+      "tokens_estimados": 84,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.196809+00:00"
+    },
+    "compartilhados/webApi.core/WebApi.Core/Util/UtilService.cs": {
+      "linhas": 29,
+      "tamanho_bytes": 590,
+      "tokens_estimados": 147,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.319243+00:00"
+    },
+    "compartilhados/core/Core/Class1.cs": {
+      "linhas": 7,
+      "tamanho_bytes": 51,
+      "tokens_estimados": 12,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:53:37.014015+00:00"
+    },
+    "compartilhados/core/Core/Core.csproj": {
+      "linhas": 0,
+      "tamanho_bytes": 451,
+      "tokens_estimados": 112,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T21:54:32.210171+00:00"
+    },
+    "compartilhados/core/Core/Communication/ResponseResult.cs": {
+      "linhas": 27,
+      "tamanho_bytes": 566,
+      "tokens_estimados": 141,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.283158+00:00"
+    },
+    "compartilhados/core/Core/Data/IRepository.cs": {
+      "linhas": 11,
+      "tamanho_bytes": 195,
+      "tokens_estimados": 48,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.247207+00:00"
+    },
+    "compartilhados/core/Core/Data/IUnitOfWork.cs": {
+      "linhas": 8,
+      "tamanho_bytes": 101,
+      "tokens_estimados": 25,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.249217+00:00"
+    },
+    "compartilhados/core/Core/Exeptions/ApiException.cs": {
+      "linhas": 16,
+      "tamanho_bytes": 312,
+      "tokens_estimados": 78,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.159052+00:00"
+    },
+    "compartilhados/core/Core/Exeptions/DominioException.cs": {
+      "linhas": 24,
+      "tamanho_bytes": 672,
+      "tokens_estimados": 168,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.208561+00:00"
+    },
+    "compartilhados/core/Core/Mediator/IMediatorHandler.cs": {
+      "linhas": 15,
+      "tamanho_bytes": 402,
+      "tokens_estimados": 100,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.237350+00:00"
+    },
+    "compartilhados/core/Core/Mediator/MediatorHandler.cs": {
+      "linhas": 41,
+      "tamanho_bytes": 1070,
+      "tokens_estimados": 267,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.259162+00:00"
+    },
+    "compartilhados/core/Core/Mensagens/CommandHandler.cs": {
+      "linhas": 98,
+      "tamanho_bytes": 2671,
+      "tokens_estimados": 667,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.193344+00:00"
+    },
+    "compartilhados/core/Core/Mensagens/Event.cs": {
+      "linhas": 16,
+      "tamanho_bytes": 263,
+      "tokens_estimados": 65,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.217512+00:00"
+    },
+    "compartilhados/core/Core/Mensagens/Message.cs": {
+      "linhas": 16,
+      "tamanho_bytes": 298,
+      "tokens_estimados": 74,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.263931+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Comand.cs": {
+      "linhas": 27,
+      "tamanho_bytes": 611,
+      "tokens_estimados": 152,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.183268+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/ComandResponse.cs": {
+      "linhas": 20,
+      "tamanho_bytes": 414,
+      "tokens_estimados": 103,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.187799+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/ComandResult.cs": {
+      "linhas": 68,
+      "tamanho_bytes": 2034,
+      "tokens_estimados": 508,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.190635+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Data.cs": {
+      "linhas": 33,
+      "tamanho_bytes": 677,
+      "tokens_estimados": 169,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.204736+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Entity.cs": {
+      "linhas": 93,
+      "tamanho_bytes": 2212,
+      "tokens_estimados": 553,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.215492+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/IAggregateRoot.cs": {
+      "linhas": 5,
+      "tamanho_bytes": 76,
+      "tokens_estimados": 19,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.223275+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/IComandResult.cs": {
+      "linhas": 11,
+      "tamanho_bytes": 223,
+      "tokens_estimados": 55,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.229948+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/PagedResult.cs": {
+      "linhas": 12,
+      "tamanho_bytes": 312,
+      "tokens_estimados": 78,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.265955+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Paginacao.cs": {
+      "linhas": 21,
+      "tamanho_bytes": 486,
+      "tokens_estimados": 121,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.268706+00:00"
+    },
+    "compartilhados/core/Core/Paginacao/PaginacaoOutput.cs": {
+      "linhas": 11,
+      "tamanho_bytes": 222,
+      "tokens_estimados": 55,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.271733+00:00"
+    },
+    "compartilhados/core/Core/Paginacao/QueryableExtensions.cs": {
+      "linhas": 13,
+      "tamanho_bytes": 371,
+      "tokens_estimados": 92,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.273252+00:00"
+    },
+    "compartilhados/core/Core/Services/BaseApiService.cs": {
+      "linhas": 186,
+      "tamanho_bytes": 6373,
+      "tokens_estimados": 1593,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.178580+00:00"
+    },
+    "compartilhados/core/Core/Util/CustomHttpRequestException.cs": {
+      "linhas": 20,
+      "tamanho_bytes": 465,
+      "tokens_estimados": 116,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.203218+00:00"
+    },
+    "compartilhados/core/Core/Util/DataBrasilia.cs": {
+      "linhas": 31,
+      "tamanho_bytes": 897,
+      "tokens_estimados": 224,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.208561+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Autorizacao/PapelUsuario.cs": {
+      "linhas": 10,
+      "tamanho_bytes": 139,
+      "tokens_estimados": 34,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:24:48.406095+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Autorizacao/PoliticasAuth.cs": {
+      "linhas": 14,
+      "tamanho_bytes": 486,
+      "tokens_estimados": 121,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T22:24:56.725961+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Usuarios/Entidade/UsuarioClaim.cs": {
+      "linhas": 9,
+      "tamanho_bytes": 165,
+      "tokens_estimados": 41,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.283679+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Usuarios/Entidade/UsuarioRespostaLogin.cs": {
+      "linhas": 11,
+      "tamanho_bytes": 288,
+      "tokens_estimados": 72,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.309101+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Usuarios/Entidade/UsuarioToken.cs": {
+      "linhas": 10,
+      "tamanho_bytes": 225,
+      "tokens_estimados": 56,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.311119+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioLoginEntrada.cs": {
+      "linhas": 50,
+      "tamanho_bytes": 1611,
+      "tokens_estimados": 402,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.298332+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioRegistroEntrada.cs": {
+      "linhas": 65,
+      "tamanho_bytes": 1989,
+      "tokens_estimados": 497,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.303401+00:00"
+    },
+    "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioTrocarSenhaEntrada.cs": {
+      "linhas": 51,
+      "tamanho_bytes": 1491,
+      "tokens_estimados": 372,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.315665+00:00"
+    },
+    "compartilhados/core/Core/Mensagens/Integrations/IntegrationEvent.cs": {
+      "linhas": 9,
+      "tamanho_bytes": 137,
+      "tokens_estimados": 34,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.243143+00:00"
+    },
+    "compartilhados/core/Core/Mensagens/Integrations/ResponseMessage.cs": {
+      "linhas": 15,
+      "tamanho_bytes": 351,
+      "tokens_estimados": 87,
+      "tipo": "outro",
+      "agregado": "",
+      "ultima_modificacao": "2026-05-07T20:22:10.278952+00:00"
+    }
+  },
+  "simbolos": [
+    {
+      "nome": "Program",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Program.cs",
+      "linha": 7,
+      "namespace": "Api",
+      "assinatura": "public class Program"
+    },
+    {
+      "nome": "Main",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Program.cs",
+      "linha": 9,
+      "assinatura": "public static async Task Main(string[] args)"
+    },
+    {
+      "nome": "CreateHostBuilder",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Program.cs",
+      "linha": 30,
+      "assinatura": "public static IHostBuilder CreateHostBuilder(string[] args) =>"
+    },
+    {
+      "nome": "Startup",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Startup.cs",
+      "linha": 9,
+      "namespace": "Api",
+      "assinatura": "public class Startup"
+    },
+    {
+      "nome": "ConfigureServices",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Startup.cs",
+      "linha": 25,
+      "assinatura": "public void ConfigureServices(IServiceCollection services)"
+    },
+    {
+      "nome": "Configure",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Startup.cs",
+      "linha": 47,
+      "assinatura": "public void Configure(IApplicationBuilder app, IWebHostEnvironment env)"
+    },
+    {
+      "nome": "NotificacaoWorker",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/BackgroundServices/NotificacaoWorker.cs",
+      "linha": 15,
+      "namespace": "Api.BackgroundServices",
+      "assinatura": "public class NotificacaoWorker : BackgroundService"
+    },
+    {
+      "nome": "ChamadaExpiradaWorker",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/BackgroundServices/NotificacaoWorker.cs",
+      "linha": 138,
+      "namespace": "Api.BackgroundServices",
+      "assinatura": "public class ChamadaExpiradaWorker : BackgroundService"
+    },
+    {
+      "nome": "ApiConfig",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Configuration/ApiConfig.cs",
+      "linha": 11,
+      "namespace": "Api.Configuration",
+      "assinatura": "public static class ApiConfig"
+    },
+    {
+      "nome": "AddApiConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/ApiConfig.cs",
+      "linha": 13,
+      "assinatura": "public static void AddApiConfiguration(this IServiceCollection services, IConfiguration configuration)"
+    },
+    {
+      "nome": "UseApiConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/ApiConfig.cs",
+      "linha": 43,
+      "assinatura": "public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)"
+    },
+    {
+      "nome": "AuthorizationConfig",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Configuration/AuthorizationConfig.cs",
+      "linha": 6,
+      "namespace": "Api.Configuration",
+      "assinatura": "public static class AuthorizationConfig"
+    },
+    {
+      "nome": "AddAuthorizationConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/AuthorizationConfig.cs",
+      "linha": 11,
+      "assinatura": "public static IServiceCollection AddAuthorizationConfiguration(this IServiceCollection services)"
+    },
+    {
+      "nome": "DependencyInjectionConfig",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Configuration/DependencyInjectionConfig.cs",
+      "linha": 33,
+      "namespace": "Api.Configuration",
+      "assinatura": "public static class DependencyInjectionConfig"
+    },
+    {
+      "nome": "RegisterServices",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/DependencyInjectionConfig.cs",
+      "linha": 35,
+      "assinatura": "public static void RegisterServices(this IServiceCollection services)"
+    },
+    {
+      "nome": "HealthCheckConfig",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Configuration/HealthCheckConfig.cs",
+      "linha": 7,
+      "namespace": "Api.Configuration",
+      "assinatura": "public static class HealthCheckConfig"
+    },
+    {
+      "nome": "AddHealthCheckConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/HealthCheckConfig.cs",
+      "linha": 9,
+      "assinatura": "public static IServiceCollection AddHealthCheckConfiguration(this IServiceCollection services, IConfiguration configurat"
+    },
+    {
+      "nome": "UseHealthCheckConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/HealthCheckConfig.cs",
+      "linha": 19,
+      "assinatura": "public static IApplicationBuilder UseHealthCheckConfiguration(this IApplicationBuilder app)"
+    },
+    {
+      "nome": "IdentityConfig",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Configuration/IdentityConfig.cs",
+      "linha": 9,
+      "namespace": "Api.Configuration",
+      "assinatura": "public static class IdentityConfig"
+    },
+    {
+      "nome": "AddIdentityConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/IdentityConfig.cs",
+      "linha": 11,
+      "assinatura": "public static IServiceCollection AddIdentityConfiguration(this IServiceCollection services,"
+    },
+    {
+      "nome": "LoggingConfig",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Configuration/LoggingConfig.cs",
+      "linha": 7,
+      "namespace": "Api.Configuration",
+      "assinatura": "public static class LoggingConfig"
+    },
+    {
+      "nome": "ConfigurarSerilog",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/LoggingConfig.cs",
+      "linha": 9,
+      "assinatura": "public static void ConfigurarSerilog(this WebApplicationBuilder builder)"
+    },
+    {
+      "nome": "RateLimitConfig",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Configuration/RateLimitConfig.cs",
+      "linha": 6,
+      "namespace": "Api.Configuration",
+      "assinatura": "public static class RateLimitConfig"
+    },
+    {
+      "nome": "AddRateLimitConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/RateLimitConfig.cs",
+      "linha": 8,
+      "assinatura": "public static IServiceCollection AddRateLimitConfiguration(this IServiceCollection services)"
+    },
+    {
+      "nome": "SignalRConfig",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Configuration/SignalRConfig.cs",
+      "linha": 7,
+      "namespace": "Api.Configuration",
+      "assinatura": "public static class SignalRConfig"
+    },
+    {
+      "nome": "AddSignalRConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/SignalRConfig.cs",
+      "linha": 9,
+      "assinatura": "public static IServiceCollection AddSignalRConfiguration(this IServiceCollection services)"
+    },
+    {
+      "nome": "UseSignalRConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/SignalRConfig.cs",
+      "linha": 15,
+      "assinatura": "public static IApplicationBuilder UseSignalRConfiguration(this IApplicationBuilder app)"
+    },
+    {
+      "nome": "SwaggerConfig",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Configuration/SwaggerConfig.cs",
+      "linha": 5,
+      "namespace": "Api.Configuration",
+      "assinatura": "public static class SwaggerConfig"
+    },
+    {
+      "nome": "AddSwaggerConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/SwaggerConfig.cs",
+      "linha": 7,
+      "assinatura": "public static void AddSwaggerConfiguration(this IServiceCollection services)"
+    },
+    {
+      "nome": "UseSwaggerConfiguration",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Configuration/SwaggerConfig.cs",
+      "linha": 47,
+      "assinatura": "public static void UseSwaggerConfiguration(this IApplicationBuilder app)"
+    },
+    {
+      "nome": "AuthController",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/AuthController.cs",
+      "linha": 18,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class AuthController : MainController"
+    },
+    {
+      "nome": "Registrar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/AuthController.cs",
+      "linha": 31,
+      "assinatura": "public async Task<IComandResult> Registrar(UsuarioRegistroEntrada cmd)"
+    },
+    {
+      "nome": "Entrar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/AuthController.cs",
+      "linha": 48,
+      "assinatura": "public async Task<IComandResult> Entrar(UsuarioLoginEntrada cmd)"
+    },
+    {
+      "nome": "Refresh",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/AuthController.cs",
+      "linha": 64,
+      "assinatura": "public async Task<IComandResult> Refresh([FromBody] RefreshTokenEntrada cmd)"
+    },
+    {
+      "nome": "TrocarSenha",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/AuthController.cs",
+      "linha": 82,
+      "assinatura": "public async Task<IComandResult> TrocarSenha(UsuarioTrocarSenhaEntrada cmd)"
+    },
+    {
+      "nome": "RefreshTokenEntrada",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/AuthController.cs",
+      "linha": 98,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class RefreshTokenEntrada"
+    },
+    {
+      "nome": "MotoristaController",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 15,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class MotoristaController : MainController"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 27,
+      "assinatura": "public async Task<IComandResult> Salvar(SalvarMotoristaEntrada cmd) => await _mediator.EnviarComando(cmd);"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 30,
+      "assinatura": "public async Task<IComandResult> Alterar(AlterarMotoristaEntrada cmd) => await _mediator.EnviarComando(cmd);"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 33,
+      "assinatura": "public async Task<PagedResult<MotoristaSaida>> Listar(int pageIndex, int pageSize, [FromQuery] string? filter = null)"
+    },
+    {
+      "nome": "ObterPorId",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 37,
+      "assinatura": "public async Task<IActionResult> ObterPorId(Guid id)"
+    },
+    {
+      "nome": "AlterarStatus",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 51,
+      "assinatura": "public async Task<IComandResult> AlterarStatus(Guid id, [FromBody] AlterarStatusMotoristaEntrada body)"
+    },
+    {
+      "nome": "AlterarStatusMotoristaEntrada",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 68,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class AlterarStatusMotoristaEntrada"
+    },
+    {
+      "nome": "MovimentoPortariaController",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 15,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class MovimentoPortariaController : MainController"
+    },
+    {
+      "nome": "CadastrarChegada",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 28,
+      "assinatura": "public async Task<IComandResult> CadastrarChegada(CadastrarChegadaEntrada cmd)"
+    },
+    {
+      "nome": "ConfirmarEntrada",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 33,
+      "assinatura": "public async Task<IComandResult> ConfirmarEntrada(Guid id)"
+    },
+    {
+      "nome": "RegistrarSaida",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 38,
+      "assinatura": "public async Task<IComandResult> RegistrarSaida(Guid id, [FromBody] RegistrarSaidaEntrada cmd)"
+    },
+    {
+      "nome": "Chamar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 47,
+      "assinatura": "public async Task<IComandResult> Chamar(Guid id)"
+    },
+    {
+      "nome": "RecancelarChamada",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 53,
+      "assinatura": "public async Task<IComandResult> RecancelarChamada(Guid id)"
+    },
+    {
+      "nome": "Cancelar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 58,
+      "assinatura": "public async Task<IComandResult> Cancelar(Guid id, [FromBody] CancelarMovimentoEntrada cmd)"
+    },
+    {
+      "nome": "Desistir",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 66,
+      "assinatura": "public async Task<IComandResult> Desistir(Guid id, [FromBody] DesistirMovimentoEntrada cmd)"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 74,
+      "assinatura": "public async Task<IComandResult> Alterar(Guid id, [FromBody] AlterarMovimentoEntrada cmd)"
+    },
+    {
+      "nome": "Anexar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 83,
+      "assinatura": "public async Task<IComandResult> Anexar(Guid id, [FromForm] IFormFile arquivo, [FromForm] int estagio)"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 101,
+      "assinatura": "public async Task<PagedResult<MovimentoPortariaSaida>> Listar(int pageIndex, int pageSize, [FromQuery] string? filter = "
+    },
+    {
+      "nome": "ObterPorId",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 105,
+      "assinatura": "public async Task<IActionResult> ObterPorId(Guid id)"
+    },
+    {
+      "nome": "ListarEventos",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 142,
+      "assinatura": "public async Task<List<EventoFluxoSaida>> ListarEventos(Guid id) => await _repositorio.ListarEventos(id);"
+    },
+    {
+      "nome": "ListarAnexos",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 145,
+      "assinatura": "public async Task<List<AnexoSaida>> ListarAnexos(Guid id) => await _repositorio.ListarAnexos(id);"
+    },
+    {
+      "nome": "AutoFill",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 148,
+      "assinatura": "public async Task<AutoFillPlacaSaida> AutoFill(Guid carretaId, [FromServices] WebApi.Core.Multitenant.IUnidadeContext un"
+    },
+    {
+      "nome": "ResumoDia",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 152,
+      "assinatura": "public async Task<ResumoDiaSaida> ResumoDia([FromServices] WebApi.Core.Multitenant.IUnidadeContext unidade)"
+    },
+    {
+      "nome": "PainelChamadaController",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/PainelChamadaController.cs",
+      "linha": 14,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class PainelChamadaController : MainController"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/PainelChamadaController.cs",
+      "linha": 31,
+      "assinatura": "public async Task<List<PainelChamadaItemSaida>> Listar()"
+    },
+    {
+      "nome": "PortariaController",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/PortariaController.cs",
+      "linha": 15,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class PortariaController : MainController"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/PortariaController.cs",
+      "linha": 27,
+      "assinatura": "public async Task<IComandResult> Salvar(SalvarPortariaEntrada cmd) => await _mediator.EnviarComando(cmd);"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/PortariaController.cs",
+      "linha": 30,
+      "assinatura": "public async Task<IComandResult> Alterar(AlterarPortariaEntrada cmd) => await _mediator.EnviarComando(cmd);"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/PortariaController.cs",
+      "linha": 33,
+      "assinatura": "public async Task<PagedResult<PortariaSaida>> Listar(int pageIndex, int pageSize, [FromQuery] string? filter = null)"
+    },
+    {
+      "nome": "TransportadoraController",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/TransportadoraController.cs",
+      "linha": 15,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class TransportadoraController : MainController"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/TransportadoraController.cs",
+      "linha": 27,
+      "assinatura": "public async Task<IComandResult> Salvar(SalvarTransportadoraEntrada cmd) => await _mediator.EnviarComando(cmd);"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/TransportadoraController.cs",
+      "linha": 30,
+      "assinatura": "public async Task<IComandResult> Alterar(AlterarTransportadoraEntrada cmd) => await _mediator.EnviarComando(cmd);"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/TransportadoraController.cs",
+      "linha": 33,
+      "assinatura": "public async Task<PagedResult<TransportadoraSaida>> Listar(int pageIndex, int pageSize, [FromQuery] string? filter = nul"
+    },
+    {
+      "nome": "UnidadeController",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/UnidadeController.cs",
+      "linha": 15,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class UnidadeController : MainController"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/UnidadeController.cs",
+      "linha": 27,
+      "assinatura": "public async Task<IComandResult> Salvar(SalvarUnidadeEntrada cmd) => await _mediator.EnviarComando(cmd);"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/UnidadeController.cs",
+      "linha": 30,
+      "assinatura": "public async Task<IComandResult> Alterar(AlterarUnidadeEntrada cmd) => await _mediator.EnviarComando(cmd);"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/UnidadeController.cs",
+      "linha": 33,
+      "assinatura": "public async Task<PagedResult<UnidadeSaida>> Listar(int pageIndex, int pageSize, [FromQuery] string? filter = null)"
+    },
+    {
+      "nome": "UsuarioController",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/UsuarioController.cs",
+      "linha": 14,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class UsuarioController : MainController"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/UsuarioController.cs",
+      "linha": 21,
+      "assinatura": "public async Task<object> Listar(int pageIndex, int pageSize, [FromQuery] string? filter = null)"
+    },
+    {
+      "nome": "AlterarPapel",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/UsuarioController.cs",
+      "linha": 42,
+      "assinatura": "public async Task<IComandResult> AlterarPapel(string id, [FromBody] AlterarPapelEntrada body)"
+    },
+    {
+      "nome": "AlterarPapelEntrada",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/UsuarioController.cs",
+      "linha": 54,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class AlterarPapelEntrada"
+    },
+    {
+      "nome": "VeiculoController",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Controllers/VeiculoController.cs",
+      "linha": 15,
+      "namespace": "Api.Controllers",
+      "assinatura": "public class VeiculoController : MainController"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/VeiculoController.cs",
+      "linha": 27,
+      "assinatura": "public async Task<IComandResult> Salvar(SalvarVeiculoEntrada cmd) => await _mediator.EnviarComando(cmd);"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/VeiculoController.cs",
+      "linha": 30,
+      "assinatura": "public async Task<IComandResult> Alterar(AlterarVeiculoEntrada cmd) => await _mediator.EnviarComando(cmd);"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Controllers/VeiculoController.cs",
+      "linha": 33,
+      "assinatura": "public async Task<PagedResult<VeiculoSaida>> Listar(int pageIndex, int pageSize, [FromQuery] string? filter = null)"
+    },
+    {
+      "nome": "PainelChamadaHub",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Hubs/PainelChamadaHub.cs",
+      "linha": 8,
+      "namespace": "Api.Hubs",
+      "assinatura": "public class PainelChamadaHub : Hub"
+    },
+    {
+      "nome": "EntrarGrupoUnidade",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Hubs/PainelChamadaHub.cs",
+      "linha": 10,
+      "assinatura": "public async Task EntrarGrupoUnidade(string unidadeId)"
+    },
+    {
+      "nome": "SairGrupoUnidade",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Hubs/PainelChamadaHub.cs",
+      "linha": 15,
+      "assinatura": "public async Task SairGrupoUnidade(string unidadeId)"
+    },
+    {
+      "nome": "TipoEventoAuditoria",
+      "tipo": "enum",
+      "arquivo": "servicos/api/Api/Identidade/AuditoriaService.cs",
+      "linha": 5,
+      "namespace": "Api.Identidade",
+      "assinatura": "public enum TipoEventoAuditoria"
+    },
+    {
+      "nome": "AuditoriaService",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Identidade/AuditoriaService.cs",
+      "linha": 17,
+      "namespace": "Api.Identidade",
+      "assinatura": "public class AuditoriaService"
+    },
+    {
+      "nome": "Registrar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/AuditoriaService.cs",
+      "linha": 23,
+      "assinatura": "public void Registrar(TipoEventoAuditoria tipo, string usuarioEmail, string? ipAddress = null, string? detalhes = null)"
+    },
+    {
+      "nome": "SeedAdmin",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Identidade/SeedAdmin.cs",
+      "linha": 7,
+      "namespace": "Api.Identidade",
+      "assinatura": "public static class SeedAdmin"
+    },
+    {
+      "nome": "Executar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/SeedAdmin.cs",
+      "linha": 9,
+      "assinatura": "public static async Task Executar(IServiceProvider sp, string email, string senha, string[] roles)"
+    },
+    {
+      "nome": "AnexoStorage",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Integracoes/AnexoStorage.cs",
+      "linha": 6,
+      "namespace": "Api.Integracoes",
+      "assinatura": "public class AnexoStorage : IAnexoStorage"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Integracoes/AnexoStorage.cs",
+      "linha": 15,
+      "assinatura": "public async Task<string> Salvar(Guid unidadeId, Guid movimentoId, string nomeOriginal, byte[] conteudo)"
+    },
+    {
+      "nome": "EvolutionApiClient",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Integracoes/EvolutionApiClient.cs",
+      "linha": 8,
+      "namespace": "Api.Integracoes",
+      "assinatura": "public class EvolutionApiClient : IEvolutionApiClient"
+    },
+    {
+      "nome": "EnviarMensagem",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Integracoes/EvolutionApiClient.cs",
+      "linha": 18,
+      "assinatura": "public async Task EnviarMensagem(string urlBase, string token, string instancia, string telefone, string mensagem, Cance"
+    },
+    {
+      "nome": "IEvolutionApiClient",
+      "tipo": "interface",
+      "arquivo": "servicos/api/Api/Integracoes/IEvolutionApiClient.cs",
+      "linha": 3,
+      "namespace": "Api.Integracoes",
+      "assinatura": "public interface IEvolutionApiClient"
+    },
+    {
+      "nome": "IEmailSender",
+      "tipo": "interface",
+      "arquivo": "servicos/api/Api/Integracoes/IEvolutionApiClient.cs",
+      "linha": 8,
+      "namespace": "Api.Integracoes",
+      "assinatura": "public interface IEmailSender"
+    },
+    {
+      "nome": "NotificacoesPortariaService",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Integracoes/NotificacoesPortariaService.cs",
+      "linha": 8,
+      "namespace": "Api.Integracoes",
+      "assinatura": "public class NotificacoesPortariaService : INotificacoesPortariaService"
+    },
+    {
+      "nome": "EnfileirarChamadaParaMotorista",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Integracoes/NotificacoesPortariaService.cs",
+      "linha": 10,
+      "assinatura": "public void EnfileirarChamadaParaMotorista(MovimentoPortaria movimento, Motorista motorista)"
+    },
+    {
+      "nome": "NotificarPortariaViaSocket",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Integracoes/NotificacoesPortariaService.cs",
+      "linha": 21,
+      "assinatura": "public void NotificarPortariaViaSocket(MovimentoPortaria movimento)"
+    },
+    {
+      "nome": "SmtpEmailSender",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Integracoes/SmtpEmailSender.cs",
+      "linha": 9,
+      "namespace": "Api.Integracoes",
+      "assinatura": "public class SmtpEmailSender : IEmailSender"
+    },
+    {
+      "nome": "Enviar",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Integracoes/SmtpEmailSender.cs",
+      "linha": 15,
+      "assinatura": "public async Task Enviar(string para, string assunto, string corpo, CancellationToken ct)"
+    },
+    {
+      "nome": "RequestLoggingMiddleware",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Middleware/RequestLoggingMiddleware.cs",
+      "linha": 6,
+      "namespace": "Api.Middleware",
+      "assinatura": "public static class RequestLoggingMiddleware"
+    },
+    {
+      "nome": "UseRequestLogging",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Middleware/RequestLoggingMiddleware.cs",
+      "linha": 8,
+      "assinatura": "public static IApplicationBuilder UseRequestLogging(this IApplicationBuilder app)"
+    },
+    {
+      "nome": "SecurityHeadersMiddleware",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Middleware/SecurityHeadersMiddleware.cs",
+      "linha": 6,
+      "namespace": "Api.Middleware",
+      "assinatura": "public static class SecurityHeadersMiddleware"
+    },
+    {
+      "nome": "UseSecurityHeaders",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Middleware/SecurityHeadersMiddleware.cs",
+      "linha": 8,
+      "assinatura": "public static IApplicationBuilder UseSecurityHeaders(this IApplicationBuilder app)"
+    },
+    {
+      "nome": "IdentityMensagensPortugues",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 5,
+      "namespace": "Api.Identidade.Extensions",
+      "assinatura": "public class IdentityMensagensPortugues : IdentityErrorDescriber"
+    },
+    {
+      "nome": "DefaultError",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 7,
+      "assinatura": "public override IdentityError DefaultError() { return new IdentityError { Code = nameof(DefaultError), Description = $\"O"
+    },
+    {
+      "nome": "ConcurrencyFailure",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 8,
+      "assinatura": "public override IdentityError ConcurrencyFailure() { return new IdentityError { Code = nameof(ConcurrencyFailure), Descr"
+    },
+    {
+      "nome": "PasswordMismatch",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 9,
+      "assinatura": "public override IdentityError PasswordMismatch() { return new IdentityError { Code = nameof(PasswordMismatch), Descripti"
+    },
+    {
+      "nome": "InvalidToken",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 10,
+      "assinatura": "public override IdentityError InvalidToken() { return new IdentityError { Code = nameof(InvalidToken), Description = \"To"
+    },
+    {
+      "nome": "LoginAlreadyAssociated",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 11,
+      "assinatura": "public override IdentityError LoginAlreadyAssociated() { return new IdentityError { Code = nameof(LoginAlreadyAssociated"
+    },
+    {
+      "nome": "InvalidUserName",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 12,
+      "assinatura": "public override IdentityError InvalidUserName(string userName) { return new IdentityError { Code = nameof(InvalidUserNam"
+    },
+    {
+      "nome": "InvalidEmail",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 13,
+      "assinatura": "public override IdentityError InvalidEmail(string email) { return new IdentityError { Code = nameof(InvalidEmail), Descr"
+    },
+    {
+      "nome": "DuplicateUserName",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 14,
+      "assinatura": "public override IdentityError DuplicateUserName(string userName) { return new IdentityError { Code = nameof(DuplicateUse"
+    },
+    {
+      "nome": "DuplicateEmail",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 15,
+      "assinatura": "public override IdentityError DuplicateEmail(string email) { return new IdentityError { Code = nameof(DuplicateEmail), D"
+    },
+    {
+      "nome": "InvalidRoleName",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 16,
+      "assinatura": "public override IdentityError InvalidRoleName(string role) { return new IdentityError { Code = nameof(InvalidRoleName), "
+    },
+    {
+      "nome": "DuplicateRoleName",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 17,
+      "assinatura": "public override IdentityError DuplicateRoleName(string role) { return new IdentityError { Code = nameof(DuplicateRoleNam"
+    },
+    {
+      "nome": "UserAlreadyHasPassword",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 18,
+      "assinatura": "public override IdentityError UserAlreadyHasPassword() { return new IdentityError { Code = nameof(UserAlreadyHasPassword"
+    },
+    {
+      "nome": "UserLockoutNotEnabled",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 19,
+      "assinatura": "public override IdentityError UserLockoutNotEnabled() { return new IdentityError { Code = nameof(UserLockoutNotEnabled),"
+    },
+    {
+      "nome": "UserAlreadyInRole",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 20,
+      "assinatura": "public override IdentityError UserAlreadyInRole(string role) { return new IdentityError { Code = nameof(UserAlreadyInRol"
+    },
+    {
+      "nome": "UserNotInRole",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 21,
+      "assinatura": "public override IdentityError UserNotInRole(string role) { return new IdentityError { Code = nameof(UserNotInRole), Desc"
+    },
+    {
+      "nome": "PasswordTooShort",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 22,
+      "assinatura": "public override IdentityError PasswordTooShort(int length) { return new IdentityError { Code = nameof(PasswordTooShort),"
+    },
+    {
+      "nome": "PasswordRequiresNonAlphanumeric",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 23,
+      "assinatura": "public override IdentityError PasswordRequiresNonAlphanumeric() { return new IdentityError { Code = nameof(PasswordRequi"
+    },
+    {
+      "nome": "PasswordRequiresDigit",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 24,
+      "assinatura": "public override IdentityError PasswordRequiresDigit() { return new IdentityError { Code = nameof(PasswordRequiresDigit),"
+    },
+    {
+      "nome": "PasswordRequiresLower",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 25,
+      "assinatura": "public override IdentityError PasswordRequiresLower() { return new IdentityError { Code = nameof(PasswordRequiresLower),"
+    },
+    {
+      "nome": "PasswordRequiresUpper",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Extensions/IdentityMensagensPortugues.cs",
+      "linha": 26,
+      "assinatura": "public override IdentityError PasswordRequiresUpper() { return new IdentityError { Code = nameof(PasswordRequiresUpper),"
+    },
+    {
+      "nome": "AuthenticationService",
+      "tipo": "class",
+      "arquivo": "servicos/api/Api/Identidade/Servicos/AuthenticationService.cs",
+      "linha": 17,
+      "namespace": "Api.Identidade.Servicos",
+      "assinatura": "public class AuthenticationService"
+    },
+    {
+      "nome": "GerarJwt",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Servicos/AuthenticationService.cs",
+      "linha": 52,
+      "assinatura": "public async Task<UsuarioRespostaLogin> GerarJwt(string email)"
+    },
+    {
+      "nome": "ObterRefreshToken",
+      "tipo": "method",
+      "arquivo": "servicos/api/Api/Identidade/Servicos/AuthenticationService.cs",
+      "linha": 148,
+      "assinatura": "public async Task<RefreshToken> ObterRefreshToken(Guid refreshToken)"
+    },
+    {
+      "nome": "Class1",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Class1.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class Class1"
+    },
+    {
+      "nome": "ContextoDB",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Contexto/ContextoDB.cs",
+      "linha": 20,
+      "namespace": "Repositorios.Contexto",
+      "assinatura": "public class ContextoDB : IdentityDbContext<Usuario>, ISecurityKeyContext, IUnitOfWork"
+    },
+    {
+      "nome": "Commit",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Contexto/ContextoDB.cs",
+      "linha": 68,
+      "assinatura": "public async Task<bool> Commit()"
+    },
+    {
+      "nome": "MediatorExtension",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Contexto/ContextoDB.cs",
+      "linha": 76,
+      "namespace": "Repositorios.Contexto",
+      "assinatura": "public static class MediatorExtension"
+    },
+    {
+      "nome": "MotoristaMaps",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/MotoristaMaps.cs",
+      "linha": 7,
+      "namespace": "Repositorios.Mapeamentos",
+      "assinatura": "public class MotoristaMaps : IEntityTypeConfiguration<Motorista>"
+    },
+    {
+      "nome": "Configure",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/MotoristaMaps.cs",
+      "linha": 9,
+      "assinatura": "public void Configure(EntityTypeBuilder<Motorista> builder)"
+    },
+    {
+      "nome": "MovimentoPortariaMaps",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/MovimentoPortariaMaps.cs",
+      "linha": 7,
+      "namespace": "Repositorios.Mapeamentos",
+      "assinatura": "public class MovimentoPortariaMaps : IEntityTypeConfiguration<MovimentoPortaria>"
+    },
+    {
+      "nome": "Configure",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/MovimentoPortariaMaps.cs",
+      "linha": 9,
+      "assinatura": "public void Configure(EntityTypeBuilder<MovimentoPortaria> builder)"
+    },
+    {
+      "nome": "EventoFluxoMaps",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/MovimentoPortariaMaps.cs",
+      "linha": 77,
+      "namespace": "Repositorios.Mapeamentos",
+      "assinatura": "public class EventoFluxoMaps : IEntityTypeConfiguration<EventoFluxo>"
+    },
+    {
+      "nome": "Configure",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/MovimentoPortariaMaps.cs",
+      "linha": 79,
+      "assinatura": "public void Configure(EntityTypeBuilder<EventoFluxo> builder)"
+    },
+    {
+      "nome": "AnexoMaps",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/MovimentoPortariaMaps.cs",
+      "linha": 91,
+      "namespace": "Repositorios.Mapeamentos",
+      "assinatura": "public class AnexoMaps : IEntityTypeConfiguration<Anexo>"
+    },
+    {
+      "nome": "Configure",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/MovimentoPortariaMaps.cs",
+      "linha": 93,
+      "assinatura": "public void Configure(EntityTypeBuilder<Anexo> builder)"
+    },
+    {
+      "nome": "NotificacaoPendenteMaps",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/MovimentoPortariaMaps.cs",
+      "linha": 104,
+      "namespace": "Repositorios.Mapeamentos",
+      "assinatura": "public class NotificacaoPendenteMaps : IEntityTypeConfiguration<NotificacaoPendente>"
+    },
+    {
+      "nome": "Configure",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/MovimentoPortariaMaps.cs",
+      "linha": 106,
+      "assinatura": "public void Configure(EntityTypeBuilder<NotificacaoPendente> builder)"
+    },
+    {
+      "nome": "PortariaMaps",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/PortariaMaps.cs",
+      "linha": 7,
+      "namespace": "Repositorios.Mapeamentos",
+      "assinatura": "public class PortariaMaps : IEntityTypeConfiguration<Portaria>"
+    },
+    {
+      "nome": "Configure",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/PortariaMaps.cs",
+      "linha": 9,
+      "assinatura": "public void Configure(EntityTypeBuilder<Portaria> builder)"
+    },
+    {
+      "nome": "TransportadoraMaps",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/TransportadoraMaps.cs",
+      "linha": 7,
+      "namespace": "Repositorios.Mapeamentos",
+      "assinatura": "public class TransportadoraMaps : IEntityTypeConfiguration<Transportadora>"
+    },
+    {
+      "nome": "Configure",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/TransportadoraMaps.cs",
+      "linha": 9,
+      "assinatura": "public void Configure(EntityTypeBuilder<Transportadora> builder)"
+    },
+    {
+      "nome": "UnidadeMaps",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/UnidadeMaps.cs",
+      "linha": 7,
+      "namespace": "Repositorios.Mapeamentos",
+      "assinatura": "public class UnidadeMaps : IEntityTypeConfiguration<Unidade>"
+    },
+    {
+      "nome": "Configure",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/UnidadeMaps.cs",
+      "linha": 9,
+      "assinatura": "public void Configure(EntityTypeBuilder<Unidade> builder)"
+    },
+    {
+      "nome": "VeiculoMaps",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/VeiculoMaps.cs",
+      "linha": 7,
+      "namespace": "Repositorios.Mapeamentos",
+      "assinatura": "public class VeiculoMaps : IEntityTypeConfiguration<Veiculo>"
+    },
+    {
+      "nome": "Configure",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Mapeamentos/VeiculoMaps.cs",
+      "linha": 9,
+      "assinatura": "public void Configure(EntityTypeBuilder<Veiculo> builder)"
+    },
+    {
+      "nome": "MotoristaRepositorio",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs",
+      "linha": 11,
+      "namespace": "Repositorios.Repositorio",
+      "assinatura": "public class MotoristaRepositorio : IMotoristaRepositorio"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs",
+      "linha": 19,
+      "assinatura": "public Motorista Salvar(Motorista entidade)"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs",
+      "linha": 25,
+      "assinatura": "public void Alterar(Motorista entidade)"
+    },
+    {
+      "nome": "Existe",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs",
+      "linha": 31,
+      "assinatura": "public async Task<Motorista?> Existe(Guid id) =>"
+    },
+    {
+      "nome": "ObterPorId",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs",
+      "linha": 34,
+      "assinatura": "public async Task<Motorista?> ObterPorId(Guid id) =>"
+    },
+    {
+      "nome": "ObterPorNome",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs",
+      "linha": 37,
+      "assinatura": "public async Task<Motorista?> ObterPorNome(string valor, Guid? excluirId = null)"
+    },
+    {
+      "nome": "ObterPorCpf",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs",
+      "linha": 44,
+      "assinatura": "public async Task<Motorista?> ObterPorCpf(string valor, Guid? excluirId = null)"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs",
+      "linha": 51,
+      "assinatura": "public async Task<PagedResult<MotoristaSaida>> Listar(int pageIndex, int pageSize, string? filter = null)"
+    },
+    {
+      "nome": "Dispose",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MotoristaRepositorio.cs",
+      "linha": 68,
+      "assinatura": "public void Dispose() => _context.Dispose();"
+    },
+    {
+      "nome": "MovimentoPortariaRepositorio",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 11,
+      "namespace": "Repositorios.Repositorio",
+      "assinatura": "public class MovimentoPortariaRepositorio : IMovimentoPortariaRepositorio"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 19,
+      "assinatura": "public void Salvar(MovimentoPortaria entidade)"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 25,
+      "assinatura": "public void Alterar(MovimentoPortaria entidade)"
+    },
+    {
+      "nome": "ObterPorId",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 31,
+      "assinatura": "public async Task<MovimentoPortaria?> ObterPorId(Guid id)"
+    },
+    {
+      "nome": "ObterCarretaComMovimentoAberto",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 37,
+      "assinatura": "public async Task<MovimentoPortaria?> ObterCarretaComMovimentoAberto(Guid unidadeId, Guid carretaId)"
+    },
+    {
+      "nome": "ObterAutoFillPorPlaca",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 49,
+      "assinatura": "public async Task<AutoFillPlacaSaida> ObterAutoFillPorPlaca(Guid unidadeId, Guid carretaId)"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 63,
+      "assinatura": "public async Task<PagedResult<MovimentoPortariaSaida>> Listar(int pageIndex, int pageSize, string? filter = null)"
+    },
+    {
+      "nome": "ListarPainelChamada",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 80,
+      "assinatura": "public async Task<List<PainelChamadaItemSaida>> ListarPainelChamada(Guid unidadeId, int ttlMinutos)"
+    },
+    {
+      "nome": "ListarEventos",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 110,
+      "assinatura": "public async Task<List<EventoFluxoSaida>> ListarEventos(Guid movimentoId)"
+    },
+    {
+      "nome": "ListarAnexos",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 123,
+      "assinatura": "public async Task<List<AnexoSaida>> ListarAnexos(Guid movimentoId)"
+    },
+    {
+      "nome": "ResumoDia",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 136,
+      "assinatura": "public async Task<ResumoDiaSaida> ResumoDia(Guid unidadeId)"
+    },
+    {
+      "nome": "Dispose",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/MovimentoPortariaRepositorio.cs",
+      "linha": 187,
+      "assinatura": "public void Dispose() => _context.Dispose();"
+    },
+    {
+      "nome": "PortariaRepositorio",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Repositorio/PortariaRepositorio.cs",
+      "linha": 11,
+      "namespace": "Repositorios.Repositorio",
+      "assinatura": "public class PortariaRepositorio : IPortariaRepositorio"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/PortariaRepositorio.cs",
+      "linha": 19,
+      "assinatura": "public Portaria Salvar(Portaria entidade)"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/PortariaRepositorio.cs",
+      "linha": 25,
+      "assinatura": "public void Alterar(Portaria entidade)"
+    },
+    {
+      "nome": "Existe",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/PortariaRepositorio.cs",
+      "linha": 31,
+      "assinatura": "public async Task<Portaria?> Existe(Guid id) =>"
+    },
+    {
+      "nome": "ObterPorNome",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/PortariaRepositorio.cs",
+      "linha": 34,
+      "assinatura": "public async Task<Portaria?> ObterPorNome(string valor, Guid? excluirId = null)"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/PortariaRepositorio.cs",
+      "linha": 41,
+      "assinatura": "public async Task<PagedResult<PortariaSaida>> Listar(int pageIndex, int pageSize, string? filter = null)"
+    },
+    {
+      "nome": "Dispose",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/PortariaRepositorio.cs",
+      "linha": 58,
+      "assinatura": "public void Dispose() => _context.Dispose();"
+    },
+    {
+      "nome": "TransportadoraRepositorio",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Repositorio/TransportadoraRepositorio.cs",
+      "linha": 11,
+      "namespace": "Repositorios.Repositorio",
+      "assinatura": "public class TransportadoraRepositorio : ITransportadoraRepositorio"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/TransportadoraRepositorio.cs",
+      "linha": 19,
+      "assinatura": "public Transportadora Salvar(Transportadora entidade)"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/TransportadoraRepositorio.cs",
+      "linha": 25,
+      "assinatura": "public void Alterar(Transportadora entidade)"
+    },
+    {
+      "nome": "Existe",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/TransportadoraRepositorio.cs",
+      "linha": 31,
+      "assinatura": "public async Task<Transportadora?> Existe(Guid id) =>"
+    },
+    {
+      "nome": "ObterPorNome",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/TransportadoraRepositorio.cs",
+      "linha": 34,
+      "assinatura": "public async Task<Transportadora?> ObterPorNome(string valor, Guid? excluirId = null)"
+    },
+    {
+      "nome": "ObterPorCnpj",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/TransportadoraRepositorio.cs",
+      "linha": 41,
+      "assinatura": "public async Task<Transportadora?> ObterPorCnpj(string valor, Guid? excluirId = null)"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/TransportadoraRepositorio.cs",
+      "linha": 48,
+      "assinatura": "public async Task<PagedResult<TransportadoraSaida>> Listar(int pageIndex, int pageSize, string? filter = null)"
+    },
+    {
+      "nome": "Dispose",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/TransportadoraRepositorio.cs",
+      "linha": 65,
+      "assinatura": "public void Dispose() => _context.Dispose();"
+    },
+    {
+      "nome": "UnidadeRepositorio",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Repositorio/UnidadeRepositorio.cs",
+      "linha": 11,
+      "namespace": "Repositorios.Repositorio",
+      "assinatura": "public class UnidadeRepositorio : IUnidadeRepositorio"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/UnidadeRepositorio.cs",
+      "linha": 19,
+      "assinatura": "public Unidade Salvar(Unidade entidade)"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/UnidadeRepositorio.cs",
+      "linha": 25,
+      "assinatura": "public void Alterar(Unidade entidade)"
+    },
+    {
+      "nome": "Existe",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/UnidadeRepositorio.cs",
+      "linha": 31,
+      "assinatura": "public async Task<Unidade?> Existe(Guid id) =>"
+    },
+    {
+      "nome": "ObterPorNome",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/UnidadeRepositorio.cs",
+      "linha": 34,
+      "assinatura": "public async Task<Unidade?> ObterPorNome(string valor, Guid? excluirId = null)"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/UnidadeRepositorio.cs",
+      "linha": 41,
+      "assinatura": "public async Task<PagedResult<UnidadeSaida>> Listar(int pageIndex, int pageSize, string? filter = null)"
+    },
+    {
+      "nome": "Dispose",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/UnidadeRepositorio.cs",
+      "linha": 58,
+      "assinatura": "public void Dispose() => _context.Dispose();"
+    },
+    {
+      "nome": "VeiculoRepositorio",
+      "tipo": "class",
+      "arquivo": "repositorios/Repositorios/Repositorio/VeiculoRepositorio.cs",
+      "linha": 11,
+      "namespace": "Repositorios.Repositorio",
+      "assinatura": "public class VeiculoRepositorio : IVeiculoRepositorio"
+    },
+    {
+      "nome": "Salvar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/VeiculoRepositorio.cs",
+      "linha": 19,
+      "assinatura": "public Veiculo Salvar(Veiculo entidade)"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/VeiculoRepositorio.cs",
+      "linha": 25,
+      "assinatura": "public void Alterar(Veiculo entidade)"
+    },
+    {
+      "nome": "Existe",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/VeiculoRepositorio.cs",
+      "linha": 31,
+      "assinatura": "public async Task<Veiculo?> Existe(Guid id) =>"
+    },
+    {
+      "nome": "ObterPorNome",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/VeiculoRepositorio.cs",
+      "linha": 34,
+      "assinatura": "public async Task<Veiculo?> ObterPorNome(string valor, Guid? excluirId = null)"
+    },
+    {
+      "nome": "ObterPorPlaca",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/VeiculoRepositorio.cs",
+      "linha": 41,
+      "assinatura": "public async Task<Veiculo?> ObterPorPlaca(string valor, Guid? excluirId = null)"
+    },
+    {
+      "nome": "Listar",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/VeiculoRepositorio.cs",
+      "linha": 48,
+      "assinatura": "public async Task<PagedResult<VeiculoSaida>> Listar(int pageIndex, int pageSize, string? filter = null)"
+    },
+    {
+      "nome": "Dispose",
+      "tipo": "method",
+      "arquivo": "repositorios/Repositorios/Repositorio/VeiculoRepositorio.cs",
+      "linha": 65,
+      "assinatura": "public void Dispose() => _context.Dispose();"
+    },
+    {
+      "nome": "Class1",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Class1.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class Class1"
+    },
+    {
+      "nome": "Veiculo",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Veiculos/Entidades/Veiculo.cs",
+      "linha": 5,
+      "namespace": "Dominios.Veiculos.Entidades",
+      "assinatura": "public class Veiculo : Entity"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Veiculos/Entidades/Veiculo.cs",
+      "linha": 24,
+      "assinatura": "public void Alterar(string nome, string placa, int tipo, Guid? transportadoraId, Guid unidadeId)"
+    },
+    {
+      "nome": "IVeiculoRepositorio",
+      "tipo": "interface",
+      "arquivo": "dominios/Dominios/Veiculos/IRepositorios/IVeiculoRepositorio.cs",
+      "linha": 8,
+      "namespace": "Dominios.Veiculos.IRepositorios",
+      "assinatura": "public interface IVeiculoRepositorio : IRepository<Veiculo>"
+    },
+    {
+      "nome": "AlterarVeiculoEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Veiculos/Comandos/Entradas/AlterarVeiculoEntrada.cs",
+      "linha": 6,
+      "namespace": "Dominios.Veiculos.Comandos.Entradas",
+      "assinatura": "public class AlterarVeiculoEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Veiculos/Comandos/Entradas/AlterarVeiculoEntrada.cs",
+      "linha": 15,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "AlterarVeiculoValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Veiculos/Comandos/Entradas/AlterarVeiculoEntrada.cs",
+      "linha": 21,
+      "namespace": "Dominios.Veiculos.Comandos.Entradas",
+      "assinatura": "public class AlterarVeiculoValidation : AbstractValidator<AlterarVeiculoEntrada>"
+    },
+    {
+      "nome": "SalvarVeiculoEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Veiculos/Comandos/Entradas/SalvarVeiculoEntrada.cs",
+      "linha": 6,
+      "namespace": "Dominios.Veiculos.Comandos.Entradas",
+      "assinatura": "public class SalvarVeiculoEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Veiculos/Comandos/Entradas/SalvarVeiculoEntrada.cs",
+      "linha": 14,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "SalvarVeiculoValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Veiculos/Comandos/Entradas/SalvarVeiculoEntrada.cs",
+      "linha": 20,
+      "namespace": "Dominios.Veiculos.Comandos.Entradas",
+      "assinatura": "public class SalvarVeiculoValidation : AbstractValidator<SalvarVeiculoEntrada>"
+    },
+    {
+      "nome": "VeiculoCommandHandler",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Veiculos/Comandos/Handlers/VeiculoCommandHandler.cs",
+      "linha": 10,
+      "namespace": "Dominios.Veiculos.Comandos.Handlers",
+      "assinatura": "public class VeiculoCommandHandler : CommandHandler,"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Veiculos/Comandos/Handlers/VeiculoCommandHandler.cs",
+      "linha": 18,
+      "assinatura": "public async Task<ComandResult> Handle(SalvarVeiculoEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Veiculos/Comandos/Handlers/VeiculoCommandHandler.cs",
+      "linha": 34,
+      "assinatura": "public async Task<ComandResult> Handle(AlterarVeiculoEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "VeiculoSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Veiculos/Comandos/Saidas/VeiculoSaida.cs",
+      "linha": 3,
+      "namespace": "Dominios.Veiculos.Comandos.Saidas",
+      "assinatura": "public class VeiculoSaida"
+    },
+    {
+      "nome": "Unidade",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Unidades/Entidades/Unidade.cs",
+      "linha": 5,
+      "namespace": "Dominios.Unidades.Entidades",
+      "assinatura": "public class Unidade : Entity"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Unidades/Entidades/Unidade.cs",
+      "linha": 20,
+      "assinatura": "public void Alterar(string nome, string? configuracaoEvolutionApiUrl, string? configuracaoEvolutionApiToken)"
+    },
+    {
+      "nome": "IUnidadeRepositorio",
+      "tipo": "interface",
+      "arquivo": "dominios/Dominios/Unidades/IRepositorios/IUnidadeRepositorio.cs",
+      "linha": 8,
+      "namespace": "Dominios.Unidades.IRepositorios",
+      "assinatura": "public interface IUnidadeRepositorio : IRepository<Unidade>"
+    },
+    {
+      "nome": "AlterarUnidadeEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Unidades/Comandos/Entradas/AlterarUnidadeEntrada.cs",
+      "linha": 6,
+      "namespace": "Dominios.Unidades.Comandos.Entradas",
+      "assinatura": "public class AlterarUnidadeEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Unidades/Comandos/Entradas/AlterarUnidadeEntrada.cs",
+      "linha": 13,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "AlterarUnidadeValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Unidades/Comandos/Entradas/AlterarUnidadeEntrada.cs",
+      "linha": 19,
+      "namespace": "Dominios.Unidades.Comandos.Entradas",
+      "assinatura": "public class AlterarUnidadeValidation : AbstractValidator<AlterarUnidadeEntrada>"
+    },
+    {
+      "nome": "SalvarUnidadeEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Unidades/Comandos/Entradas/SalvarUnidadeEntrada.cs",
+      "linha": 6,
+      "namespace": "Dominios.Unidades.Comandos.Entradas",
+      "assinatura": "public class SalvarUnidadeEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Unidades/Comandos/Entradas/SalvarUnidadeEntrada.cs",
+      "linha": 12,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "SalvarUnidadeValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Unidades/Comandos/Entradas/SalvarUnidadeEntrada.cs",
+      "linha": 18,
+      "namespace": "Dominios.Unidades.Comandos.Entradas",
+      "assinatura": "public class SalvarUnidadeValidation : AbstractValidator<SalvarUnidadeEntrada>"
+    },
+    {
+      "nome": "UnidadeCommandHandler",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Unidades/Comandos/Handlers/UnidadeCommandHandler.cs",
+      "linha": 10,
+      "namespace": "Dominios.Unidades.Comandos.Handlers",
+      "assinatura": "public class UnidadeCommandHandler : CommandHandler,"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Unidades/Comandos/Handlers/UnidadeCommandHandler.cs",
+      "linha": 18,
+      "assinatura": "public async Task<ComandResult> Handle(SalvarUnidadeEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Unidades/Comandos/Handlers/UnidadeCommandHandler.cs",
+      "linha": 32,
+      "assinatura": "public async Task<ComandResult> Handle(AlterarUnidadeEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "UnidadeSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Unidades/Comandos/Saidas/UnidadeSaida.cs",
+      "linha": 3,
+      "namespace": "Dominios.Unidades.Comandos.Saidas",
+      "assinatura": "public class UnidadeSaida"
+    },
+    {
+      "nome": "Transportadora",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Transportadoras/Entidades/Transportadora.cs",
+      "linha": 5,
+      "namespace": "Dominios.Transportadoras.Entidades",
+      "assinatura": "public class Transportadora : Entity"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Transportadoras/Entidades/Transportadora.cs",
+      "linha": 22,
+      "assinatura": "public void Alterar(string nome, string razaoSocial, string cnpj, Guid unidadeId)"
+    },
+    {
+      "nome": "ITransportadoraRepositorio",
+      "tipo": "interface",
+      "arquivo": "dominios/Dominios/Transportadoras/IRepositorios/ITransportadoraRepositorio.cs",
+      "linha": 8,
+      "namespace": "Dominios.Transportadoras.IRepositorios",
+      "assinatura": "public interface ITransportadoraRepositorio : IRepository<Transportadora>"
+    },
+    {
+      "nome": "AlterarTransportadoraEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Transportadoras/Comandos/Entradas/AlterarTransportadoraEntrada.cs",
+      "linha": 6,
+      "namespace": "Dominios.Transportadoras.Comandos.Entradas",
+      "assinatura": "public class AlterarTransportadoraEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Transportadoras/Comandos/Entradas/AlterarTransportadoraEntrada.cs",
+      "linha": 14,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "AlterarTransportadoraValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Transportadoras/Comandos/Entradas/AlterarTransportadoraEntrada.cs",
+      "linha": 20,
+      "namespace": "Dominios.Transportadoras.Comandos.Entradas",
+      "assinatura": "public class AlterarTransportadoraValidation : AbstractValidator<AlterarTransportadoraEntrada>"
+    },
+    {
+      "nome": "SalvarTransportadoraEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Transportadoras/Comandos/Entradas/SalvarTransportadoraEntrada.cs",
+      "linha": 6,
+      "namespace": "Dominios.Transportadoras.Comandos.Entradas",
+      "assinatura": "public class SalvarTransportadoraEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Transportadoras/Comandos/Entradas/SalvarTransportadoraEntrada.cs",
+      "linha": 13,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "SalvarTransportadoraValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Transportadoras/Comandos/Entradas/SalvarTransportadoraEntrada.cs",
+      "linha": 19,
+      "namespace": "Dominios.Transportadoras.Comandos.Entradas",
+      "assinatura": "public class SalvarTransportadoraValidation : AbstractValidator<SalvarTransportadoraEntrada>"
+    },
+    {
+      "nome": "TransportadoraCommandHandler",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Transportadoras/Comandos/Handlers/TransportadoraCommandHandler.cs",
+      "linha": 10,
+      "namespace": "Dominios.Transportadoras.Comandos.Handlers",
+      "assinatura": "public class TransportadoraCommandHandler : CommandHandler,"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Transportadoras/Comandos/Handlers/TransportadoraCommandHandler.cs",
+      "linha": 18,
+      "assinatura": "public async Task<ComandResult> Handle(SalvarTransportadoraEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Transportadoras/Comandos/Handlers/TransportadoraCommandHandler.cs",
+      "linha": 34,
+      "assinatura": "public async Task<ComandResult> Handle(AlterarTransportadoraEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "TransportadoraSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Transportadoras/Comandos/Saidas/TransportadoraSaida.cs",
+      "linha": 3,
+      "namespace": "Dominios.Transportadoras.Comandos.Saidas",
+      "assinatura": "public class TransportadoraSaida"
+    },
+    {
+      "nome": "Portaria",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Portarias/Entidades/Portaria.cs",
+      "linha": 5,
+      "namespace": "Dominios.Portarias.Entidades",
+      "assinatura": "public class Portaria : Entity"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Portarias/Entidades/Portaria.cs",
+      "linha": 18,
+      "assinatura": "public void Alterar(string nome, Guid unidadeId)"
+    },
+    {
+      "nome": "IPortariaRepositorio",
+      "tipo": "interface",
+      "arquivo": "dominios/Dominios/Portarias/IRepositorios/IPortariaRepositorio.cs",
+      "linha": 8,
+      "namespace": "Dominios.Portarias.IRepositorios",
+      "assinatura": "public interface IPortariaRepositorio : IRepository<Portaria>"
+    },
+    {
+      "nome": "AlterarPortariaEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Portarias/Comandos/Entradas/AlterarPortariaEntrada.cs",
+      "linha": 6,
+      "namespace": "Dominios.Portarias.Comandos.Entradas",
+      "assinatura": "public class AlterarPortariaEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Portarias/Comandos/Entradas/AlterarPortariaEntrada.cs",
+      "linha": 12,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "AlterarPortariaValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Portarias/Comandos/Entradas/AlterarPortariaEntrada.cs",
+      "linha": 18,
+      "namespace": "Dominios.Portarias.Comandos.Entradas",
+      "assinatura": "public class AlterarPortariaValidation : AbstractValidator<AlterarPortariaEntrada>"
+    },
+    {
+      "nome": "SalvarPortariaEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Portarias/Comandos/Entradas/SalvarPortariaEntrada.cs",
+      "linha": 6,
+      "namespace": "Dominios.Portarias.Comandos.Entradas",
+      "assinatura": "public class SalvarPortariaEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Portarias/Comandos/Entradas/SalvarPortariaEntrada.cs",
+      "linha": 11,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "SalvarPortariaValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Portarias/Comandos/Entradas/SalvarPortariaEntrada.cs",
+      "linha": 17,
+      "namespace": "Dominios.Portarias.Comandos.Entradas",
+      "assinatura": "public class SalvarPortariaValidation : AbstractValidator<SalvarPortariaEntrada>"
+    },
+    {
+      "nome": "PortariaCommandHandler",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Portarias/Comandos/Handlers/PortariaCommandHandler.cs",
+      "linha": 10,
+      "namespace": "Dominios.Portarias.Comandos.Handlers",
+      "assinatura": "public class PortariaCommandHandler : CommandHandler,"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Portarias/Comandos/Handlers/PortariaCommandHandler.cs",
+      "linha": 18,
+      "assinatura": "public async Task<ComandResult> Handle(SalvarPortariaEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Portarias/Comandos/Handlers/PortariaCommandHandler.cs",
+      "linha": 32,
+      "assinatura": "public async Task<ComandResult> Handle(AlterarPortariaEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "PortariaSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Portarias/Comandos/Saidas/PortariaSaida.cs",
+      "linha": 3,
+      "namespace": "Dominios.Portarias.Comandos.Saidas",
+      "assinatura": "public class PortariaSaida"
+    },
+    {
+      "nome": "EstagioAnexo",
+      "tipo": "enum",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/Anexo.cs",
+      "linha": 3,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public enum EstagioAnexo { Chegada = 0, Entrada = 1, Saida = 2 }"
+    },
+    {
+      "nome": "Anexo",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/Anexo.cs",
+      "linha": 5,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public class Anexo"
+    },
+    {
+      "nome": "TipoEventoFluxo",
+      "tipo": "enum",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/EventoFluxo.cs",
+      "linha": 3,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public enum TipoEventoFluxo"
+    },
+    {
+      "nome": "EventoFluxo",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/EventoFluxo.cs",
+      "linha": 16,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public class EventoFluxo"
+    },
+    {
+      "nome": "MotivoEntrada",
+      "tipo": "enum",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 6,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public enum MotivoEntrada { Carga = 0, Descarga = 1, Devolucao = 2, Outro = 3 }"
+    },
+    {
+      "nome": "TipoCarga",
+      "tipo": "enum",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 7,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public enum TipoCarga { Frigorificada = 0, Seca = 1, Container = 2, Lavador = 3, Outro = 4 }"
+    },
+    {
+      "nome": "DestinoPateo",
+      "tipo": "enum",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 8,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public enum DestinoPateo { Interno = 0, Externo = 1, Lavador = 2 }"
+    },
+    {
+      "nome": "EstadoMovimento",
+      "tipo": "enum",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 9,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public enum EstadoMovimento"
+    },
+    {
+      "nome": "MovimentoPortaria",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 20,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public class MovimentoPortaria : Entity"
+    },
+    {
+      "nome": "Chamar",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 126,
+      "assinatura": "public void Chamar(string liderId, DateTime quando)"
+    },
+    {
+      "nome": "RecancelarChamada",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 138,
+      "assinatura": "public void RecancelarChamada(string liderId)"
+    },
+    {
+      "nome": "ConfirmarEntrada",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 147,
+      "assinatura": "public void ConfirmarEntrada(string porteiroId, DateTime quando)"
+    },
+    {
+      "nome": "RegistrarSaida",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 159,
+      "assinatura": "public void RegistrarSaida("
+    },
+    {
+      "nome": "Cancelar",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 199,
+      "assinatura": "public void Cancelar(string usuarioId, string observacao)"
+    },
+    {
+      "nome": "Desistir",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 211,
+      "assinatura": "public void Desistir(string usuarioId, string observacao)"
+    },
+    {
+      "nome": "RegistrarAlertaBloqueioMotorista",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 227,
+      "assinatura": "public void RegistrarAlertaBloqueioMotorista(string usuarioId, string motivo)"
+    },
+    {
+      "nome": "RegistrarEdicaoCampo",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 231,
+      "assinatura": "public void RegistrarEdicaoCampo(string usuarioId, string campo, string? antes, string? depois)"
+    },
+    {
+      "nome": "AdicionarAnexo",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 235,
+      "assinatura": "public Anexo AdicionarAnexo(EstagioAnexo estagio, string url, long tamanhoBytes, string contentType, string usuarioId)"
+    },
+    {
+      "nome": "EnfileirarNotificacao",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 253,
+      "assinatura": "public void EnfileirarNotificacao(CanalNotificacao canal, string destino, string payload)"
+    },
+    {
+      "nome": "AlterarCamposComuns",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 268,
+      "assinatura": "public void AlterarCamposComuns("
+    },
+    {
+      "nome": "AlterarCamposCriticos",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+      "linha": 302,
+      "assinatura": "public void AlterarCamposCriticos("
+    },
+    {
+      "nome": "CanalNotificacao",
+      "tipo": "enum",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/NotificacaoPendente.cs",
+      "linha": 3,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public enum CanalNotificacao { Whatsapp = 0, Email = 1, Socket = 2 }"
+    },
+    {
+      "nome": "StatusNotificacao",
+      "tipo": "enum",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/NotificacaoPendente.cs",
+      "linha": 4,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public enum StatusNotificacao { Pendente = 0, Enviada = 1, Falhou = 2, Descartada = 3 }"
+    },
+    {
+      "nome": "NotificacaoPendente",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Entidades/NotificacaoPendente.cs",
+      "linha": 6,
+      "namespace": "Dominios.MovimentosPortaria.Entidades",
+      "assinatura": "public class NotificacaoPendente"
+    },
+    {
+      "nome": "IMovimentoPortariaRepositorio",
+      "tipo": "interface",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/IRepositorios/IMovimentoPortariaRepositorio.cs",
+      "linha": 8,
+      "namespace": "Dominios.MovimentosPortaria.IRepositorios",
+      "assinatura": "public interface IMovimentoPortariaRepositorio : IRepository<MovimentoPortaria>"
+    },
+    {
+      "nome": "INotificacoesPortariaService",
+      "tipo": "interface",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Servicos/INotificacoesPortariaService.cs",
+      "linha": 6,
+      "namespace": "Dominios.MovimentosPortaria.Servicos",
+      "assinatura": "public interface INotificacoesPortariaService"
+    },
+    {
+      "nome": "IAnexoStorage",
+      "tipo": "interface",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Servicos/INotificacoesPortariaService.cs",
+      "linha": 12,
+      "namespace": "Dominios.MovimentosPortaria.Servicos",
+      "assinatura": "public interface IAnexoStorage"
+    },
+    {
+      "nome": "CadastrarChegadaEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/CadastrarChegadaEntrada.cs",
+      "linha": 8,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class CadastrarChegadaEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/CadastrarChegadaEntrada.cs",
+      "linha": 27,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "CadastrarChegadaValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/CadastrarChegadaEntrada.cs",
+      "linha": 34,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class CadastrarChegadaValidation : AbstractValidator<CadastrarChegadaEntrada>"
+    },
+    {
+      "nome": "ChamarVeiculoEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 7,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class ChamarVeiculoEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 11,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "ChamarVeiculoValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 18,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class ChamarVeiculoValidation : AbstractValidator<ChamarVeiculoEntrada>"
+    },
+    {
+      "nome": "RecancelarChamadaEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 23,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class RecancelarChamadaEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 26,
+      "assinatura": "public override bool EhValido() { ValidationResult = new RecancelarChamadaValidation().Validate(this); return Validation"
+    },
+    {
+      "nome": "RecancelarChamadaValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 28,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class RecancelarChamadaValidation : AbstractValidator<RecancelarChamadaEntrada>"
+    },
+    {
+      "nome": "ConfirmarEntradaEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 33,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class ConfirmarEntradaEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 36,
+      "assinatura": "public override bool EhValido() { ValidationResult = new ConfirmarEntradaValidation().Validate(this); return ValidationR"
+    },
+    {
+      "nome": "ConfirmarEntradaValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 38,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class ConfirmarEntradaValidation : AbstractValidator<ConfirmarEntradaEntrada>"
+    },
+    {
+      "nome": "CancelarMovimentoEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 43,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class CancelarMovimentoEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 47,
+      "assinatura": "public override bool EhValido() { ValidationResult = new CancelarMovimentoValidation().Validate(this); return Validation"
+    },
+    {
+      "nome": "CancelarMovimentoValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 49,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class CancelarMovimentoValidation : AbstractValidator<CancelarMovimentoEntrada>"
+    },
+    {
+      "nome": "DesistirMovimentoEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 58,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class DesistirMovimentoEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 62,
+      "assinatura": "public override bool EhValido() { ValidationResult = new DesistirMovimentoValidation().Validate(this); return Validation"
+    },
+    {
+      "nome": "DesistirMovimentoValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+      "linha": 64,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class DesistirMovimentoValidation : AbstractValidator<DesistirMovimentoEntrada>"
+    },
+    {
+      "nome": "RegistrarSaidaEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs",
+      "linha": 8,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class RegistrarSaidaEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs",
+      "linha": 18,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "RegistrarSaidaValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs",
+      "linha": 25,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class RegistrarSaidaValidation : AbstractValidator<RegistrarSaidaEntrada>"
+    },
+    {
+      "nome": "AlterarMovimentoEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs",
+      "linha": 33,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class AlterarMovimentoEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs",
+      "linha": 49,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "AlterarMovimentoValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs",
+      "linha": 56,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class AlterarMovimentoValidation : AbstractValidator<AlterarMovimentoEntrada>"
+    },
+    {
+      "nome": "AnexarArquivoEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs",
+      "linha": 61,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class AnexarArquivoEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs",
+      "linha": 68,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "AnexarArquivoValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs",
+      "linha": 75,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Entradas",
+      "assinatura": "public class AnexarArquivoValidation : AbstractValidator<AnexarArquivoEntrada>"
+    },
+    {
+      "nome": "MovimentoPortariaCommandHandler",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+      "linha": 16,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Handlers",
+      "assinatura": "public class MovimentoPortariaCommandHandler : CommandHandler,"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+      "linha": 51,
+      "assinatura": "public async Task<ComandResult> Handle(CadastrarChegadaEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+      "linha": 110,
+      "assinatura": "public async Task<ComandResult> Handle(ChamarVeiculoEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+      "linha": 147,
+      "assinatura": "public async Task<ComandResult> Handle(RecancelarChamadaEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+      "linha": 159,
+      "assinatura": "public async Task<ComandResult> Handle(ConfirmarEntradaEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+      "linha": 171,
+      "assinatura": "public async Task<ComandResult> Handle(RegistrarSaidaEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+      "linha": 190,
+      "assinatura": "public async Task<ComandResult> Handle(CancelarMovimentoEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+      "linha": 205,
+      "assinatura": "public async Task<ComandResult> Handle(DesistirMovimentoEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+      "linha": 220,
+      "assinatura": "public async Task<ComandResult> Handle(AlterarMovimentoEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+      "linha": 254,
+      "assinatura": "public async Task<ComandResult> Handle(AnexarArquivoEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "MovimentoPortariaSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Saidas/MovimentoPortariaSaida.cs",
+      "linha": 5,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Saidas",
+      "assinatura": "public class MovimentoPortariaSaida"
+    },
+    {
+      "nome": "PainelChamadaItemSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Saidas/MovimentoPortariaSaida.cs",
+      "linha": 35,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Saidas",
+      "assinatura": "public class PainelChamadaItemSaida"
+    },
+    {
+      "nome": "EventoFluxoSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Saidas/MovimentoPortariaSaida.cs",
+      "linha": 52,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Saidas",
+      "assinatura": "public class EventoFluxoSaida"
+    },
+    {
+      "nome": "AnexoSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Saidas/MovimentoPortariaSaida.cs",
+      "linha": 63,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Saidas",
+      "assinatura": "public class AnexoSaida"
+    },
+    {
+      "nome": "AutoFillPlacaSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Saidas/MovimentoPortariaSaida.cs",
+      "linha": 73,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Saidas",
+      "assinatura": "public class AutoFillPlacaSaida"
+    },
+    {
+      "nome": "ResumoDiaSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/MovimentosPortaria/Comandos/Saidas/MovimentoPortariaSaida.cs",
+      "linha": 80,
+      "namespace": "Dominios.MovimentosPortaria.Comandos.Saidas",
+      "assinatura": "public class ResumoDiaSaida"
+    },
+    {
+      "nome": "Motorista",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Motoristas/Entidades/Motorista.cs",
+      "linha": 5,
+      "namespace": "Dominios.Motoristas.Entidades",
+      "assinatura": "public class Motorista : Entity"
+    },
+    {
+      "nome": "Alterar",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Motoristas/Entidades/Motorista.cs",
+      "linha": 28,
+      "assinatura": "public void Alterar(string nome, string cpf, string whatsapp, string? email, int status, string? motivoStatus, Guid unid"
+    },
+    {
+      "nome": "IMotoristaRepositorio",
+      "tipo": "interface",
+      "arquivo": "dominios/Dominios/Motoristas/IRepositorios/IMotoristaRepositorio.cs",
+      "linha": 8,
+      "namespace": "Dominios.Motoristas.IRepositorios",
+      "assinatura": "public interface IMotoristaRepositorio : IRepository<Motorista>"
+    },
+    {
+      "nome": "AlterarMotoristaEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Motoristas/Comandos/Entradas/AlterarMotoristaEntrada.cs",
+      "linha": 6,
+      "namespace": "Dominios.Motoristas.Comandos.Entradas",
+      "assinatura": "public class AlterarMotoristaEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Motoristas/Comandos/Entradas/AlterarMotoristaEntrada.cs",
+      "linha": 17,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "AlterarMotoristaValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Motoristas/Comandos/Entradas/AlterarMotoristaEntrada.cs",
+      "linha": 23,
+      "namespace": "Dominios.Motoristas.Comandos.Entradas",
+      "assinatura": "public class AlterarMotoristaValidation : AbstractValidator<AlterarMotoristaEntrada>"
+    },
+    {
+      "nome": "SalvarMotoristaEntrada",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Motoristas/Comandos/Entradas/SalvarMotoristaEntrada.cs",
+      "linha": 6,
+      "namespace": "Dominios.Motoristas.Comandos.Entradas",
+      "assinatura": "public class SalvarMotoristaEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Motoristas/Comandos/Entradas/SalvarMotoristaEntrada.cs",
+      "linha": 16,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "SalvarMotoristaValidation",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Motoristas/Comandos/Entradas/SalvarMotoristaEntrada.cs",
+      "linha": 22,
+      "namespace": "Dominios.Motoristas.Comandos.Entradas",
+      "assinatura": "public class SalvarMotoristaValidation : AbstractValidator<SalvarMotoristaEntrada>"
+    },
+    {
+      "nome": "MotoristaCommandHandler",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Motoristas/Comandos/Handlers/MotoristaCommandHandler.cs",
+      "linha": 10,
+      "namespace": "Dominios.Motoristas.Comandos.Handlers",
+      "assinatura": "public class MotoristaCommandHandler : CommandHandler,"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Motoristas/Comandos/Handlers/MotoristaCommandHandler.cs",
+      "linha": 18,
+      "assinatura": "public async Task<ComandResult> Handle(SalvarMotoristaEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "Handle",
+      "tipo": "method",
+      "arquivo": "dominios/Dominios/Motoristas/Comandos/Handlers/MotoristaCommandHandler.cs",
+      "linha": 34,
+      "assinatura": "public async Task<ComandResult> Handle(AlterarMotoristaEntrada msg, CancellationToken ct)"
+    },
+    {
+      "nome": "MotoristaSaida",
+      "tipo": "class",
+      "arquivo": "dominios/Dominios/Motoristas/Comandos/Saidas/MotoristaSaida.cs",
+      "linha": 3,
+      "namespace": "Dominios.Motoristas.Comandos.Saidas",
+      "assinatura": "public class MotoristaSaida"
+    },
+    {
+      "nome": "Class1",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Class1.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class Class1"
+    },
+    {
+      "nome": "MainController",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Controller/MainController.cs",
+      "linha": 11,
+      "namespace": "WebApi.Core.Controller",
+      "assinatura": "public abstract class MainController : ControllerBase"
+    },
+    {
+      "nome": "AppSettings",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Identidade/AppSettings.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class AppSettings"
+    },
+    {
+      "nome": "CustomAuthorization",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Identidade/CustomAuthorization.cs",
+      "linha": 8,
+      "namespace": "WebAPI.Core.Identidade",
+      "assinatura": "public class CustomAuthorization"
+    },
+    {
+      "nome": "ValidarClaimsUsuario",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Identidade/CustomAuthorization.cs",
+      "linha": 10,
+      "assinatura": "public static bool ValidarClaimsUsuario(HttpContext context, string claimName, string claimValue)"
+    },
+    {
+      "nome": "ClaimsAuthorizeAttribute",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Identidade/CustomAuthorization.cs",
+      "linha": 18,
+      "namespace": "WebAPI.Core.Identidade",
+      "assinatura": "public class ClaimsAuthorizeAttribute : TypeFilterAttribute"
+    },
+    {
+      "nome": "RequisitoClaimFilter",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Identidade/CustomAuthorization.cs",
+      "linha": 26,
+      "namespace": "WebAPI.Core.Identidade",
+      "assinatura": "public class RequisitoClaimFilter : IAuthorizationFilter"
+    },
+    {
+      "nome": "OnAuthorization",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Identidade/CustomAuthorization.cs",
+      "linha": 35,
+      "assinatura": "public void OnAuthorization(AuthorizationFilterContext context)"
+    },
+    {
+      "nome": "JwtConfig",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Identidade/JwtConfig.cs",
+      "linha": 9,
+      "namespace": "WebAPI.Core.Identidade",
+      "assinatura": "public static class JwtConfig"
+    },
+    {
+      "nome": "AddJwtConfiguration",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Identidade/JwtConfig.cs",
+      "linha": 11,
+      "assinatura": "public static void AddJwtConfiguration(this IServiceCollection services,"
+    },
+    {
+      "nome": "UseAuthConfiguration",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Identidade/JwtConfig.cs",
+      "linha": 32,
+      "assinatura": "public static void UseAuthConfiguration(this IApplicationBuilder app)"
+    },
+    {
+      "nome": "ExceptionMiddleware",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Middleware/ExceptionMiddleware.cs",
+      "linha": 14,
+      "namespace": "WebApi.Core.Middleware",
+      "assinatura": "public class ExceptionMiddleware"
+    },
+    {
+      "nome": "Invoke",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Middleware/ExceptionMiddleware.cs",
+      "linha": 25,
+      "assinatura": "public async Task Invoke(HttpContext ctx)"
+    },
+    {
+      "nome": "ExceptionMiddlewareExtensions",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Middleware/ExceptionMiddleware.cs",
+      "linha": 61,
+      "namespace": "WebApi.Core.Middleware",
+      "assinatura": "public static class ExceptionMiddlewareExtensions"
+    },
+    {
+      "nome": "UseTratamentoErros",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Middleware/ExceptionMiddleware.cs",
+      "linha": 63,
+      "assinatura": "public static IApplicationBuilder UseTratamentoErros(this IApplicationBuilder app)"
+    },
+    {
+      "nome": "IUnidadeContext",
+      "tipo": "interface",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Multitenant/IUnidadeContext.cs",
+      "linha": 3,
+      "namespace": "WebApi.Core.Multitenant",
+      "assinatura": "public interface IUnidadeContext"
+    },
+    {
+      "nome": "UnidadeContextHttp",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Multitenant/UnidadeContextHttp.cs",
+      "linha": 6,
+      "namespace": "WebApi.Core.Multitenant",
+      "assinatura": "public class UnidadeContextHttp : IUnidadeContext"
+    },
+    {
+      "nome": "UnidadeIdObrigatoria",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Multitenant/UnidadeContextHttp.cs",
+      "linha": 37,
+      "assinatura": "public Guid UnidadeIdObrigatoria()"
+    },
+    {
+      "nome": "AppTokenSettings",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/AppTokenSettings.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class AppTokenSettings"
+    },
+    {
+      "nome": "AspNetUser",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/AspNetUser.cs",
+      "linha": 8,
+      "namespace": "WebApi.Core.Usuario",
+      "assinatura": "public class AspNetUser : IAspNetUser"
+    },
+    {
+      "nome": "ObterUserId",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/AspNetUser.cs",
+      "linha": 19,
+      "assinatura": "public Guid ObterUserId()"
+    },
+    {
+      "nome": "ObterUserEmail",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/AspNetUser.cs",
+      "linha": 24,
+      "assinatura": "public string ObterUserEmail()"
+    },
+    {
+      "nome": "ObterUserToken",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/AspNetUser.cs",
+      "linha": 29,
+      "assinatura": "public string ObterUserToken()"
+    },
+    {
+      "nome": "ObterUserRefreshToken",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/AspNetUser.cs",
+      "linha": 34,
+      "assinatura": "public string ObterUserRefreshToken()"
+    },
+    {
+      "nome": "EstaAutenticado",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/AspNetUser.cs",
+      "linha": 39,
+      "assinatura": "public bool EstaAutenticado()"
+    },
+    {
+      "nome": "PossuiRole",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/AspNetUser.cs",
+      "linha": 44,
+      "assinatura": "public bool PossuiRole(string role)"
+    },
+    {
+      "nome": "ObterClaims",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/AspNetUser.cs",
+      "linha": 49,
+      "assinatura": "public IEnumerable<Claim> ObterClaims()"
+    },
+    {
+      "nome": "ObterHttpContext",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/AspNetUser.cs",
+      "linha": 54,
+      "assinatura": "public HttpContext ObterHttpContext()"
+    },
+    {
+      "nome": "ClaimsPrincipalExtensions",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/ClaimsPrincipalExtensions.cs",
+      "linha": 6,
+      "namespace": "WebApi.Core.Usuario",
+      "assinatura": "public static class ClaimsPrincipalExtensions"
+    },
+    {
+      "nome": "GetUserId",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/ClaimsPrincipalExtensions.cs",
+      "linha": 8,
+      "assinatura": "public static string GetUserId(this ClaimsPrincipal principal)"
+    },
+    {
+      "nome": "GetUserEmail",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/ClaimsPrincipalExtensions.cs",
+      "linha": 19,
+      "assinatura": "public static string GetUserEmail(this ClaimsPrincipal principal)"
+    },
+    {
+      "nome": "GetUserToken",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/ClaimsPrincipalExtensions.cs",
+      "linha": 30,
+      "assinatura": "public static string GetUserToken(this ClaimsPrincipal principal)"
+    },
+    {
+      "nome": "GetUserRefreshToken",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/ClaimsPrincipalExtensions.cs",
+      "linha": 41,
+      "assinatura": "public static string GetUserRefreshToken(this ClaimsPrincipal principal)"
+    },
+    {
+      "nome": "IAspNetUser",
+      "tipo": "interface",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/IAspNetUser.cs",
+      "linha": 6,
+      "namespace": "WebApi.Core.Usuario",
+      "assinatura": "public interface IAspNetUser"
+    },
+    {
+      "nome": "RefreshToken",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/RefreshToken.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class RefreshToken"
+    },
+    {
+      "nome": "Usuario",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/Usuario.cs",
+      "linha": 6,
+      "namespace": "WebApi.Core.Usuario",
+      "assinatura": "public class Usuario : IdentityUser"
+    },
+    {
+      "nome": "SetarStatus",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/Usuario.cs",
+      "linha": 16,
+      "assinatura": "public void SetarStatus(bool status)"
+    },
+    {
+      "nome": "DefinirPapel",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/Usuario.cs",
+      "linha": 21,
+      "assinatura": "public void DefinirPapel(PapelUsuario papel) => Papel = papel;"
+    },
+    {
+      "nome": "DefinirUnidade",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Usuario/Usuario.cs",
+      "linha": 22,
+      "assinatura": "public void DefinirUnidade(Guid? unidadeId, Guid? portariaPadraoId)"
+    },
+    {
+      "nome": "ConfigurationExtensions",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Util/ConfigurationExtensions.cs",
+      "linha": 5,
+      "namespace": "WebApi.Core.Util",
+      "assinatura": "public static class ConfigurationExtensions"
+    },
+    {
+      "nome": "GetMessageQueueConnection",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Util/ConfigurationExtensions.cs",
+      "linha": 7,
+      "assinatura": "public static string? GetMessageQueueConnection(this IConfiguration configuration, string name)"
+    },
+    {
+      "nome": "UtilService",
+      "tipo": "class",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Util/UtilService.cs",
+      "linha": 9,
+      "namespace": "WebApi.Core.Util",
+      "assinatura": "public static class UtilService"
+    },
+    {
+      "nome": "ExtrairNumeroTelefone",
+      "tipo": "method",
+      "arquivo": "compartilhados/webApi.core/WebApi.Core/Util/UtilService.cs",
+      "linha": 11,
+      "assinatura": "public static string ExtrairNumeroTelefone(string input)"
+    },
+    {
+      "nome": "Class1",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Class1.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class Class1"
+    },
+    {
+      "nome": "ResponseResult",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Communication/ResponseResult.cs",
+      "linha": 5,
+      "namespace": "Core.Communication",
+      "assinatura": "public class ResponseResult"
+    },
+    {
+      "nome": "ResponseErrorMessages",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Communication/ResponseResult.cs",
+      "linha": 17,
+      "namespace": "Core.Communication",
+      "assinatura": "public class ResponseErrorMessages"
+    },
+    {
+      "nome": "IRepository",
+      "tipo": "interface",
+      "arquivo": "compartilhados/core/Core/Data/IRepository.cs",
+      "linha": 6,
+      "namespace": "Core.Data",
+      "assinatura": "public interface IRepository<T> : IDisposable where T : IAggregateRoot"
+    },
+    {
+      "nome": "IUnitOfWork",
+      "tipo": "interface",
+      "arquivo": "compartilhados/core/Core/Data/IUnitOfWork.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public interface IUnitOfWork"
+    },
+    {
+      "nome": "ApiException",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Exeptions/ApiException.cs",
+      "linha": 5,
+      "namespace": "Core.Exeptions",
+      "assinatura": "public class ApiException : Exception"
+    },
+    {
+      "nome": "DominioException",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Exeptions/DominioException.cs",
+      "linha": 5,
+      "namespace": "Core.Exeptions",
+      "assinatura": "public class DominioException : ApiException"
+    },
+    {
+      "nome": "NaoEncontradoException",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Exeptions/DominioException.cs",
+      "linha": 10,
+      "namespace": "Core.Exeptions",
+      "assinatura": "public class NaoEncontradoException : ApiException"
+    },
+    {
+      "nome": "NaoAutorizadoException",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Exeptions/DominioException.cs",
+      "linha": 15,
+      "namespace": "Core.Exeptions",
+      "assinatura": "public class NaoAutorizadoException : ApiException"
+    },
+    {
+      "nome": "ConflitoException",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Exeptions/DominioException.cs",
+      "linha": 20,
+      "namespace": "Core.Exeptions",
+      "assinatura": "public class ConflitoException : ApiException"
+    },
+    {
+      "nome": "IMediatorHandler",
+      "tipo": "interface",
+      "arquivo": "compartilhados/core/Core/Mediator/IMediatorHandler.cs",
+      "linha": 6,
+      "namespace": "Core.Mediator",
+      "assinatura": "public interface IMediatorHandler"
+    },
+    {
+      "nome": "MediatorHandler",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Mediator/MediatorHandler.cs",
+      "linha": 7,
+      "namespace": "Core.Mediator",
+      "assinatura": "public class MediatorHandler : IMediatorHandler"
+    },
+    {
+      "nome": "CommandHandler",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Mensagens/CommandHandler.cs",
+      "linha": 7,
+      "namespace": "Core.Mensagens",
+      "assinatura": "public abstract class CommandHandler"
+    },
+    {
+      "nome": "AdicionarErros",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/Mensagens/CommandHandler.cs",
+      "linha": 20,
+      "assinatura": "public void AdicionarErros(IEnumerable<ValidationFailure> errors)"
+    },
+    {
+      "nome": "Event",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Mensagens/Event.cs",
+      "linha": 6,
+      "namespace": "Core.Mensagens",
+      "assinatura": "public class Event : Message, INotification"
+    },
+    {
+      "nome": "Message",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Mensagens/Message.cs",
+      "linha": 5,
+      "namespace": "Core.Mensagens",
+      "assinatura": "public abstract class Message"
+    },
+    {
+      "nome": "Comand",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Comand.cs",
+      "linha": 8,
+      "namespace": "Core.ObjetoDominio",
+      "assinatura": "public class Comand : Message, IRequest<ComandResult>"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Comand.cs",
+      "linha": 21,
+      "assinatura": "public virtual bool EhValido()"
+    },
+    {
+      "nome": "ComandResponse",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/ComandResponse.cs",
+      "linha": 5,
+      "namespace": "BlazorApp.Shareds.Models",
+      "assinatura": "public class ComandResponse"
+    },
+    {
+      "nome": "ComandResult",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/ComandResult.cs",
+      "linha": 6,
+      "namespace": "Core.ObjetoDominio",
+      "assinatura": "public class ComandResult : IComandResult"
+    },
+    {
+      "nome": "Data",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Data.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class Data"
+    },
+    {
+      "nome": "Error",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Data.cs",
+      "linha": 15,
+      "namespace": "",
+      "assinatura": "public class Error"
+    },
+    {
+      "nome": "Entity",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Entity.cs",
+      "linha": 6,
+      "namespace": "Core.ObjetoDominio",
+      "assinatura": "public abstract class Entity : IAggregateRoot"
+    },
+    {
+      "nome": "AdicionarEvento",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Entity.cs",
+      "linha": 22,
+      "assinatura": "public void AdicionarEvento(Event evento)"
+    },
+    {
+      "nome": "RemoverEvento",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Entity.cs",
+      "linha": 28,
+      "assinatura": "public void RemoverEvento(Event eventItem)"
+    },
+    {
+      "nome": "LimparEventos",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Entity.cs",
+      "linha": 33,
+      "assinatura": "public void LimparEventos()"
+    },
+    {
+      "nome": "Ativar",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Entity.cs",
+      "linha": 38,
+      "assinatura": "public void Ativar()"
+    },
+    {
+      "nome": "Desativar",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Entity.cs",
+      "linha": 42,
+      "assinatura": "public void Desativar()"
+    },
+    {
+      "nome": "Equals",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Entity.cs",
+      "linha": 49,
+      "assinatura": "public override bool Equals(object obj)"
+    },
+    {
+      "nome": "GetHashCode",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Entity.cs",
+      "linha": 75,
+      "assinatura": "public override int GetHashCode()"
+    },
+    {
+      "nome": "ToString",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Entity.cs",
+      "linha": 80,
+      "assinatura": "public override string ToString()"
+    },
+    {
+      "nome": "AtivarDesativar",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Entity.cs",
+      "linha": 85,
+      "assinatura": "public void AtivarDesativar(bool status)"
+    },
+    {
+      "nome": "IAggregateRoot",
+      "tipo": "interface",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/IAggregateRoot.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public interface IAggregateRoot { }"
+    },
+    {
+      "nome": "IComandResult",
+      "tipo": "interface",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/IComandResult.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public interface IComandResult"
+    },
+    {
+      "nome": "PagedResult",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/PagedResult.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class PagedResult<T> where T : class"
+    },
+    {
+      "nome": "Paginacao",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Paginacao.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class Paginacao"
+    },
+    {
+      "nome": "PaginacaoOutput",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Paginacao/PaginacaoOutput.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class PaginacaoOutput<T>"
+    },
+    {
+      "nome": "QueryableExtensions",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Paginacao/QueryableExtensions.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public static class QueryableExtensions"
+    },
+    {
+      "nome": "BaseApiService",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Services/BaseApiService.cs",
+      "linha": 9,
+      "namespace": "Core.Services",
+      "assinatura": "public abstract class BaseApiService"
+    },
+    {
+      "nome": "CustomHttpRequestException",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Util/CustomHttpRequestException.cs",
+      "linha": 5,
+      "namespace": "Core.Util",
+      "assinatura": "public class CustomHttpRequestException : Exception"
+    },
+    {
+      "nome": "DataBrasilia",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Util/DataBrasilia.cs",
+      "linha": 5,
+      "namespace": "Core.Util",
+      "assinatura": "public static class DataBrasilia"
+    },
+    {
+      "nome": "HorarioBrasilia",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/Util/DataBrasilia.cs",
+      "linha": 7,
+      "assinatura": "public static DateTime HorarioBrasilia()"
+    },
+    {
+      "nome": "DiferencaDataEmMinutos",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/Util/DataBrasilia.cs",
+      "linha": 17,
+      "assinatura": "public static long DiferencaDataEmMinutos(DateTime data)"
+    },
+    {
+      "nome": "PapelUsuario",
+      "tipo": "enum",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Autorizacao/PapelUsuario.cs",
+      "linha": 3,
+      "namespace": "Core.ObjetoDominio.Autorizacao",
+      "assinatura": "public enum PapelUsuario"
+    },
+    {
+      "nome": "PoliticasAuth",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Autorizacao/PoliticasAuth.cs",
+      "linha": 3,
+      "namespace": "Core.ObjetoDominio.Autorizacao",
+      "assinatura": "public static class PoliticasAuth"
+    },
+    {
+      "nome": "UsuarioClaim",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Entidade/UsuarioClaim.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class UsuarioClaim"
+    },
+    {
+      "nome": "UsuarioRespostaLogin",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Entidade/UsuarioRespostaLogin.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class UsuarioRespostaLogin"
+    },
+    {
+      "nome": "UsuarioToken",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Entidade/UsuarioToken.cs",
+      "linha": 3,
+      "namespace": "",
+      "assinatura": "public class UsuarioToken"
+    },
+    {
+      "nome": "UsuarioLoginEntrada",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioLoginEntrada.cs",
+      "linha": 7,
+      "namespace": "Core.Usuarios.EntradaSaidaDados.Entrada",
+      "assinatura": "public class UsuarioLoginEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioLoginEntrada.cs",
+      "linha": 17,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "UsuarioLoginValidation",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioLoginEntrada.cs",
+      "linha": 24,
+      "namespace": "Core.Usuarios.EntradaSaidaDados.Entrada",
+      "assinatura": "public class UsuarioLoginValidation : AbstractValidator<UsuarioLoginEntrada>"
+    },
+    {
+      "nome": "UsuarioRegistroEntrada",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioRegistroEntrada.cs",
+      "linha": 6,
+      "namespace": "Core.Usuarios.Comandos.Inputs",
+      "assinatura": "public class UsuarioRegistroEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioRegistroEntrada.cs",
+      "linha": 18,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "UsuarioRegistroValidation",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioRegistroEntrada.cs",
+      "linha": 24,
+      "namespace": "Core.Usuarios.Comandos.Inputs",
+      "assinatura": "public class UsuarioRegistroValidation : AbstractValidator<UsuarioRegistroEntrada>"
+    },
+    {
+      "nome": "UsuarioTrocarSenhaEntrada",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioTrocarSenhaEntrada.cs",
+      "linha": 7,
+      "namespace": "Core.Usuarios.Comandos.Inputs",
+      "assinatura": "public class UsuarioTrocarSenhaEntrada : Comand"
+    },
+    {
+      "nome": "EhValido",
+      "tipo": "method",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioTrocarSenhaEntrada.cs",
+      "linha": 14,
+      "assinatura": "public override bool EhValido()"
+    },
+    {
+      "nome": "UsuarioTrocarSenhaValidation",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/ObjetoDominio/Usuarios/Comandos/Inputs/UsuarioTrocarSenhaEntrada.cs",
+      "linha": 21,
+      "namespace": "Core.Usuarios.Comandos.Inputs",
+      "assinatura": "public class UsuarioTrocarSenhaValidation : AbstractValidator<UsuarioTrocarSenhaEntrada>"
+    },
+    {
+      "nome": "IntegrationEvent",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Mensagens/Integrations/IntegrationEvent.cs",
+      "linha": 5,
+      "namespace": "Core.Messages.Integration",
+      "assinatura": "public abstract class IntegrationEvent : Event"
+    },
+    {
+      "nome": "ResponseMessage",
+      "tipo": "class",
+      "arquivo": "compartilhados/core/Core/Mensagens/Integrations/ResponseMessage.cs",
+      "linha": 6,
+      "namespace": "Core.Messages.Integration",
+      "assinatura": "public class ResponseMessage : Message"
+    }
+  ],
+  "agregados": {
+    "Veiculos": {
+      "presentes": [
+        "dominios/Dominios/Veiculos/Entidades/Veiculo.cs",
+        "dominios/Dominios/Veiculos/IRepositorios/IVeiculoRepositorio.cs",
+        "dominios/Dominios/Veiculos/Comandos/Entradas/AlterarVeiculoEntrada.cs",
+        "dominios/Dominios/Veiculos/Comandos/Entradas/SalvarVeiculoEntrada.cs",
+        "dominios/Dominios/Veiculos/Comandos/Handlers/VeiculoCommandHandler.cs",
+        "dominios/Dominios/Veiculos/Comandos/Saidas/VeiculoSaida.cs"
+      ],
+      "ausentes": [],
+      "completo": false
+    },
+    "Unidades": {
+      "presentes": [
+        "dominios/Dominios/Unidades/Entidades/Unidade.cs",
+        "dominios/Dominios/Unidades/IRepositorios/IUnidadeRepositorio.cs",
+        "dominios/Dominios/Unidades/Comandos/Entradas/AlterarUnidadeEntrada.cs",
+        "dominios/Dominios/Unidades/Comandos/Entradas/SalvarUnidadeEntrada.cs",
+        "dominios/Dominios/Unidades/Comandos/Handlers/UnidadeCommandHandler.cs",
+        "dominios/Dominios/Unidades/Comandos/Saidas/UnidadeSaida.cs"
+      ],
+      "ausentes": [],
+      "completo": false
+    },
+    "Transportadoras": {
+      "presentes": [
+        "dominios/Dominios/Transportadoras/Entidades/Transportadora.cs",
+        "dominios/Dominios/Transportadoras/IRepositorios/ITransportadoraRepositorio.cs",
+        "dominios/Dominios/Transportadoras/Comandos/Entradas/AlterarTransportadoraEntrada.cs",
+        "dominios/Dominios/Transportadoras/Comandos/Entradas/SalvarTransportadoraEntrada.cs",
+        "dominios/Dominios/Transportadoras/Comandos/Handlers/TransportadoraCommandHandler.cs",
+        "dominios/Dominios/Transportadoras/Comandos/Saidas/TransportadoraSaida.cs"
+      ],
+      "ausentes": [],
+      "completo": false
+    },
+    "Portarias": {
+      "presentes": [
+        "dominios/Dominios/Portarias/Entidades/Portaria.cs",
+        "dominios/Dominios/Portarias/IRepositorios/IPortariaRepositorio.cs",
+        "dominios/Dominios/Portarias/Comandos/Entradas/AlterarPortariaEntrada.cs",
+        "dominios/Dominios/Portarias/Comandos/Entradas/SalvarPortariaEntrada.cs",
+        "dominios/Dominios/Portarias/Comandos/Handlers/PortariaCommandHandler.cs",
+        "dominios/Dominios/Portarias/Comandos/Saidas/PortariaSaida.cs"
+      ],
+      "ausentes": [],
+      "completo": false
+    },
+    "MovimentosPortaria": {
+      "presentes": [
+        "dominios/Dominios/MovimentosPortaria/Entidades/Anexo.cs",
+        "dominios/Dominios/MovimentosPortaria/Entidades/EventoFluxo.cs",
+        "dominios/Dominios/MovimentosPortaria/Entidades/MovimentoPortaria.cs",
+        "dominios/Dominios/MovimentosPortaria/Entidades/NotificacaoPendente.cs",
+        "dominios/Dominios/MovimentosPortaria/IRepositorios/IMovimentoPortariaRepositorio.cs",
+        "dominios/Dominios/MovimentosPortaria/Servicos/INotificacoesPortariaService.cs",
+        "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/CadastrarChegadaEntrada.cs",
+        "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/ChamarVeiculoEntrada.cs",
+        "dominios/Dominios/MovimentosPortaria/Comandos/Entradas/RegistrarSaidaEntrada.cs",
+        "dominios/Dominios/MovimentosPortaria/Comandos/Handlers/MovimentoPortariaCommandHandler.cs",
+        "dominios/Dominios/MovimentosPortaria/Comandos/Saidas/MovimentoPortariaSaida.cs"
+      ],
+      "ausentes": [],
+      "completo": false
+    },
+    "Motoristas": {
+      "presentes": [
+        "dominios/Dominios/Motoristas/Entidades/Motorista.cs",
+        "dominios/Dominios/Motoristas/IRepositorios/IMotoristaRepositorio.cs",
+        "dominios/Dominios/Motoristas/Comandos/Entradas/AlterarMotoristaEntrada.cs",
+        "dominios/Dominios/Motoristas/Comandos/Entradas/SalvarMotoristaEntrada.cs",
+        "dominios/Dominios/Motoristas/Comandos/Handlers/MotoristaCommandHandler.cs",
+        "dominios/Dominios/Motoristas/Comandos/Saidas/MotoristaSaida.cs"
+      ],
+      "ausentes": [],
+      "completo": false
+    }
+  },
+  "rotas_api": [
+    {
+      "metodo": "POST",
+      "rota": "/api/auth/v1/registrar",
+      "arquivo": "servicos/api/Api/Controllers/AuthController.cs",
+      "linha": 29,
+      "controller": "AuthController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/auth/v1/entrar",
+      "arquivo": "servicos/api/Api/Controllers/AuthController.cs",
+      "linha": 46,
+      "controller": "AuthController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/auth/v1/refresh",
+      "arquivo": "servicos/api/Api/Controllers/AuthController.cs",
+      "linha": 62,
+      "controller": "AuthController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/auth/v1/trocar-senha",
+      "arquivo": "servicos/api/Api/Controllers/AuthController.cs",
+      "linha": 80,
+      "controller": "AuthController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/motorista/v1/salvar",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 26,
+      "controller": "MotoristaController"
+    },
+    {
+      "metodo": "PUT",
+      "rota": "/api/motorista/v1/alterar",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 29,
+      "controller": "MotoristaController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/motorista/v1/listar/{pageIndex:int}/{pageSize:int}",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 32,
+      "controller": "MotoristaController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/motorista/v1/{id:guid}",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 36,
+      "controller": "MotoristaController"
+    },
+    {
+      "metodo": "PUT",
+      "rota": "/api/motorista/v1/{id:guid}/status",
+      "arquivo": "servicos/api/Api/Controllers/MotoristaController.cs",
+      "linha": 49,
+      "controller": "MotoristaController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/movimentos/v1/cadastrar-chegada",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 27,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/movimentos/v1/{id:guid}/confirmar-entrada",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 32,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/movimentos/v1/{id:guid}/registrar-saida",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 37,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/movimentos/v1/{id:guid}/chamar",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 45,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/movimentos/v1/{id:guid}/recancelar-chamada",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 51,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/movimentos/v1/{id:guid}/cancelar",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 57,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/movimentos/v1/{id:guid}/desistir",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 65,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "PUT",
+      "rota": "/api/movimentos/v1/{id:guid}",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 73,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/movimentos/v1/{id:guid}/anexar",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 81,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/movimentos/v1/listar/{pageIndex:int}/{pageSize:int}",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 100,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/movimentos/v1/{id:guid}",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 104,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/movimentos/v1/{id:guid}/eventos",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 140,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/movimentos/v1/{id:guid}/anexos",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 144,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/movimentos/v1/buscar-por-placa/{carretaId:guid}/auto-fill",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 147,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/movimentos/v1/resumo-dia",
+      "arquivo": "servicos/api/Api/Controllers/MovimentoPortariaController.cs",
+      "linha": 151,
+      "controller": "MovimentoPortariaController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/painel-chamada/v1/listar",
+      "arquivo": "servicos/api/Api/Controllers/PainelChamadaController.cs",
+      "linha": 30,
+      "controller": "PainelChamadaController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/portaria/v1/salvar",
+      "arquivo": "servicos/api/Api/Controllers/PortariaController.cs",
+      "linha": 26,
+      "controller": "PortariaController"
+    },
+    {
+      "metodo": "PUT",
+      "rota": "/api/portaria/v1/alterar",
+      "arquivo": "servicos/api/Api/Controllers/PortariaController.cs",
+      "linha": 29,
+      "controller": "PortariaController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/portaria/v1/listar/{pageIndex:int}/{pageSize:int}",
+      "arquivo": "servicos/api/Api/Controllers/PortariaController.cs",
+      "linha": 32,
+      "controller": "PortariaController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/transportadora/v1/salvar",
+      "arquivo": "servicos/api/Api/Controllers/TransportadoraController.cs",
+      "linha": 26,
+      "controller": "TransportadoraController"
+    },
+    {
+      "metodo": "PUT",
+      "rota": "/api/transportadora/v1/alterar",
+      "arquivo": "servicos/api/Api/Controllers/TransportadoraController.cs",
+      "linha": 29,
+      "controller": "TransportadoraController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/transportadora/v1/listar/{pageIndex:int}/{pageSize:int}",
+      "arquivo": "servicos/api/Api/Controllers/TransportadoraController.cs",
+      "linha": 32,
+      "controller": "TransportadoraController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/unidade/v1/salvar",
+      "arquivo": "servicos/api/Api/Controllers/UnidadeController.cs",
+      "linha": 26,
+      "controller": "UnidadeController"
+    },
+    {
+      "metodo": "PUT",
+      "rota": "/api/unidade/v1/alterar",
+      "arquivo": "servicos/api/Api/Controllers/UnidadeController.cs",
+      "linha": 29,
+      "controller": "UnidadeController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/unidade/v1/listar/{pageIndex:int}/{pageSize:int}",
+      "arquivo": "servicos/api/Api/Controllers/UnidadeController.cs",
+      "linha": 32,
+      "controller": "UnidadeController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/usuarios/v1/listar/{pageIndex:int}/{pageSize:int}",
+      "arquivo": "servicos/api/Api/Controllers/UsuarioController.cs",
+      "linha": 20,
+      "controller": "UsuarioController"
+    },
+    {
+      "metodo": "PUT",
+      "rota": "/api/usuarios/v1/{id}/papel",
+      "arquivo": "servicos/api/Api/Controllers/UsuarioController.cs",
+      "linha": 41,
+      "controller": "UsuarioController"
+    },
+    {
+      "metodo": "POST",
+      "rota": "/api/veiculo/v1/salvar",
+      "arquivo": "servicos/api/Api/Controllers/VeiculoController.cs",
+      "linha": 26,
+      "controller": "VeiculoController"
+    },
+    {
+      "metodo": "PUT",
+      "rota": "/api/veiculo/v1/alterar",
+      "arquivo": "servicos/api/Api/Controllers/VeiculoController.cs",
+      "linha": 29,
+      "controller": "VeiculoController"
+    },
+    {
+      "metodo": "GET",
+      "rota": "/api/veiculo/v1/listar/{pageIndex:int}/{pageSize:int}",
+      "arquivo": "servicos/api/Api/Controllers/VeiculoController.cs",
+      "linha": 32,
+      "controller": "VeiculoController"
+    }
+  ],
+  "estatisticas": {
+    "total_arquivos": 154,
+    "total_simbolos": 439,
+    "total_rotas": 39,
+    "tokens_total_estimados": 59435
+  }
+}

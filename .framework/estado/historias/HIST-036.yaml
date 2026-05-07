@@ -1,0 +1,34 @@
+id: HIST-036
+titulo: Frontend Unidades (T-021/22) com config Evolution API
+tipo: crud
+agregado: Unidade
+prioridade: alta
+estado: concluida
+persona: Admin
+motivo: configurar unidade e integracao WhatsApp
+valor_de_negocio: habilita uso multi-empresa futuro
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-003
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/frontend_scaffold.py unidades --tudo
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: none
+  caminho: ''
+  aprovado: true
+  aprovado_em: auto
+aceite:
+- Token Evolution mascarado nos retornos
+- Botao 'Testar conexao' (futuro)
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

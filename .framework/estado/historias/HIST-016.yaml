@@ -1,0 +1,36 @@
+id: HIST-016
+titulo: Registrar desistencia (CDU-009)
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: registrar quando motorista desiste
+valor_de_negocio: rastreio para gestao de transportadoras
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-015
+regras_negocio:
+- RN-008
+- RN-009
+acao:
+  comando: 'manual: comando DesistirMovimento similar ao Cancelar'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-016.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- POST /api/movimentos/v1/{id}/desistir com Observacao
+- Estado vai para Desistencia; EventoFluxo:Desistencia
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

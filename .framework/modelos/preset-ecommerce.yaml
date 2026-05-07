@@ -1,0 +1,57 @@
+# Preset PRD: E-commerce B2C
+# Use: copie para estado/prd.yaml e ajuste
+
+projeto:
+  nome: ""
+  versao: "0.1.0"
+  data: ""
+  proposito: ""
+  stack: csharp-portaria
+
+plataformas:
+  api: { ativa: true }
+  web: { ativa: true, modo: pwa }
+  mobile: { ativa: false }
+
+auth:
+  ativa: true
+  registro_publico: true
+  rbac:
+    ativo: true
+    roles: [admin, vendedor, cliente]
+
+agregados:
+  - nome: Cliente
+    extends: Pessoa
+    composto_por: [Endereco, DadosContato]
+  - nome: Produto
+    campos: [nome, descricao, preco, estoque, categoriaId]
+  - nome: Categoria
+  - nome: Pedido
+    composto_por: [ItemPedido]
+    estados: [rascunho, pago, em_separacao, enviado, entregue, cancelado]
+  - nome: Cupom
+  - nome: Avaliacao
+
+abstracoes:
+  - tipo: value-object
+    nome: Endereco
+    campos: [logradouro, numero, complemento, cep, cidade, uf]
+  - tipo: value-object
+    nome: DadosContato
+    campos: [email, telefone, whatsapp]
+
+regras_negocio_sugeridas:
+  - "RN: Pedido cancelado libera estoque reservado"
+  - "RN: Cupom expirado nao pode ser aplicado"
+  - "RN: Cliente com pedido em aberto nao pode ser deletado (soft-delete)"
+  - "RN: Avaliacao so pode ser feita apos status=entregue"
+  - "RN: Estoque negativo nunca permitido (reserva atomica)"
+
+integracoes:
+  - nome: stripe (ou mercadopago)
+    tipo: pagamento
+  - nome: correios (ou frenet)
+    tipo: calculo-de-frete
+  - nome: sendgrid
+    tipo: email-transacional

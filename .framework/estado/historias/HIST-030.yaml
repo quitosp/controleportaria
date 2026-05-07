@@ -1,0 +1,40 @@
+id: HIST-030
+titulo: 'Frontend Movimentos: lista + detalhe + edicao (T-007/8/9)'
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Supervisor
+motivo: investigar movimentos, ver auditoria e editar com restricoes
+valor_de_negocio: auditoria LGPD usavel
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-017
+regras_negocio:
+- RN-021
+- RN-015
+acao:
+  comando: 'py .framework/scripts/frontend_scaffold.py movimentos --tudo  ; manual:
+    detalhe com tabs Chegada/Saida/Anexos/Auditoria; edicao com bloqueio de campos
+    por papel'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-030.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- Lista com filtros (data, placa, motorista, estado)
+- Detalhe mostra timeline de EventoFluxo
+- 'Edicao: campos criticos desabilitados se papel insuficiente pos-NoPateoInterno'
+- Galeria de anexos por estagio
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

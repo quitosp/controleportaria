@@ -1,0 +1,36 @@
+id: HIST-007
+titulo: CRUD Veiculo (placa = veiculo individual)
+tipo: crud
+agregado: Veiculo
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: cadastrar veiculos por placa para auto-fill
+valor_de_negocio: agiliza cadastro de chegada
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-006
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/csharp_scaffold.py Veiculo --plural Veiculos --campos
+    "Placa:string:8:unico Tipo:enum:Cavalo|Carreta|CarretaSegunda TransportadoraId:guid:opcional
+    UnidadeId:guid" --tudo
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: none
+  caminho: ''
+  aprovado: true
+  aprovado_em: auto
+aceite:
+- CRUD funcionando, placa normalizada (uppercase, sem hifen)
+- Validacao de placa Mercosul ou tradicional via VO Placa
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

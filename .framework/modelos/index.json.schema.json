@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "indice-projeto",
+  "description": "Estrutura do estado/index.json gerado pelo scripts/indexar.py. Indice de simbolos para busca rapida sem ler arquivos.",
+  "type": "object",
+  "required": ["gerado_em", "stack", "raiz", "arquivos", "simbolos"],
+  "properties": {
+    "gerado_em": {"type": "string", "format": "date-time"},
+    "stack": {"type": "string", "enum": ["csharp-portaria", "frontend-react", "python-fastapi", "hibrido"]},
+    "raiz": {"type": "string"},
+    "arquivos": {
+      "type": "object",
+      "description": "Mapa caminho -> metadata. Chave = caminho relativo a raiz.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["linhas", "tamanho_bytes", "tokens_estimados"],
+        "properties": {
+          "linhas": {"type": "integer"},
+          "tamanho_bytes": {"type": "integer"},
+          "tokens_estimados": {"type": "integer"},
+          "tipo": {"type": "string", "enum": ["entidade", "comando_entrada", "comando_saida", "handler", "repositorio_iface", "repositorio_impl", "mapeamento", "controller", "config", "feature", "componente", "hook", "outro"]},
+          "agregado": {"type": "string"},
+          "ultima_modificacao": {"type": "string", "format": "date-time"}
+        }
+      }
+    },
+    "simbolos": {
+      "type": "array",
+      "description": "Lista plana de simbolos (classes, interfaces, metodos publicos, funcoes, hooks). Permite busca grep-like sem reler arquivos.",
+      "items": {
+        "type": "object",
+        "required": ["nome", "tipo", "arquivo", "linha"],
+        "properties": {
+          "nome": {"type": "string"},
+          "tipo": {"type": "string", "enum": ["class", "interface", "method", "function", "hook", "component", "enum", "type", "schema"]},
+          "arquivo": {"type": "string"},
+          "linha": {"type": "integer"},
+          "assinatura": {"type": "string"},
+          "namespace": {"type": "string"}
+        }
+      }
+    },
+    "agregados": {
+      "type": "object",
+      "description": "Mapa agregado -> conjunto de arquivos esperados vs presentes.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "presentes": {"type": "array", "items": {"type": "string"}},
+          "ausentes": {"type": "array", "items": {"type": "string"}},
+          "completo": {"type": "boolean"}
+        }
+      }
+    },
+    "rotas_api": {
+      "type": "array",
+      "description": "Endpoints HTTP detectados em controllers.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "metodo": {"type": "string"},
+          "rota": {"type": "string"},
+          "arquivo": {"type": "string"},
+          "linha": {"type": "integer"},
+          "controller": {"type": "string"}
+        }
+      }
+    }
+  }
+}

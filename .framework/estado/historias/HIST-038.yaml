@@ -1,0 +1,36 @@
+id: HIST-038
+titulo: Aplicar seguranca + CI (rate limit + headers + GitHub Actions + CodeQL)
+tipo: automation
+agregado: ''
+prioridade: alta
+estado: concluida
+persona: ''
+motivo: manter saude do sistema
+valor_de_negocio: reduz risco de incidente
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-036
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/aplicar_seguranca_csharp.py ; py .framework/scripts/aplicar_seguranca_next.py
+    ; py .framework/scripts/aplicar_ci.py
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-038.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- Rate limit no login (5/min/IP)
+- Headers HSTS+CSP+XCTO no API e frontend
+- Workflows .github/workflows/ci.yml + codeql.yml + dependabot.yml
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

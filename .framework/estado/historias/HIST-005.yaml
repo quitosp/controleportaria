@@ -1,0 +1,40 @@
+id: HIST-005
+titulo: Estender Usuario com papel + UnidadeId + PortariaPadraoId
+tipo: crud
+agregado: Usuario
+prioridade: alta
+estado: concluida
+persona: Admin
+motivo: criar usuarios com papel e portaria padrao
+valor_de_negocio: rastreabilidade automatica por usuario
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-004
+regras_negocio:
+- RN-001
+- RN-002
+acao:
+  comando: 'manual: alterar AspNetUsers (Identity) ou criar agregado Usuario que extende
+    IdentityUser. Adicionar campos Nome, Papel (enum), UnidadeId, PortariaPadraoId,
+    Ativo. Atualizar SeedAdmin.'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: none
+  caminho: ''
+  aprovado: true
+  aprovado_em: auto
+aceite:
+- Tabela usuarios estendida com Papel/UnidadeId/PortariaPadraoId/Ativo
+- JWT inclui claims correspondentes
+- Endpoint POST /api/usuarios/v1/cadastrar so para Admin
+- SeedAdmin cria admin@local com Papel=Admin
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

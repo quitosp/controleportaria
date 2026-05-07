@@ -1,0 +1,35 @@
+id: HIST-004
+titulo: CRUD Portaria (vinculada a Unidade)
+tipo: crud
+agregado: Portaria
+prioridade: alta
+estado: concluida
+persona: Admin
+motivo: cadastrar as portarias fisicas
+valor_de_negocio: rastreabilidade por portaria de origem
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-003
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/csharp_scaffold.py Portaria --plural Portarias --campos
+    "Nome:string:100 UnidadeId:guid" --tudo
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: none
+  caminho: ''
+  aprovado: true
+  aprovado_em: auto
+aceite:
+- CRUD Portaria funcionando
+- Filtro por UnidadeId aplicado via QueryFilter global
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

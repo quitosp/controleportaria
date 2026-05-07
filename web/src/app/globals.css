@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design System: Trust & Authority (Industrial slate + stock green)
+ * Fonte: design-system/controleportaria/MASTER.md
+ *   primary  #334155 slate-700
+ *   accent   #059669 emerald-600 (CTAs)
+ *   bg       #F8FAFC slate-50
+ *   fg       #0F172A slate-900
+ */
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 215 25% 27%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 19% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 6% 95%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 160 84% 30%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 73% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --warning: 32 94% 44%;
+    --warning-foreground: 0 0% 100%;
+    --success: 160 84% 30%;
+    --success-foreground: 0 0% 100%;
+    --border: 210 6% 91%;
+    --input: 210 6% 91%;
+    --ring: 215 25% 27%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 215 25% 16%;
+    --card-foreground: 210 40% 98%;
+    --popover: 215 25% 16%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 215 19% 65%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 215 19% 35%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 25% 18%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 73% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --warning: 32 94% 50%;
+    --warning-foreground: 0 0% 100%;
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 215 19% 65%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4 { @apply font-semibold tracking-tight; }
+}

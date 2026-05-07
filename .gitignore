@@ -1,0 +1,48 @@
+# Estado vivo do framework (nao versionar)
+.framework/estado/index.json
+.framework/estado/.optimized/
+.framework/estado/historias/*.lock
+
+# Anexos (filesystem local)
+api/anexos/
+api/servicos/api/Api/anexos/
+
+# Logs
+logs/
+api/logs/
+*.log
+
+# C# / .NET
+api/**/bin/
+api/**/obj/
+*.user
+*.suo
+
+# Node / Next.js
+web/node_modules/
+web/.next/
+web/out/
+web/.turbo/
+web/dist/
+
+# Env locais
+**/appsettings.Local.json
+**/.env.local
+**/.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vs/
+.vscode/
+.idea/
+
+# Helpers temporarios
+fix_*.py
+gerar_*.py
+criar_pages.py
+reescrever_*.py
+marcar_*.py
+aplicar_policies.py

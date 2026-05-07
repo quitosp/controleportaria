@@ -1,0 +1,34 @@
+id: HIST-006
+titulo: CRUD Transportadora
+tipo: crud
+agregado: Transportadora
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: cadastrar/listar transportadoras associadas a veiculos
+valor_de_negocio: auto-fill por placa (sugerir transportadora)
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-005
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/csharp_scaffold.py Transportadora --plural Transportadoras
+    --campos "RazaoSocial:string:200 Cnpj:string:14:unico UnidadeId:guid" --tudo
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: none
+  caminho: ''
+  aprovado: true
+  aprovado_em: auto
+aceite:
+- CRUD funcionando, CNPJ unico por unidade
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

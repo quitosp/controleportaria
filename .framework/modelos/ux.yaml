@@ -1,0 +1,87 @@
+# UX — design de telas e fluxos. So para projetos com frontend.
+# Preenchido pela skill criar-ux a partir do prd.yaml.
+
+projeto:
+  nome: ""
+  stack_frontend: ""                # frontend-react | hibrido (api+web)
+
+design_tokens:                      # decisoes visuais globais
+  paleta:                           # nomes shadcn/ui ou tailwind
+    primaria: ""                    # ex: "blue-600"
+    secundaria: ""
+    perigo: "red-600"
+    sucesso: "green-600"
+  tipografia:
+    sans: "Inter"
+    mono: "JetBrains Mono"
+  raio_borda: "rounded-md"
+  espacamento_base: "0.5rem"        # multiplo do tailwind (gap-2, p-4, etc)
+  modo_escuro: true                 # default true
+
+componentes_base:                   # de shadcn/ui ou customizados
+  - Button
+  - Input
+  - Select
+  - Dialog
+  - Table
+  - Card
+  - Toast
+  - Tabs
+
+telas:                              # 1 por rota
+  - id: ""                          # T-001, T-002...
+    nome: ""                        # "Lista de Empresas"
+    rota: ""                        # "/empresas"
+    proposito: ""                   # 1 frase: "ver e gerenciar empresas cadastradas"
+    privada: true                   # exige login
+    feature: ""                     # casa com prd.yaml > features_frontend[].nome
+    layout: ""                      # padrao: "lista" | "formulario" | "detalhe" | "dashboard" | "modal"
+
+    componentes:                    # blocos visuais
+      - tipo: ""                    # cabecalho | tabela | formulario | card | grafico | filtro
+        descricao: ""               # 1 frase
+        dados: ""                   # de onde vem: "GET /api/empresa/v1/listar/{p}/{s}"
+
+    estados:                        # SEMPRE os 4 explicitos
+      carregando: ""                # "Skeleton de 5 linhas na tabela"
+      vazio: ""                     # "Mensagem 'Nenhuma empresa cadastrada' + botao Nova"
+      erro: ""                      # "Toast vermelho com mensagem do backend + botao tentar novamente"
+      sucesso: ""                   # "Tabela populada, paginacao no rodape"
+
+    acoes_usuario:                  # interacoes
+      - gatilho: ""                 # "clique em Nova Empresa"
+        destino: ""                 # T-id ou modal ou /rota
+        endpoint: ""                # opcional: "POST /api/empresa/v1/salvar"
+
+    ux_writing:                     # textos de interface
+      titulo: ""                    # h1 da tela
+      botao_primario: ""            # "Nova Empresa"
+      vazio_mensagem: ""            # "Nenhuma empresa cadastrada ainda"
+
+    responsivo:
+      mobile: ""                    # 1 frase: "tabela vira cards empilhados"
+      desktop: ""                   # "tabela full-width, colunas: Nome, CNPJ, Acoes"
+
+fluxos:                             # jornadas de tela em tela
+  - nome: ""                        # "Cadastrar empresa"
+    sequencia:
+      - T-001                       # lista
+      - T-002                       # formulario
+      - T-001                       # volta lista (sucesso)
+    descricao: ""
+
+navegacao:
+  tipo: ""                          # sidebar | topbar | tabbar | hibrido
+  itens:
+    - rotulo: ""                    # "Empresas"
+      rota: ""                      # /empresas
+      icone: ""                     # nome lucide-react: "Building2"
+      grupo: ""                     # opcional, agrupar no menu
+
+acessibilidade:
+  contraste: "AA"                   # WCAG nivel
+  navegacao_teclado: true
+  aria_labels: true
+  foco_visivel: true
+
+notas: ""

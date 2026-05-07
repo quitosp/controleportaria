@@ -1,0 +1,39 @@
+id: HIST-028
+titulo: Frontend Painel de chamada (T-004) com SignalR
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Lider
+motivo: ver fila do patio externo em tempo real e chamar veiculos
+valor_de_negocio: elimina ligacoes
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-021
+  - HIST-023
+regras_negocio:
+- RN-011
+acao:
+  comando: 'py .framework/scripts/frontend_scaffold.py painel-chamada --tudo  ; manual:
+    useSignalR hook, animacao de novas chegadas, badge ''chamada expirada'' no T-020'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-028.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- Atualiza em tempo real via SignalR
+- Reconecta apos perder rede
+- Botao 'Autorizar entrada' por linha com confirmacao rapida
+- Tablet-first (lider em chao de fabrica)
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

@@ -1,0 +1,54 @@
+id: HIST-010
+titulo: Cadastrar chegada (CDU-002) — fluxo principal do MovimentoPortaria
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: registrar chegada de veiculo com auto-fill, validacao de motorista bloqueado
+  e alerta de carreta com movimento aberto
+valor_de_negocio: elimina cadastro errado e agiliza fila
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-008
+  - HIST-009
+regras_negocio:
+- RN-001
+- RN-002
+- RN-003
+- RN-004
+- RN-008
+- RN-010
+- RN-012
+- RN-014
+- RN-015
+- RN-018
+- RN-019
+acao:
+  comando: 'manual: criar agregado MovimentoPortaria + EventoFluxo + Anexo + NotificacaoPendente.
+    Comando CadastrarChegada com regras RN-001..RN-019. Endpoint GET /api/veiculos/v1/buscar-por-placa/{placa}
+    retorna sugestao de auto-fill (RN-010).'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-010.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- POST /api/movimentos/v1/cadastrar-chegada cria movimento com Estado conforme Destino
+- GET .../buscar-por-placa retorna ultima Transportadora/TipoCarga (auto-fill)
+- 'RN-003: AutorizadoPorChegada obrigatorio se Destino=Interno'
+- 'RN-004: Motorista Bloqueado exige Observacao + gera EventoFluxo:AlertaBloqueio'
+- 'RN-012: Carreta com movimento aberto na unidade retorna 409'
+- EventoFluxo:ChegadaRegistrada gravado na mesma transacao
+- NumeroNF opcional na chegada (RN-018)
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

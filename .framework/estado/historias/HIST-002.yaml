@@ -1,0 +1,56 @@
+id: HIST-002
+titulo: Configurar RBAC com policies (Porteiro/Lider/Supervisor/Admin)
+tipo: authorization
+agregado: Usuario
+prioridade: alta
+estado: concluida
+persona: Admin
+motivo: garantir que cada papel acesse apenas as rotas/acoes permitidas
+valor_de_negocio: compliance e seguranca patrimonial
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-001
+regras_negocio:
+- RN-001
+- RN-014
+- RN-021
+acao:
+  comando: 'manual: editar Configuration/AuthorizationConfig.cs + atributos [Authorize(Policy=...)]
+    nos controllers'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-002.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- 'Policies definidas: PorteiroOuMaior, LiderOuMaior, SupervisorOuMaior, SomenteAdmin'
+- 'JWT contem claims: papel, UnidadeId, PortariaPadraoId'
+- Endpoints sensiveis (alterar status motorista, criar usuario, criar unidade) exigem
+  SomenteAdmin/SupervisorOuMaior
+- Tentativa de acesso sem papel suficiente retorna 403
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: 'pendente: testar 401/403 com JWT real apos /impl HIST-005'
+commit_sha: ''
+notas: |
+  Concluido em 2026-05-07.
+  Arquivos criados:
+  - Core/ObjetoDominio/Autorizacao/PapelUsuario.cs (enum Porteiro<Lider<Supervisor<Admin)
+  - Core/ObjetoDominio/Autorizacao/PoliticasAuth.cs (constantes de policy + claims)
+  - WebApi.Core/Multitenant/IUnidadeContext.cs + UnidadeContextHttp.cs (RN-014 multi-tenant)
+  - Api/Configuration/AuthorizationConfig.cs (4 policies hierarquicas via RequireAssertion)
+  Arquivos editados:
+  - WebApi.Core/Usuario/Usuario.cs (+ Papel/UnidadeId/PortariaPadraoId)
+  - Api/Identidade/Servicos/AuthenticationService.cs (claims papel/unidadeId/portariaPadraoId/name no JWT)
+  - Api/Identidade/SeedAdmin.cs (Admin seed com Papel=Admin)
+  - Api/Configuration/DependencyInjectionConfig.cs (registra IUnidadeContext)
+  - Api/Startup.cs (chama AddAuthorizationConfiguration)
+  - Api/Controllers/AuthController.cs (registrar exige SomenteAdmin; entrar/refresh ficam AllowAnonymous)
+  Regras cobertas: RN-001 (auth obrigatoria), RN-014 (multi-tenant via claim), RN-021 (suporte para Lider+ em campos criticos — sera consumido nos handlers de movimento)
+  Pendencia: migration (HIST-005 fara apos /criar_banco)

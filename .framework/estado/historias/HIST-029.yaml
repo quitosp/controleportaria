@@ -1,0 +1,43 @@
+id: HIST-029
+titulo: Frontend Confirmar entrada (T-005) e Registrar saida (T-006)
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: confirmar entrada e registrar saida com formulario condicional
+valor_de_negocio: rastreabilidade completa
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-013
+  - HIST-014
+  - HIST-018
+regras_negocio:
+- RN-005
+- RN-006
+- RN-007
+acao:
+  comando: 'py .framework/scripts/frontend_scaffold.py confirmar-entrada --tudo  ;
+    py .framework/scripts/frontend_scaffold.py saida --tudo  ; manual: form condicional
+    por motivo + tipo carga'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-029.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- Busca por placa instantanea (debounce 300ms)
+- 'Saida: secao ''Carga'' aparece/some por motivo'
+- 'Container exportacao: campos Container/Contrato exigidos'
+- Anexos sempre disponiveis
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

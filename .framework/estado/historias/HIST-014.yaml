@@ -1,0 +1,44 @@
+id: HIST-014
+titulo: Registrar saida condicional (CDU-007) — Descarga / Carga / Container
+tipo: business-flow
+agregado: MovimentoPortaria
+prioridade: alta
+estado: concluida
+persona: Porteiro
+motivo: registrar saida com campos exigidos conforme motivo
+valor_de_negocio: captura todos os dados criticos (lacre, contrato, container)
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-013
+regras_negocio:
+- RN-005
+- RN-006
+- RN-007
+- RN-008
+- RN-014
+- RN-015
+- RN-018
+acao:
+  comando: 'manual: comando RegistrarSaida com validacoes condicionais por MotivoEntrada
+    e TipoCarga. Estado vai para Saiu.'
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: contrato
+  caminho: .framework/estado/artefatos/HIST-014.md
+  aprovado: true
+  aprovado_em: '2026-05-07'
+aceite:
+- 'RN-005: Descarga so timestamp'
+- 'RN-006: Carga exige NF + Lacre + Destino'
+- 'RN-007: Carga + TipoCarga=Container exige + NumeroContainer + Contrato'
+- Estado final Saiu; EventoFluxo:SaidaRegistrada
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

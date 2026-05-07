@@ -1,0 +1,33 @@
+id: HIST-035
+titulo: Frontend Portarias (T-019/20)
+tipo: crud
+agregado: Portaria
+prioridade: alta
+estado: concluida
+persona: Admin
+motivo: gerenciar portarias da unidade
+valor_de_negocio: configuracao basica
+contexto:
+  prd_referencia: ''
+  arquitetura_referencia: ''
+  dependencias:
+  - HIST-004
+regras_negocio: []
+acao:
+  comando: py .framework/scripts/frontend_scaffold.py portarias --tudo
+  arquivos_criar: []
+  arquivos_editar: []
+  arquivos_consultar: []
+artefato:
+  tipo_artefato: none
+  caminho: ''
+  aprovado: true
+  aprovado_em: auto
+aceite:
+- CRUD funcional
+validacao:
+  build: true
+  testes: false
+  endpoint_testado: ''
+commit_sha: ''
+notas: Concluido em 2026-05-07. Build OK + pos-implementacao OK.

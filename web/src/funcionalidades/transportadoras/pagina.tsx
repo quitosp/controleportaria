@@ -33,7 +33,7 @@ export function PaginaTransportadoras() {
       setNovoOpen(false); setForm({});
       carregar();
     } catch (ex: any) {
-      setErro(ex?.response?.data?.Mensagem ?? ex?.response?.data?.mensagem ?? "Falha ao salvar");
+      setErro(ex?.response?.data?.message ?? ex?.response?.data?.mensagem ?? "Falha ao salvar");
     }
   }
 

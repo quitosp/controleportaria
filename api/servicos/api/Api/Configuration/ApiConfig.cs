@@ -52,7 +52,11 @@ public static class ApiConfig
         app.UseCors("Total");
         app.UseAuthConfiguration();
         app.UseRateLimiter();
-        app.UseEndpoints(endpoints => endpoints.MapControllers());
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+            endpoints.MapHub<Api.Hubs.PainelChamadaHub>("/hubs/painel-chamada");
+        });
         app.UseJwksDiscovery();
     }
 }

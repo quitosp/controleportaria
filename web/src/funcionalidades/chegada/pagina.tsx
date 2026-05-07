@@ -82,15 +82,15 @@ export function PaginaChegada() {
         observacao: observacao || null,
       };
       const { data } = await api.post<any>("/api/movimentos/v1/cadastrar-chegada", payload);
-      const sucesso = data?.Sucesso ?? data?.sucesso;
+      const sucesso = data?.success ?? data?.Success;
       if (!sucesso) {
-        setErro(data?.Mensagem ?? data?.mensagem ?? "Falha ao cadastrar chegada");
+        setErro(data?.message ?? data?.Message ?? "Falha ao cadastrar chegada");
         return;
       }
-      const id = data?.Data?.id ?? data?.data?.id;
+      const id = data?.data?.id ?? data?.data?.id;
       router.push(id ? `/movimentos/${id}` : "/movimentos");
     } catch (ex: any) {
-      setErro(ex?.response?.data?.Mensagem ?? "Falha ao cadastrar chegada");
+      setErro(ex?.response?.data?.message ?? "Falha ao cadastrar chegada");
     } finally {
       setEnviando(false);
     }

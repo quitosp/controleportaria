@@ -26,6 +26,19 @@ namespace WebAPI.Core.Identidade
                 x.BackchannelHttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = delegate { return true; } };
                 x.SaveToken = true;
                 x.SetJwksOptions(new JwkOptions(appSettings.AutenticacaoJwksUrl));
+
+                // Suporte SignalR: query ?access_token=...
+                x.Events = new Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        var accessToken = context.Request.Query["access_token"];
+                        var path = context.HttpContext.Request.Path;
+                        if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs"))
+                            context.Token = accessToken;
+                        return Task.CompletedTask;
+                    }
+                };
             });
         }
 

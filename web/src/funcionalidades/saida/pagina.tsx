@@ -44,7 +44,7 @@ export function PaginaSaida() {
       setMsg("Saida registrada");
       setMov(null); setId(""); setNF(""); setLacre(""); setDestino(""); setContainer(""); setContrato("");
     } catch (ex: any) {
-      setErro(ex?.response?.data?.Mensagem ?? "Falha ao registrar saida (campos faltantes?)");
+      setErro(ex?.response?.data?.message ?? "Falha ao registrar saida (campos faltantes?)");
     }
   }
 

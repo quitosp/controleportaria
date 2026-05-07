@@ -53,7 +53,7 @@ export function PaginaPainelChamada() {
       await api.post(`/api/movimentos/v1/${id}/chamar`);
       await carregar();
     } catch (ex: any) {
-      setErro(ex?.response?.data?.Mensagem || "Falha ao chamar (talvez outro lider tenha chamado primeiro)");
+      setErro(ex?.response?.data?.message || "Falha ao chamar (talvez outro lider tenha chamado primeiro)");
     } finally {
       setAcaoEm(null);
     }

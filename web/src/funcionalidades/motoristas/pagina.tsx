@@ -47,7 +47,7 @@ export function PaginaMotoristas() {
       setNovoOpen(false); setNome(""); setCpf(""); setWhatsapp(""); setEmail("");
       carregar();
     } catch (ex: any) {
-      setErro(ex?.response?.data?.Mensagem ?? "Falha ao salvar");
+      setErro(ex?.response?.data?.message ?? "Falha ao salvar");
     }
   }
 
@@ -59,7 +59,7 @@ export function PaginaMotoristas() {
       setStatusOpen(null); setMotivoStatus("");
       carregar();
     } catch (ex: any) {
-      setErro(ex?.response?.data?.Mensagem ?? "Falha ao alterar status");
+      setErro(ex?.response?.data?.message ?? "Falha ao alterar status");
     }
   }
 

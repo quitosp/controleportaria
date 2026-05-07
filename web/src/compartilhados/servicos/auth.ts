@@ -40,13 +40,15 @@ export function papelMaiorOuIgual(atual: Papel | undefined, minimo: Papel): bool
 
 export async function entrar(email: string, senha: string) {
   const { data } = await api.post<any>("/api/auth/v1/entrar", { Email: email, Senha: senha });
-  if (!data?.Sucesso && !data?.sucesso) {
-    throw new Error(data?.Mensagem || data?.mensagem || "Falha no login");
+  // ComandResult: { success, message, data: { accessToken, refreshToken, expiresIn, usuarioToken }, code }
+  const sucesso = data?.success ?? data?.Success;
+  if (!sucesso) {
+    throw new Error(data?.message ?? data?.Message ?? "Falha no login");
   }
-  const dados = data?.Data || data?.data;
-  const token = dados?.AccessToken || dados?.accessToken;
-  const refresh = dados?.RefreshToken || dados?.refreshToken;
-  if (!token) throw new Error("Token nao retornado");
+  const dados = data?.data ?? data?.Data;
+  const token = dados?.accessToken ?? dados?.AccessToken;
+  const refresh = dados?.refreshToken ?? dados?.RefreshToken;
+  if (!token) throw new Error("Token nao retornado pela API");
   if (typeof window !== "undefined") {
     localStorage.setItem(KEY, token);
     if (refresh) localStorage.setItem("auth.refresh", refresh);

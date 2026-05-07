@@ -33,7 +33,7 @@ export function PaginaUsuarios() {
       setNovoOpen(false); setForm({ nome: "", email: "", senha: "", confirmacaoSenha: "" });
       carregar();
     } catch (ex: any) {
-      setErro(ex?.response?.data?.Mensagem ?? "Falha ao registrar");
+      setErro(ex?.response?.data?.message ?? "Falha ao registrar");
     }
   }
 

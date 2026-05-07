@@ -49,7 +49,7 @@ export function DetalheMovimento({ id }: { id: string }) {
     try {
       await api.post(`/api/movimentos/v1/${id}/cancelar`, { observacao });
       setMsg("Cancelado"); setObservacao(""); carregar();
-    } catch (ex: any) { setErro(ex?.response?.data?.Mensagem ?? "Falha"); }
+    } catch (ex: any) { setErro(ex?.response?.data?.message ?? "Falha"); }
   }
 
   async function desistir() {
@@ -57,7 +57,7 @@ export function DetalheMovimento({ id }: { id: string }) {
     try {
       await api.post(`/api/movimentos/v1/${id}/desistir`, { observacao });
       setMsg("Desistencia registrada"); setObservacao(""); carregar();
-    } catch (ex: any) { setErro(ex?.response?.data?.Mensagem ?? "Falha"); }
+    } catch (ex: any) { setErro(ex?.response?.data?.message ?? "Falha"); }
   }
 
   async function anexar(estagio: number, file: File) {
@@ -67,7 +67,7 @@ export function DetalheMovimento({ id }: { id: string }) {
     try {
       await api.post(`/api/movimentos/v1/${id}/anexar`, fd);
       carregar();
-    } catch (ex: any) { setErro(ex?.response?.data?.Mensagem ?? "Falha no upload"); }
+    } catch (ex: any) { setErro(ex?.response?.data?.message ?? "Falha no upload"); }
   }
 
   if (!mov) return <div className="p-4">Carregando...</div>;

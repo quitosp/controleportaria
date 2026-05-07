@@ -35,7 +35,7 @@ export function PaginaConfirmarEntrada() {
       setMsg("Entrada confirmada");
       setMovimento(null); setId("");
     } catch (ex: any) {
-      setErro(ex?.response?.data?.Mensagem ?? "Falha ao confirmar entrada");
+      setErro(ex?.response?.data?.message ?? "Falha ao confirmar entrada");
     }
   }
 

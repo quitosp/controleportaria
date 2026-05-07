@@ -1,76 +1,105 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 /*
  * Design System: Trust & Authority (Industrial slate + stock green)
  * Fonte: design-system/controleportaria/MASTER.md
  *   primary  #334155 slate-700
  *   accent   #059669 emerald-600 (CTAs)
- *   bg       #F8FAFC slate-50
- *   fg       #0F172A slate-900
  */
 
-@layer base {
-  :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 215 25% 27%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 215 19% 35%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 210 6% 95%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 160 84% 30%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 73% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --warning: 32 94% 44%;
-    --warning-foreground: 0 0% 100%;
-    --success: 160 84% 30%;
-    --success-foreground: 0 0% 100%;
-    --border: 210 6% 91%;
-    --input: 210 6% 91%;
-    --ring: 215 25% 27%;
-    --radius: 0.5rem;
-  }
+:root {
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 215 25% 27%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 215 19% 35%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 210 6% 95%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 160 84% 30%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 73% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --warning: 32 94% 44%;
+  --warning-foreground: 0 0% 100%;
+  --success: 160 84% 30%;
+  --success-foreground: 0 0% 100%;
+  --border: 210 6% 91%;
+  --input: 210 6% 91%;
+  --ring: 215 25% 27%;
+  --radius: 0.5rem;
+}
 
-  .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-    --card: 215 25% 16%;
-    --card-foreground: 210 40% 98%;
-    --popover: 215 25% 16%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 215 19% 65%;
-    --primary-foreground: 222 47% 11%;
-    --secondary: 215 19% 35%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 215 25% 18%;
-    --muted-foreground: 215 16% 65%;
-    --accent: 160 84% 39%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 73% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --warning: 32 94% 50%;
-    --warning-foreground: 0 0% 100%;
-    --success: 160 84% 39%;
-    --success-foreground: 0 0% 100%;
-    --border: 215 25% 22%;
-    --input: 215 25% 22%;
-    --ring: 215 19% 65%;
-  }
+.dark {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  --card: 215 25% 16%;
+  --card-foreground: 210 40% 98%;
+  --popover: 215 25% 16%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 215 19% 65%;
+  --primary-foreground: 222 47% 11%;
+  --secondary: 215 19% 35%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 215 25% 18%;
+  --muted-foreground: 215 16% 65%;
+  --accent: 160 84% 39%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 73% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --warning: 32 94% 50%;
+  --warning-foreground: 0 0% 100%;
+  --success: 160 84% 39%;
+  --success-foreground: 0 0% 100%;
+  --border: 215 25% 22%;
+  --input: 215 25% 22%;
+  --ring: 215 19% 65%;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius: var(--radius);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 @layer base {
-  * { @apply border-border; }
+  * { border-color: hsl(var(--border)); }
   body {
-    @apply bg-background text-foreground antialiased;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
-  h1, h2, h3, h4 { @apply font-semibold tracking-tight; }
+  h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.02em; }
 }
